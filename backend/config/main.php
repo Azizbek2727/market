@@ -15,7 +15,7 @@ return [
         'user' => [
             'as backend' => 'dektrium\user\filters\BackendFilter',
             'admins' => [
-                'administrator'
+                'administrator', 'hello'
             ],
             'enableUnconfirmedLogin' => true,
         ],
@@ -38,21 +38,21 @@ return [
             ],
         ],
         'request' => [
-            'baseUrl' => '/backend/web',
+//            'baseUrl' => '/backend/web',
             'csrfParam' => '_csrf-backend',
         ],
         'session' => [
             'name' => 'backend-sess',
             'cookieParams' => [
                 'httpOnly' => true,
-                'path'     => '/backend/web',
+//                'path'     => '/backend/web',
             ],
         ],
         'user' => [
             'identityClass' => 'dektrium\user\models\User',
             'identityCookie' => [
                 'name'     => '_backendIdentity',
-                'path'     => '/backend/web',
+//                'path'     => '/backend/web',
                 'httpOnly' => true,
             ],
             'loginUrl' => ['/user/security/login'],

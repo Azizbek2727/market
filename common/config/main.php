@@ -25,14 +25,12 @@ return [
         ]
     ),
     'components' => [
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
         'assetManager' => [
             'forceCopy' => false,
         ],
@@ -93,7 +91,7 @@ return [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'admins' => 'administrator',
+            'admins' => ['administrator', 'hello'],
         ],
         'gallery' => [
             'class' => 'dvizh\gallery\Module',
