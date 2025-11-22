@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use dvizh\shop\models\Producer;
 use Yii;
 use yii\web\Controller;
 use dvizh\shop\models\Category;
@@ -38,6 +39,8 @@ class SiteController extends Controller
     {
         $categories = Category::find()->all();
 
+        $producers = Producer::find()->all();
+
         if($catId = yii::$app->request->get('categoryId')) {
             $category = Category::findOne($catId);
         } elseif($categories) {
@@ -65,6 +68,7 @@ class SiteController extends Controller
             'categories' => $categories,
             'products' => $products,
             'category' => $category,
+            'producers' => $producers,
         ]);
     }
 
