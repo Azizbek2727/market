@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\Slider;
 use dvizh\shop\models\Producer;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use dvizh\shop\models\Category;
 use dvizh\shop\models\Product;
@@ -41,6 +42,14 @@ class SiteController extends Controller
         $categories = Category::find()->all();
         $sliders = Slider::find()->all();
 
+        $newArrivals = new ActiveDataProvider([
+            'query' => \dvizh\shop\models\Product::find()
+                ->where(['available' => 'yes'])
+                ->orderBy(['id' => SORT_DESC])  // latest products
+                ->limit(10),
+            'pagination' => false,
+        ]);
+
         $producers = Producer::find()->all();
 
         if($catId = yii::$app->request->get('categoryId')) {
@@ -72,6 +81,7 @@ class SiteController extends Controller
             'category' => $category,
             'producers' => $producers,
             'sliders' => $sliders,
+            'newArrivals' => $newArrivals,
         ]);
     }
 

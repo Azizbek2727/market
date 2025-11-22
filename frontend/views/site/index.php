@@ -187,208 +187,65 @@ $this->title = Yii::$app->name;
             <!-- Product list -->
             <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-4 py-lg-4">
 
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/01.png" alt="Smart Watch">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">45</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Smart Watch Series 7, White</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$449.00</div>
-                    </div>
-                </div>
+                <?= \yii\widgets\ListView::widget([
+                    'dataProvider' => $newArrivals,
+                    'layout' => "{items}",
+                    'itemOptions' => ['tag' => false],
+                    'itemView' => function ($model) {
 
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/03.png" width="110" alt="VR Glasses">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-half text-warning"></i>
-                                <i class="ci-star text-body-tertiary opacity-75"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">123</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">VRB01 Virtual Reality Glasses</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$340.99</div>
-                    </div>
-                </div>
+                        // Product image
+                        $image = $model->getImage()
+                            ? $model->getImage()->getUrl('200x200')
+                            : '/cartzilla/assets/img/shop/placeholder.png';
 
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/05.png" width="110" alt="Bluetooth Headphones">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star text-body-tertiary opacity-75"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">34</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Wireless Bluetooth Headphones Sony</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$357.00</div>
-                    </div>
-                </div>
+                        // Product URL
+                        $url = Url::to(['/product/view', 'id' => $model->id]);
 
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/07.png" width="110" alt="MacBook">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">34</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Laptop Apple MacBook Pro 13 M2</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$1,200.00</div>
-                    </div>
-                </div>
+                        // Rating (Cartzilla style)
+                        $rating = $model->rating ?? 5;  // replace with your real rating field
+                        $ratingIcons = '';
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($i <= $rating) {
+                                $ratingIcons .= '<i class="ci-star-filled text-warning"></i>';
+                            } else {
+                                $ratingIcons .= '<i class="ci-star text-body-tertiary opacity-75"></i>';
+                            }
+                        }
+
+                        $price = $model->getPrice();
+
+                        return <<<HTML
+<div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
+
+    <div class="ratio ratio-1x1 flex-shrink-0" style="width:110px">
+        <img src="{$image}" alt="{$model->name}">
+    </div>
+
+    <div class="w-100 min-w-0 ps-2 ps-sm-3">
+
+        <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="d-flex gap-1 fs-xs">
+                {$ratingIcons}
+            </div>
+            <span class="text-body-tertiary fs-xs">212</span>
+        </div>
+
+        <h4 class="mb-2">
+            <a class="stretched-link d-block fs-sm fw-medium text-truncate" 
+               href="{$url}">
+                <span class="animate-target">{$model->name}</span>
+            </a>
+        </h4>
+
+        <div class="h5 mb-0">{$price} USD</div>
+    </div>
+</div>
+HTML;
+                    }
+                ]); ?>
+
             </div>
 
-            <!-- Product list -->
-            <div class="col-sm-6 col-lg-4 d-flex flex-column gap-3 pt-3 py-lg-4">
-
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/02.png" width="110" alt="iPad Pro">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star text-body-tertiary opacity-75"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">126</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Tablet Apple iPad Air M1</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$540.00</div>
-                    </div>
-                </div>
-
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/04.png" width="110" alt="AirPods 2 Pro">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">340</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html"><span class="animate-target">Headphones Apple AirPods 2 Pro</span></a>
-                        </h4>
-                        <div class="h5 mb-0">$209.99 <del class="text-body-tertiary fs-sm fw-normal">$356.00</del></div>
-                    </div>
-                </div>
-
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/06.png" width="110" alt="Power Bank">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star text-body-tertiary opacity-75"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">29</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Power Bank PBS 10000 mAh Black</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$49.99</div>
-                    </div>
-                </div>
-
-                <!-- Item -->
-                <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
-                    <div class="ratio ratio-1x1 flex-shrink-0" style="width: 110px">
-                        <img src="cartzilla/assets/img/shop/electronics/thumbs/08.png" width="110" alt="iPhone 14">
-                    </div>
-                    <div class="w-100 min-w-0 ps-2 ps-sm-3">
-                        <div class="d-flex align-items-center gap-2 mb-2">
-                            <div class="d-flex gap-1 fs-xs">
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                                <i class="ci-star-filled text-warning"></i>
-                            </div>
-                            <span class="text-body-tertiary fs-xs">12</span>
-                        </div>
-                        <h4 class="mb-2">
-                            <a class="stretched-link d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
-                                <span class="animate-target">Apple iPhone 14 128GB White</span>
-                            </a>
-                        </h4>
-                        <div class="h5 mb-0">$899.00 <del class="text-body-tertiary fs-sm fw-normal">$958.00</del></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
