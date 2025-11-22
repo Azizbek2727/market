@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\Html;
-use frontend\assets\CartzillaAssets;
 
-CartzillaAssets::register($this);
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -29,13 +27,18 @@ CartzillaAssets::register($this);
     <link rel="icon" type="image/png" href="cartzilla/assets/app-icons/icon-32x32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="cartzilla/assets/app-icons/icon-180x180.png">
 
+    <!-- Theme switcher (color modes) -->
+    <script src="cartzilla/assets/js/theme-switcher.js"></script>
 
     <!-- Preloaded local web font (Inter) -->
     <link rel="preload" href="cartzilla/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Font icons -->
     <link rel="preload" href="cartzilla/assets/icons/cartzilla-icons.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="cartzilla/assets/icons/cartzilla-icons.min.css">
 
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="cartzilla/assets/vendor/swiper/swiper-bundle.min.css">
 
     <!-- Bootstrap + Theme styles -->
     <link rel="preload" href="cartzilla/assets/css/theme.min.css" as="style">
@@ -3719,6 +3722,13 @@ CartzillaAssets::register($this);
         </svg>
     </a>
 </div>
+
+
+<!-- Vendor scripts -->
+<script src="cartzilla/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Bootstrap + Theme scripts -->
+<script src="cartzilla/assets/js/theme.min.js"></script>
 
 <?php $this->endBody() ?>
 </body>
