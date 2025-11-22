@@ -325,13 +325,13 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                                             </a>
                                         </li>
-                                        <?php foreach ($tree as $parent): ?>
+                                        <?php $i = 0; foreach ($tree as $parent): $i++?>
                                             <?php $groups = $parent['childs'] ?? []; ?>
 
                                             <li class="dropend position-static">
 
                                                 <!-- Level 1 parent -->
-                                                <div class="position-relative rounded pt-2 pb-1 px-lg-2"
+                                                <div class="position-relative rounded <?= $i == 1 ? 'pt-2 pb-1 px-lg-2' : 'pb-1 px-lg-2' ?> "
                                                      data-bs-toggle="dropdown" data-bs-trigger="hover">
 
                                                     <a class="dropdown-item fw-medium stretched-link d-none d-lg-flex"
