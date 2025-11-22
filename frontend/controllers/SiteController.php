@@ -44,9 +44,25 @@ class SiteController extends Controller
 
         $newArrivals = new ActiveDataProvider([
             'query' => \dvizh\shop\models\Product::find()
-                ->where(['available' => 'yes'])
+                ->where(['available' => 'yes', 'is_new' => 'yes'])
                 ->orderBy(['id' => SORT_DESC])  // latest products
                 ->limit(10),
+            'pagination' => false,
+        ]);
+
+        $trending = new ActiveDataProvider([
+            'query' => \dvizh\shop\models\Product::find()
+                ->where(['available' => 'yes', 'is_popular' => 'yes'])
+                ->orderBy(['id' => SORT_DESC])
+                ->limit(12),
+            'pagination' => false,
+        ]);
+
+        $specials = new ActiveDataProvider([
+            'query' => \dvizh\shop\models\Product::find()
+                ->where(['available' => 'yes', 'is_promo' => 'yes'])
+                ->orderBy(['id' => SORT_DESC])
+                ->limit(12),
             'pagination' => false,
         ]);
 
@@ -82,6 +98,8 @@ class SiteController extends Controller
             'producers' => $producers,
             'sliders' => $sliders,
             'newArrivals' => $newArrivals,
+            'trending' => $trending,
+            'specials' => $specials,
         ]);
     }
 
