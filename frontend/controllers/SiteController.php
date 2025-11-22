@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Slider;
 use dvizh\shop\models\Producer;
 use Yii;
 use yii\web\Controller;
@@ -38,6 +39,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $categories = Category::find()->all();
+        $sliders = Slider::find()->all();
 
         $producers = Producer::find()->all();
 
@@ -69,6 +71,7 @@ class SiteController extends Controller
             'products' => $products,
             'category' => $category,
             'producers' => $producers,
+            'sliders' => $sliders,
         ]);
     }
 

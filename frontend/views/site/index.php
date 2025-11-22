@@ -17,6 +17,9 @@ use dvizh\promocode\widgets\Enter;
 use dvizh\certificate\widgets\CertificateWidget;
 
 /* @var $this yii\web\View */
+/* @var $producers \dvizh\shop\models\Producer[] */
+/* @var $sliders \common\models\Slider[] */
+
 
 $this->title = Yii::$app->name;
 
@@ -31,6 +34,7 @@ $this->title = Yii::$app->name;
                 <div class="position-relative">
                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none-dark rtl-flip" style="background: linear-gradient(90deg, #accbee 0%, #e7f0fd 100%)"></span>
                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark rtl-flip" style="background: linear-gradient(90deg, #1b273a 0%, #1f2632 100%)"></span>
+
                     <div class="row justify-content-center position-relative z-2">
                         <div class="col-xl-5 col-xxl-4 offset-xxl-1 d-flex align-items-center mt-xl-n3">
 
@@ -49,30 +53,16 @@ $this->title = Yii::$app->name;
                     }
                   }'>
                                 <div class="swiper-wrapper">
+                                    <?php foreach ($sliders as $slider): ?>
                                     <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
-                                        <p class="text-body">Feel the real quality sound</p>
-                                        <h2 class="display-4 pb-2 pb-xl-4">Headphones ProMax</h2>
-                                        <a class="btn btn-lg btn-primary" href="shop-product-general-electronics.html">
+                                        <p class="text-body"><?= $slider->short_text ?></p>
+                                        <h2 class="display-4 pb-2 pb-xl-4"><?= $slider->name ?></h2>
+                                        <a class="btn btn-lg btn-primary" href="<?= $slider->url ?>">
                                             Shop now
                                             <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>
                                         </a>
                                     </div>
-                                    <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
-                                        <p class="text-body">Deal of the week</p>
-                                        <h2 class="display-4 pb-2 pb-xl-4">Powerful iPad Pro M2</h2>
-                                        <a class="btn btn-lg btn-primary" href="shop-product-general-electronics.html">
-                                            Shop now
-                                            <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
-                                        <p class="text-body">Virtual reality glasses</p>
-                                        <h2 class="display-4 pb-2 pb-xl-4">Experience New Reality</h2>
-                                        <a class="btn btn-lg btn-primary" href="shop-catalog-electronics.html">
-                                            Shop now
-                                            <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>
-                                        </a>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
@@ -89,21 +79,13 @@ $this->title = Yii::$app->name;
                     }
                   }'>
                                 <div class="swiper-wrapper">
+                                    <?php foreach ($sliders as $slider): ?>
                                     <div class="swiper-slide d-flex justify-content-end">
                                         <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
-                                            <img src="cartzilla/assets/img/home/electronics/hero-slider/01.png" alt="Image">
+                                            <img src="<?= $slider->getImage()->getUrl() ?>" alt="Image">
                                         </div>
                                     </div>
-                                    <div class="swiper-slide d-flex justify-content-end">
-                                        <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
-                                            <img src="cartzilla/assets/img/home/electronics/hero-slider/02.png" alt="Image">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide d-flex justify-content-end">
-                                        <div class="ratio rtl-flip" style="max-width: 495px; --cz-aspect-ratio: calc(537 / 495 * 100%)">
-                                            <img src="cartzilla/assets/img/home/electronics/hero-slider/03.png" alt="Image">
-                                        </div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
