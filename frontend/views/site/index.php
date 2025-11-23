@@ -212,7 +212,7 @@ $this->title = Yii::$app->name;
                             }
                         }
 
-                        $price = $model->getPrice();
+                        $price = ShowPrice::widget(['model' => $model]);
 
                         return <<<HTML
 <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
@@ -237,7 +237,7 @@ $this->title = Yii::$app->name;
             </a>
         </h4>
 
-        <div class="h5 mb-0">{$price} USD</div>
+        <div class="h5 mb-0">{$price}</div>
     </div>
 </div>
 HTML;
@@ -279,7 +279,7 @@ HTML;
 
                     $url = Yii::$app->urlManager->createUrl(['/product/view', 'id' => $model->id]);
 
-                    $price = $model->getPrice();
+                    $price = ShowPrice::widget(['model' => $model]);
                     $oldPrice = isset($model->old_price) ? $model->old_price : null;
 
                     $discount = null;
@@ -342,7 +342,7 @@ HTML;
 
         <div class="d-flex align-items-center justify-content-between">
             <div class="h5 lh-1 mb-0">
-                {$price} UZS
+                {$price}
             </div>
 
             <a href="/cart/default/add?id={$model->id}" 
@@ -905,21 +905,21 @@ HTML;
                             <img src="cartzilla/assets/img/home/electronics/vlog/01.jpg" class="rounded" width="140" alt="Video cover">
                             <div class="ps-3">
                                 <div class="fs-xs text-body-secondary lh-sm mb-2">6:16</div>
-                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">5 New Cool Gadgets You Must See on Cartzilla - Cheap Budget</a>
+                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">5 New Cool Gadgets You Must See on Trendly - Cheap Budget</a>
                             </div>
                         </li>
                         <li class="nav flex-nowrap align-items-center position-relative">
                             <img src="cartzilla/assets/img/home/electronics/vlog/02.jpg" class="rounded" width="140" alt="Video cover">
                             <div class="ps-3">
                                 <div class="fs-xs text-body-secondary lh-sm mb-2">10:20</div>
-                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">5 Super Useful Gadgets on Cartzilla You Must Have in 2023</a>
+                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">5 Super Useful Gadgets on Trendly You Must Have in 2023</a>
                             </div>
                         </li>
                         <li class="nav flex-nowrap align-items-center position-relative">
                             <img src="cartzilla/assets/img/home/electronics/vlog/03.jpg" class="rounded" width="140" alt="Video cover">
                             <div class="ps-3">
                                 <div class="fs-xs text-body-secondary lh-sm mb-2">8:40</div>
-                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">Top 5 New Amazing Gadgets on Cartzilla You Must See</a>
+                                <a class="nav-link fs-sm hover-effect-underline stretched-link p-0" href="#!">Top 5 New Amazing Gadgets on Trendly You Must See</a>
                             </div>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'Название магазина',
+    'name' => 'Trendly',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language' => 'ru-RU',
     'bootstrap' => [
@@ -72,7 +72,7 @@ return [
         ],
         'cart' => [
             'class' => 'dvizh\cart\Cart',
-            'currency' => 'р.', //Валюта
+            'currency' => 'USD', //Валюта
             'currencyPosition' => 'after', //after или before (позиция значка валюты относительно цены)
             'priceFormat' => [2,'.', ''], //Форма цены
             'as set_discount' => ['class' => 'common\aspects\SetDiscount'],
