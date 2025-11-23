@@ -61,7 +61,6 @@ $this->title = $model->name;
 
             <!-- Product gallery -->
             <div class="col-md-6">
-
                 <!-- Preview (Large image) -->
                 <div class="swiper" data-swiper='{
               "loop": true,
@@ -74,9 +73,10 @@ $this->title = $model->name;
               }
             }'>
                     <div class="swiper-wrapper">
+                        <?php foreach ($model->getImages() as $image): ?>
                         <div class="swiper-slide">
                             <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/01.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/01.png" data-zoom-options='{
+                                <img src="<?= $image->url ?>" data-zoom="<?= $image->url ?>" data-zoom-options='{
                       "paneSelector": "#zoomPane",
                       "inlinePane": 768,
                       "hoverDelay": 500,
@@ -84,66 +84,7 @@ $this->title = $model->name;
                     }' alt="Preview">
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/02.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/02.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/03.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/03.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/04.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/04.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/05.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/05.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/06.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/06.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="ratio ratio-1x1">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/07.png" data-zoom="/cartzilla/assets/img/shop/electronics/product/gallery/07.png" data-zoom-options='{
-                      "paneSelector": "#zoomPane",
-                      "inlinePane": 768,
-                      "hoverDelay": 500,
-                      "touchDisable": true
-                    }' alt="Preview">
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
 
                     <!-- Prev button -->
@@ -189,41 +130,13 @@ $this->title = $model->name;
               }
             }'>
                     <div class="swiper-wrapper">
+                        <?php foreach ($model->getImages() as $image): ?>
                         <div class="swiper-slide swiper-thumb">
                             <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th01.png" class="swiper-thumb-img" alt="Thumbnail">
+                                <img src="<?= $image->url ?>" class="swiper-thumb-img" alt="Thumbnail">
                             </div>
                         </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th02.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th03.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th04.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th05.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th06.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
-                        <div class="swiper-slide swiper-thumb">
-                            <div class="ratio ratio-1x1" style="max-width: 94px">
-                                <img src="/cartzilla/assets/img/shop/electronics/product/gallery/th07.png" class="swiper-thumb-img" alt="Thumbnail">
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -274,7 +187,7 @@ $this->title = $model->name;
 
                         <!-- Price -->
                         <div class="d-flex flex-wrap align-items-center mb-3">
-                            <div class="h4 mb-0 me-3">$940.00</div>
+                            <div class="h4 mb-0 me-3"><?= \dvizh\shop\widgets\ShowPrice::widget(['model' => $model]) ?></div>
                             <div class="d-flex align-items-center text-success fs-sm ms-auto">
                                 <i class="ci-check-circle fs-base me-2"></i>
                                 Available to order
