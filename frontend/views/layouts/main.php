@@ -25,27 +25,27 @@ $tree = \dvizh\shop\models\Category::buildTree();
     <!-- Webmanifest + Favicon / App icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="manifest" href="cartzilla/manifest.json">
-    <link rel="icon" type="image/png" href="cartzilla/assets/app-icons/icon-32x32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="cartzilla/assets/app-icons/icon-180x180.png">
+    <link rel="manifest" href="/cartzilla/manifest.json">
+    <link rel="icon" type="image/png" href="/cartzilla/assets/app-icons/icon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/cartzilla/assets/app-icons/icon-180x180.png">
 
     <!-- Theme switcher (color modes) -->
-    <script src="cartzilla/assets/js/theme-switcher.js"></script>
+    <script src="/cartzilla/assets/js/theme-switcher.js"></script>
 
     <!-- Preloaded local web font (Inter) -->
-    <link rel="preload" href="cartzilla/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/cartzilla/assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Font icons -->
-    <link rel="preload" href="cartzilla/assets/icons/cartzilla-icons.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="cartzilla/assets/icons/cartzilla-icons.min.css">
+    <link rel="preload" href="/cartzilla/assets/icons/cartzilla-icons.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/cartzilla/assets/icons/cartzilla-icons.min.css">
 
     <!-- Vendor styles -->
-    <link rel="stylesheet" href="cartzilla/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/cartzilla/assets/vendor/swiper/swiper-bundle.min.css">
 
     <!-- Bootstrap + Theme styles -->
-    <link rel="preload" href="cartzilla/assets/css/theme.min.css" as="style">
-    <link rel="preload" href="cartzilla/assets/css/theme.rtl.min.css" as="style">
-    <link rel="stylesheet" href="cartzilla/assets/css/theme.min.css" id="theme-styles">
+    <link rel="preload" href="/cartzilla/assets/css/theme.min.css" as="style">
+    <link rel="preload" href="/cartzilla/assets/css/theme.rtl.min.css" as="style">
+    <link rel="stylesheet" href="/cartzilla/assets/css/theme.min.css" id="theme-styles">
 </head>
 <!-- Body -->
 <body>
@@ -72,7 +72,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
         <!-- Item -->
         <div class="d-flex align-items-center">
             <a class="flex-shrink-0" href="shop-product-general-electronics.html">
-                <img src="cartzilla/assets/img/shop/electronics/thumbs/08.png" width="110" alt="iPhone 14">
+                <img src="/cartzilla/assets/img/shop/electronics/thumbs/08.png" width="110" alt="iPhone 14">
             </a>
             <div class="w-100 min-w-0 ps-2 ps-sm-3">
                 <h5 class="d-flex animate-underline mb-2">
@@ -98,7 +98,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
         <div class="d-flex align-items-center">
             <a class="position-relative flex-shrink-0" href="shop-product-general-electronics.html">
                 <span class="badge text-bg-danger position-absolute top-0 start-0">-10%</span>
-                <img src="cartzilla/assets/img/shop/electronics/thumbs/09.png" width="110" alt="iPad Pro">
+                <img src="/cartzilla/assets/img/shop/electronics/thumbs/09.png" width="110" alt="iPad Pro">
             </a>
             <div class="w-100 min-w-0 ps-2 ps-sm-3">
                 <h5 class="d-flex animate-underline mb-2">
@@ -123,7 +123,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
         <!-- Item -->
         <div class="d-flex align-items-center">
             <a class="flex-shrink-0" href="shop-product-general-electronics.html">
-                <img src="cartzilla/assets/img/shop/electronics/thumbs/01.png" width="110" alt="Smart Watch">
+                <img src="/cartzilla/assets/img/shop/electronics/thumbs/01.png" width="110" alt="Smart Watch">
             </a>
             <div class="w-100 min-w-0 ps-2 ps-sm-3">
                 <h5 class="d-flex animate-underline mb-2">
@@ -394,7 +394,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                                     <div class="fs-sm text-light-emphasis mb-2">Starts from <del>$1,599.00</del> $1,399.00</div>
                                                                     <div class="h2 mb-4">Surface Laptop Studio</div>
                                                                 </div>
-                                                                <img src="cartzilla/assets/img/mega-menu/electronics/01.png" width="252" alt="Surface Laptop Studio">
+                                                                <img src="/cartzilla/assets/img/mega-menu/electronics/01.png" width="252" alt="Surface Laptop Studio">
                                                                 <div class="text-center mt-4">
                                                                     <a class="btn btn-sm btn-primary stretched-link" href="shop-catalog-electronics.html">Shop now</a>
                                                                 </div>
@@ -422,8 +422,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Electronics Store</span>
                                                 <span class="d-block fs-xs text-body-secondary">Megamenu + Hero slider</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/electronics-light.jpg" alt="Electronics Store">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/electronics-dark.jpg" alt="Electronics Store">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/electronics-light.jpg" alt="Electronics Store">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/electronics-dark.jpg" alt="Electronics Store">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -434,8 +434,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Fashion Store v.1</span>
                                                 <span class="d-block fs-xs text-body-secondary">Hero promo slider</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/fashion-1-light.jpg" alt="Fashion Store v.1">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/fashion-1-dark.jpg" alt="Fashion Store v.1">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/fashion-1-light.jpg" alt="Fashion Store v.1">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/fashion-1-dark.jpg" alt="Fashion Store v.1">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -446,8 +446,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Fashion Store v.2</span>
                                                 <span class="d-block fs-xs text-body-secondary">Hero banner with hotspots</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/fashion-2-light.jpg" alt="Fashion Store v.2">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/fashion-2-dark.jpg" alt="Fashion Store v.2">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/fashion-2-light.jpg" alt="Fashion Store v.2">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/fashion-2-dark.jpg" alt="Fashion Store v.2">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -458,8 +458,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Furniture Store</span>
                                                 <span class="d-block fs-xs text-body-secondary">Fancy product carousel</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/furniture-light.jpg" alt="Furniture Store">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/furniture-dark.jpg" alt="Furniture Store">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/furniture-light.jpg" alt="Furniture Store">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/furniture-dark.jpg" alt="Furniture Store">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -470,8 +470,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Grocery Store</span>
                                                 <span class="d-block fs-xs text-body-secondary">Hero slider + Category cards</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/grocery-light.jpg" alt="Grocery Store">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/grocery-dark.jpg" alt="Grocery Store">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/grocery-light.jpg" alt="Grocery Store">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/grocery-dark.jpg" alt="Grocery Store">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -482,8 +482,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Marketplace</span>
                                                 <span class="d-block fs-xs text-body-secondary">Multi-vendor, digital goods</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/marketplace-light.jpg" alt="Marketplace">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/marketplace-dark.jpg" alt="Marketplace">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/marketplace-light.jpg" alt="Marketplace">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/marketplace-dark.jpg" alt="Marketplace">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -494,8 +494,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <span class="fw-medium">Single Product Store</span>
                                                 <span class="d-block fs-xs text-body-secondary">Single product / mono brand</span>
                                                 <div class="d-none d-lg-block hover-effect-target position-absolute top-0 start-100 bg-body border border-light-subtle rounded rounded-start-0 transition-none invisible opacity-0 pt-2 px-2 ms-n2" style="width: 212px; height: calc(100% + 2px); margin-top: -1px">
-                                                    <img class="position-relative z-2 d-none-dark" src="cartzilla/assets/img/mega-menu/demo-preview/single-store-light.jpg" alt="Single Product Store">
-                                                    <img class="position-relative z-2 d-none d-block-dark" src="cartzilla/assets/img/mega-menu/demo-preview/single-store-dark.jpg" alt="Single Product Store">
+                                                    <img class="position-relative z-2 d-none-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/single-store-light.jpg" alt="Single Product Store">
+                                                    <img class="position-relative z-2 d-none d-block-dark" src="/cartzilla/assets/img/mega-menu/demo-preview/single-store-dark.jpg" alt="Single Product Store">
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none-dark" style="box-shadow: .875rem .5rem 2rem -.5rem #676f7b; opacity: .1"></span>
                                                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded rounded-start-0 d-none d-block-dark" style="box-shadow: .875rem .5rem 1.875rem -.5rem #080b12; opacity: .25"></span>
                                                 </div>
@@ -970,19 +970,19 @@ $tree = \dvizh\shop\models\Category::buildTree();
         <div class="d-md-flex align-items-center border-top py-4">
             <div class="d-flex gap-2 gap-sm-3 justify-content-center ms-md-auto mb-4 mb-md-0 order-md-2">
                 <div>
-                    <img src="cartzilla/assets/img/payment-methods/visa-dark-mode.svg" alt="Visa">
+                    <img src="/cartzilla/assets/img/payment-methods/visa-dark-mode.svg" alt="Visa">
                 </div>
                 <div>
-                    <img src="cartzilla/assets/img/payment-methods/mastercard.svg" alt="Mastercard">
+                    <img src="/cartzilla/assets/img/payment-methods/mastercard.svg" alt="Mastercard">
                 </div>
                 <div>
-                    <img src="cartzilla/assets/img/payment-methods/paypal-dark-mode.svg" alt="PayPal">
+                    <img src="/cartzilla/assets/img/payment-methods/paypal-dark-mode.svg" alt="PayPal">
                 </div>
                 <div>
-                    <img src="cartzilla/assets/img/payment-methods/google-pay-dark-mode.svg" alt="Google Pay">
+                    <img src="/cartzilla/assets/img/payment-methods/google-pay-dark-mode.svg" alt="Google Pay">
                 </div>
                 <div>
-                    <img src="cartzilla/assets/img/payment-methods/apple-pay-dark-mode.svg" alt="Apple Pay">
+                    <img src="/cartzilla/assets/img/payment-methods/apple-pay-dark-mode.svg" alt="Apple Pay">
                 </div>
             </div>
             <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; All rights reserved. Made by <span class="animate-underline"><a class="animate-target text-dark-emphasis fw-medium text-decoration-none" href="https://coderthemes.com/" target="_blank" rel="noreferrer">Coderthemes</a></span></p>
@@ -1005,10 +1005,10 @@ $tree = \dvizh\shop\models\Category::buildTree();
 
 
 <!-- Vendor scripts -->
-<script src="cartzilla/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/cartzilla/assets/vendor/swiper/swiper-bundle.min.js"></script>
 
 <!-- Bootstrap + Theme scripts -->
-<script src="cartzilla/assets/js/theme.min.js"></script>
+<script src="/cartzilla/assets/js/theme.min.js"></script>
 
 <?php $this->endBody() ?>
 </body>

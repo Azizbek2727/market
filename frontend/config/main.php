@@ -17,6 +17,14 @@ return [
         ],
     ],
     'components' => [
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'product/<id:\d+>' => 'product/view',
+                'product/<slug>'   => 'product/view',
+            ],
+        ],
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => false,
