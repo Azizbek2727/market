@@ -24,7 +24,7 @@ $this->title = $model->name;
 
 
     <!-- Page title -->
-    <h1 class="h3 container mb-4">Apple iPhone 14 Plus 128GB Blue</h1>
+    <h1 class="h3 container mb-4"><?= $model->name ?></h1>
 
 
     <!-- Nav links + Reviews -->

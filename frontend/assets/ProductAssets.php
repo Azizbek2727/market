@@ -13,14 +13,14 @@ class ProductAssets extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'assets/vendor/drift-zoom/dist/drift-basic.min.css',
-        'assets/vendor/simplebar/dist/simplebar.min.css',
-        'assets/vendor/choices.js/public/assets/styles/choices.min.css',
+        '/cartzilla/assets/vendor/drift-zoom/dist/drift-basic.min.css',
+        '/cartzilla/assets/vendor/simplebar/dist/simplebar.min.css',
+        '/cartzilla/assets/vendor/choices.js/public/assets/styles/choices.min.css',
     ];
     public $js = [
-        'assets/vendor/drift-zoom/dist/Drift.min.js' => View::POS_END,
-        'assets/vendor/simplebar/dist/simplebar.min.js' => View::POS_END,
-        'assets/vendor/choices.js/public/assets/scripts/choices.min.js' => View::POS_END,
+        '/cartzilla/assets/vendor/drift-zoom/dist/Drift.min.js',
+        '/cartzilla/assets/vendor/simplebar/dist/simplebar.min.js',
+        '/cartzilla/assets/vendor/choices.js/public/assets/scripts/choices.min.js',
     ];
     public $depends = [
 //        'yii\web\YiiAsset',
