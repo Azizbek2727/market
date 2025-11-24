@@ -254,21 +254,13 @@ $this->title = $model->name;
                     </div>
                     <table class="table table-borderless fs-sm mb-2">
                         <tbody>
+                        <?php foreach (\dvizh\order\models\ShippingType::find()->all() as $type): ?>
                         <tr>
-                            <td class="py-2 ps-0">Pickup from the store</td>
+                            <td class="py-2 ps-0"><?= $type->name ?></td>
                             <td class="py-2">Today</td>
-                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0">Free</td>
+                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0"><?= $type->cost == 0.00 ? 'Free' : $type->cost; ?></td>
                         </tr>
-                        <tr>
-                            <td class="py-2 ps-0">Pickup from postal offices</td>
-                            <td class="py-2">Tomorrow</td>
-                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0">$25.00</td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 ps-0">Delivery by courier</td>
-                            <td class="py-2">2-3 days</td>
-                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0">$35.00</td>
-                        </tr>
+                        <?php endforeach; ?>
                         </tbody>
                     </table>
 
