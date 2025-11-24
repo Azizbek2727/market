@@ -6,7 +6,7 @@ use frontend\assets\ProductAssets;
 /* @var $this yii\web\View */
 /* @var $model Product */
 
-//ProductAssets::register($this);
+ProductAssets::register($this);
 $this->title = $model->name;
 ?>
 
