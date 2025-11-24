@@ -18,9 +18,9 @@ class ProductAssets extends AssetBundle
         '/cartzilla/assets/vendor/choices.js/public/assets/styles/choices.min.css',
     ];
     public $js = [
-        '/cartzilla/assets/vendor/drift-zoom/dist/Drift.min.js',
-        '/cartzilla/assets/vendor/simplebar/dist/simplebar.min.js',
-        '/cartzilla/assets/vendor/choices.js/public/assets/scripts/choices.min.js',
+//        '/cartzilla/assets/vendor/drift-zoom/dist/Drift.min.js',
+//        '/cartzilla/assets/vendor/simplebar/dist/simplebar.min.js',
+//        '/cartzilla/assets/vendor/choices.js/public/assets/scripts/choices.min.js',
     ];
     public $depends = [
 //        'yii\web\YiiAsset',
