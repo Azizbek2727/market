@@ -15,12 +15,12 @@ class CartzillaAssets extends AssetBundle
     public $css = [
         '/cartzilla/assets/icons/cartzilla-icons.min.css',
         '/cartzilla/assets/vendor/swiper/swiper-bundle.min.css',
-        '/cartzilla/assets/css/theme.min.css',
-        '/cartzilla/assets/css/theme.rtl.min.css',
-        '/cartzilla/assets/css/theme.min.css',
+//        '/cartzilla/assets/css/theme.min.css',
+//        '/cartzilla/assets/css/theme.rtl.min.css',
+//        '/cartzilla/assets/css/theme.min.css',
     ];
     public $js = [
-        '/cartzilla/assets/js/theme-switcher.js' => View::POS_HEAD,
+        '/cartzilla/assets/js/theme-switcher.js',
         '/cartzilla/assets/vendor/swiper/swiper-bundle.min.js',
         '/cartzilla/assets/js/theme.min.js',
     ];

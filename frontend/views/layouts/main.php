@@ -12,7 +12,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" data-bs-theme="light" data-pwa="true">
 <head>
-    <?php $this->head() ?>
     <meta charset="<?= Yii::$app->charset ?>">
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
@@ -37,7 +36,12 @@ $tree = \dvizh\shop\models\Category::buildTree();
     <!-- Font icons -->
     <link rel="preload" href="/cartzilla/assets/icons/cartzilla-icons.woff2" as="font" type="font/woff2" crossorigin>
 
+    <?php $this->head() ?>
 
+    <!-- Bootstrap + Theme styles -->
+    <link rel="preload" href="/cartzilla/assets/css/theme.min.css" as="style">
+    <link rel="preload" href="/cartzilla/assets/css/theme.rtl.min.css" as="style">
+    <link rel="stylesheet" href="/cartzilla/assets/css/theme.min.css" id="theme-styles">
 </head>
 <!-- Body -->
 <body>
@@ -994,13 +998,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
         </svg>
     </a>
 </div>
-
-
-<!-- Vendor scripts -->
-<!--<script src="/cartzilla/assets/vendor/swiper/swiper-bundle.min.js"></script>-->
-
-<!-- Bootstrap + Theme scripts -->
-<!--<script src="/cartzilla/assets/js/theme.min.js"></script>-->
 
 <?php $this->endBody() ?>
 </body>
