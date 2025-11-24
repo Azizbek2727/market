@@ -47,7 +47,8 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
             ]);
         } else {
             $input = Html::input('number', 'count', $this->defaultValue, [
-                'class' => 'dvizh-cart-element-before-count',
+                'class' => 'dvizh-cart-element-before-count form-control form-control-lg',
+                'value' => 1, 'min'  => 1,
                 'data-line-selector' => $this->lineSelector,
                 'data-id' => $this->model->getCartId(),
             ]);
@@ -62,32 +63,33 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
             return Html::tag(
                 'div',
 
+                // Decrement button
                 Html::button(
                     Html::tag('i', '', ['class' => 'ci-minus']),
                     [
-                        'type' => 'button',
-                        'class' => 'btn btn-icon btn-lg dvizh-arr dvizh-downArr',
+                        'type'        => 'button',
+                        'class'       => 'btn btn-icon btn-lg dvizh-arr dvizh-downArr',
+                        'data-decrement' => true,
                         'aria-label' => 'Decrement quantity'
                     ]
                 ).
 
-                Html::tag(
-                    'div',
-                    $input,
-                    ['class' => 'flex-grow-0']
-                ).
+                // Input field
+                $input .
 
+                // Increment button
                 Html::button(
                     Html::tag('i', '', ['class' => 'ci-plus']),
                     [
-                        'type' => 'button',
-                        'class' => 'btn btn-icon btn-lg dvizh-arr dvizh-upArr',
+                        'type'        => 'button',
+                        'class'       => 'btn btn-icon btn-lg dvizh-arr dvizh-upArr',
+                        'data-increment' => true,
                         'aria-label' => 'Increment quantity'
                     ]
                 ),
 
                 [
-                    'class' => 'dvizh-change-count d-flex align-items-center gap-2',
+                    'class' => 'count-input flex-shrink-0 order-sm-1 d-flex align-items-center gap-2 dvizh-change-count'
                 ]
             );
 

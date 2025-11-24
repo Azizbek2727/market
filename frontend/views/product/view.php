@@ -199,15 +199,7 @@ $this->title = $model->name;
 
                         <!-- Count + Buttons -->
                         <div class="d-flex flex-wrap flex-sm-nowrap flex-md-wrap flex-lg-nowrap gap-3 gap-lg-2 gap-xl-3 mb-4">
-                            <div class="count-input flex-shrink-0 order-sm-1">
-                                <button type="button" class="btn btn-icon btn-lg" data-decrement aria-label="Decrement quantity">
-                                    <i class="ci-minus"></i>
-                                </button>
-                                <input type="number" class="form-control form-control-lg" value="1" min="1" max="5" readonly>
-                                <button type="button" class="btn btn-icon btn-lg" data-increment aria-label="Increment quantity">
-                                    <i class="ci-plus"></i>
-                                </button>
-                            </div>
+                            <?= ChangeCount::widget(['model' => $model]) ?>
 
                             <button type="button" class="btn btn-icon btn-lg btn-secondary animate-pulse order-sm-3 order-md-2 order-lg-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-sm" data-bs-title="Add to Wishlist" aria-label="Add to Wishlist">
                                 <i class="ci-heart fs-lg animate-target"></i>
