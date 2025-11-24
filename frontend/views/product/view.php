@@ -1,5 +1,6 @@
 <?php
 
+use common\widgets\ChangeCount;
 use dvizh\field\widgets\Show;
 use dvizh\shop\models\Product;
 use frontend\assets\ProductAssets;

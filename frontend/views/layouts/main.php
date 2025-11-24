@@ -19,9 +19,9 @@ $tree = \dvizh\shop\models\Category::buildTree();
     <!-- SEO Meta Tags -->
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <meta name="description" content="Trendly - Multipurpose Bootstrap E-Commerce HTML Template">
-    <meta name="keywords" content="online shop, e-commerce, online store, market, multipurpose, product landing, cart, checkout, ui kit, light and dark mode, bootstrap, html5, css3, javascript, gallery, slider, mobile, pwa">
-    <meta name="author" content="Coderthemes">
+    <meta name="description" content="Trendly">
+    <meta name="keywords" content="online shop, e-commerce, online store, market, cart, checkout, light and dark mode, gallery, slider, mobile, pwa">
+    <meta name="author" content="A. Toshpo'latov">
 
     <!-- Webmanifest + Favicon / App icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
