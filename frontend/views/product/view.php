@@ -1,6 +1,7 @@
 <?php
 
 use common\widgets\ChangeCount;
+use dvizh\cart\widgets\BuyButton;
 use dvizh\field\widgets\Show;
 use dvizh\shop\models\Product;
 use frontend\assets\ProductAssets;
@@ -207,16 +208,23 @@ $this->title = $model->name;
                                     <i class="ci-plus"></i>
                                 </button>
                             </div>
+
                             <button type="button" class="btn btn-icon btn-lg btn-secondary animate-pulse order-sm-3 order-md-2 order-lg-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-sm" data-bs-title="Add to Wishlist" aria-label="Add to Wishlist">
                                 <i class="ci-heart fs-lg animate-target"></i>
                             </button>
+
                             <button type="button" class="btn btn-icon btn-lg btn-secondary animate-rotate order-sm-4 order-md-3 order-lg-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-sm" data-bs-title="Compare" aria-label="Compare">
                                 <i class="ci-refresh-cw fs-lg animate-target"></i>
                             </button>
-                            <button type="button" class="btn btn-lg btn-primary w-100 animate-slide-end order-sm-2 order-md-4 order-lg-2">
-                                <i class="ci-shopping-cart fs-lg animate-target ms-n1 me-2"></i>
-                                Add to cart
-                            </button>
+
+                            <?= BuyButton::widget(
+                                [
+                                    'model' => $model,
+                                    'htmlTag' => 'button',
+                                    'text' => '<i class="ci-shopping-cart fs-lg animate-target ms-n1 me-2"></i> Add to cart',
+                                    'cssClass' => 'btn btn-lg btn-primary w-100 animate-slide-end order-sm-2 order-md-4 order-lg-2'
+                                ]
+                            );?>
                         </div>
 
                         <!-- Features -->
