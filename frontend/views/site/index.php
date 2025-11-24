@@ -3,7 +3,7 @@
 use dvizh\gallery\widgets\Gallery;
 use yii\helpers\Url;
 use dvizh\shop\models\Category;
-use dvizh\shop\widgets\ShowPrice;
+use common\widgets\ShowPrice;
 use dvizh\filter\widgets\FilterPanel;
 use dvizh\field\widgets\Show;
 use dvizh\cart\widgets\ElementsList;

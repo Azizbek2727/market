@@ -1,5 +1,6 @@
 <?php
 
+use dvizh\field\widgets\Show;
 use dvizh\shop\models\Product;
 use frontend\assets\ProductAssets;
 
@@ -16,8 +17,8 @@ $this->title = $model->name;
     <!-- Breadcrumb -->
     <nav class="container pt-3 my-3 my-md-4" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="home-electronics.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="shop-catalog-electronics.html">Shop</a></li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/">Shop</a></li>
             <li class="breadcrumb-item active" aria-current="page">Product page</li>
         </ol>
     </nav>
@@ -187,7 +188,7 @@ $this->title = $model->name;
 
                         <!-- Price -->
                         <div class="d-flex flex-wrap align-items-center mb-3">
-                            <div class="h4 mb-0 me-3"><?= \dvizh\shop\widgets\ShowPrice::widget(['model' => $model]) ?></div>
+                            <div class="h4 mb-0 me-3"><?= \common\widgets\ShowPrice::widget(['model' => $model]) ?></div>
                             <div class="d-flex align-items-center text-success fs-sm ms-auto">
                                 <i class="ci-check-circle fs-base me-2"></i>
                                 Available to order
