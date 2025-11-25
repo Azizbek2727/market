@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use common\models\Slider;
+use dvizh\order\controllers\OrderController;
+use dvizh\order\Order;
 use dvizh\shop\models\Producer;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -103,9 +105,12 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionThanks()
+    public function actionThanks($id)
     {
-        return $this->render('thanks');
+        $model = \dvizh\order\models\Order::findOne(['id' => $id]);
+        return $this->render('thanks', [
+            'model' => $model
+        ]);
     }
 
     public function actionCheckout(){
