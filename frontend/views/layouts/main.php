@@ -76,8 +76,8 @@ $tree = \dvizh\shop\models\Category::buildTree();
             <span class="h6 mb-0"><?= Yii::$app->cart->getCostFormatted() ?></span>
         </div>
         <div class="d-flex w-100 gap-3">
-            <a class="btn btn-lg btn-secondary w-100" href="checkout-v1-cart.html">View cart</a>
-            <a class="btn btn-lg btn-primary w-100" href="checkout-v1-delivery-1.html">Checkout</a>
+            <a class="btn btn-lg btn-secondary w-100" href="">View cart</a>
+            <a class="btn btn-lg btn-primary w-100" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>">Checkout</a>
         </div>
     </div>
 </div>
@@ -240,7 +240,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                     </button>
 
                                     <!-- Mega menu -->
-                                    <ul class="dropdown-menu <?= Yii::$app->controller->id == 'site'? 'dropdown-menu-static' : '' ?>  w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
+                                    <ul class="dropdown-menu <?= Yii::$app->controller->action->id == 'index'? 'dropdown-menu-static' : '' ?>  w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
                                         <li class="d-lg-none pt-2">
                                             <a class="dropdown-item fw-medium" href="shop-categories-electronics.html">
                                                 <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>

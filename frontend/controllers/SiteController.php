@@ -108,6 +108,13 @@ class SiteController extends Controller
         return $this->render('thanks');
     }
 
+    public function actionCheckout(){
+
+        return $this->render('checkout', [
+
+        ]);
+    }
+
     /**
      * Displays contact page.
      *

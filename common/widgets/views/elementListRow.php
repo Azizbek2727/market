@@ -18,7 +18,7 @@ $image = $product->getImage();
 $imgUrl = $image ? $image->getUrl('110x110') : '/cartzilla/assets/img/placeholder.png';
 
 // Product URL
-$productUrl = Url::to(['/products/view', 'id' => $product->id]);
+$productUrl = Url::to(['/product/view', 'id' => $product->id]);
 
 // Delete URL
 $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()]);
