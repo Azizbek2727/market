@@ -34,6 +34,9 @@ return [
         'assetManager' => [
             'forceCopy' => false,
         ],
+        'settings' => [
+            'class' => \pheme\settings\components\Settings::class,
+        ],
         'i18n' => [
             'translations' => [
                 '*' => [
