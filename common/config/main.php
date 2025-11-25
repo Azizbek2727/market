@@ -72,7 +72,7 @@ return [
         ],
         'cart' => [
             'class' => 'dvizh\cart\Cart',
-            'currency' => 'USD', //Валюта
+            'currency' => ' UZS', //Валюта
             'currencyPosition' => 'after', //after или before (позиция значка валюты относительно цены)
             'priceFormat' => [2,'.', ''], //Форма цены
             'as set_discount' => ['class' => 'common\aspects\SetDiscount'],
