@@ -1,4 +1,6 @@
 <?php
+
+use common\widgets\ElementsList;
 use yii\helpers\Html;
 use frontend\assets\CartzillaAssets;
 
@@ -64,6 +66,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
 
     <!-- Items -->
     <div class="offcanvas-body d-flex flex-column gap-4 pt-2">
+        <?= ElementsList::widget(); ?>
 
         <!-- Item -->
         <div class="d-flex align-items-center">

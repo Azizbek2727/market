@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\CartzillaAssets;
 use common\widgets\Alert;
 
-CartzillaAssets::register($this);
+\backend\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

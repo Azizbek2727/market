@@ -10,6 +10,7 @@ use frontend\assets\ProductAssets;
 /* @var $model Product */
 
 ProductAssets::register($this);
+\dvizh\cart\assets\WidgetAsset::register($this);
 $this->title = $model->name;
 ?>
 
