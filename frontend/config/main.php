@@ -16,6 +16,12 @@ return [
             'as frontend' => 'dektrium\user\filters\FrontendFilter',
         ],
     ],
+    'container' => [
+        'singletons' => [
+            \dvizh\cart\widgets\ElementsList::class => \common\widgets\ElementsList::class,
+        ],
+    ],
+
     'components' => [
         'urlManager' => [
             'enablePrettyUrl' => true,
