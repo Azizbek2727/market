@@ -75,6 +75,10 @@ class OrderController extends \dvizh\order\controllers\OrderController
                 $request = $octo->PreparePayment($model);
                 if($request['status']){
                     return $this->redirect($request['url']);
+                }else{
+                    Yii::$app->session->setFlash('error', $request['message']);
+                    Yii::error(['InitPayment' => $request['message']]);
+                    return $this->goHome();
                 }
             } else {
                 yii::$app->session->setFlash('orderError', yii::t('order', serialize($model->getErrors())));
