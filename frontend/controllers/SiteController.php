@@ -1,12 +1,15 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\Octo;
+use app\models\Transactions;
 use common\models\Slider;
 use dvizh\order\controllers\OrderController;
 use dvizh\order\Order;
 use dvizh\shop\models\Producer;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Json;
 use yii\web\Controller;
 use dvizh\shop\models\Category;
 use dvizh\shop\models\Product;
@@ -151,5 +154,59 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionInitPayment($order_id){
+        $octo = new Octo();
+        $order = \dvizh\order\models\Order::findOne($order_id);
+        $request = $octo->PreparePayment($order);
+        if($request['status']){
+            return $this->redirect($request['url']);
+        }else{
+            Yii::$app->session->setFlash('error', $request['message']);
+            Yii::error(['InitPayment' => $request['message']]);
+            return $this->goHome();
+        }
+    }
+
+
+    public function actionAcceptPayment($order_id, $transaction_id){
+        $order = \dvizh\order\models\Order::findOne($order_id);
+        $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
+
+        Yii::error(['acceptRequest' => $this->request->getRawBody()]);
+
+        return $this->redirect(['thanks', 'id' => $order_id]);
+    }
+
+    public function actionNotifyPayment(){
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $octo = new Octo();
+        $octo->sendTelegram($this->request->getRawBody());
+        $post = Json::decode($this->request->getRawBody());
+
+        Yii::error(['NotifyPayment' => $this->request->getRawBody()]);
+
+        if($post){
+            $transaction = Transactions::findOne(["transaction_id" => $post['shop_transaction_id']]);
+            if(!$transaction) return false;
+
+            $transaction->status = $post['status'] ?? null;
+            $transaction->signature = $post['signature'] ?? null;
+            $transaction->hash_key = $post['hash_key'] ?? null;
+            $transaction->total_sum = $post['total_sum'] ?? null;
+            $transaction->transfer_sum = $post['transfer_sum'] ?? null;
+            $transaction->refunded_sum = $post['refunded_sum'] ?? null;
+            $transaction->card_country = $post['card_country'] ?? null;
+            $transaction->maskedPan = $post['maskedPan'] ?? null;
+            $transaction->rrn = $post['rrn'] ?? null;
+            $transaction->payed_time = $post['payed_time'] ?? null;
+            $transaction->card_type = $post['card_type'] ?? null;
+            $transaction->is_physical_card = $post['is_physical_card'] ?? null;
+            $transaction->save();
+        }
+
+        return true;
     }
 }

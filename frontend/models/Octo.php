@@ -44,8 +44,8 @@ class Octo
             'currency' => /*$product->currency*/ 'UZS',
             'description' => 'TEST PAYMENT',
             'payment_methods' => $paymethods,
-            'return_url' => \yii\helpers\Url::toRoute(['/order/order/accept-payment', 'order_id' => $order->id, 'transaction_id' => $transaction_id], 'http'),
-            'notify_url' => \yii\helpers\Url::toRoute(['/order/order/notify-payment'], 'http'),
+            'return_url' => \yii\helpers\Url::toRoute(['/site/accept-payment', 'order_id' => $order->id, 'transaction_id' => $transaction_id], 'http'),
+            'notify_url' => \yii\helpers\Url::toRoute(['/site/notify-payment'], 'http'),
             'language' => 'en',
             'ttl' => 15
         ];

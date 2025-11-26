@@ -18,6 +18,7 @@ class OrderController extends \dvizh\order\controllers\OrderController
     public function actionCreate()
     {
         $model = new Order(['scenario' => 'customer']);
+        $octo = new Octo();
 
         if ($model->load(yii::$app->request->post())) {
             $model->date = date('Y-m-d');
@@ -71,8 +72,10 @@ class OrderController extends \dvizh\order\controllers\OrderController
                     }
                 }
 
-                return $this->redirect(['init-payment', 'order_id' => $model->id]);
-//                return $this->redirect([yii::$app->getModule('order')->successUrl, 'id' => $model->id, 'payment' => $model->payment_type_id]);
+                $request = $octo->PreparePayment($model);
+                if($request['status']){
+                    return $this->redirect($request['url']);
+                }
             } else {
                 yii::$app->session->setFlash('orderError', yii::t('order', serialize($model->getErrors())));
 
@@ -82,59 +85,5 @@ class OrderController extends \dvizh\order\controllers\OrderController
             yii::$app->session->setFlash('orderError', yii::t('order', 'Error (check required fields)'));
             return $this->redirect(yii::$app->request->referrer);
         }
-    }
-
-    public function actionInitPayment($order_id){
-        $octo = new Octo();
-        $order = Order::findOne($order_id);
-        $request = $octo->PreparePayment($order);
-        if($request['status']){
-            return $this->redirect($request['url']);
-        }else{
-            Yii::$app->session->setFlash('error', $request['message']);
-            Yii::error(['InitPayment' => $request['message']]);
-            return $this->goHome();
-        }
-    }
-
-
-    public function actionAcceptPayment($order_id, $transaction_id){
-        $order = Order::findOne($order_id);
-        $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
-
-        Yii::error(['acceptRequest' => $this->request->getRawBody()]);
-
-        return $this->goHome();
-    }
-
-    public function actionNotifyPayment(){
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-
-        $octo = new Octo();
-        $octo->sendTelegram($this->request->getRawBody());
-        $post = Json::decode($this->request->getRawBody());
-
-        Yii::error($this->request->getRawBody(), 'app');
-
-        if($post){
-            $transaction = Transactions::findOne(["transaction_id" => $post['shop_transaction_id']]);
-            if(!$transaction) return false;
-
-            $transaction->status = $post['status'] ?? null;
-            $transaction->signature = $post['signature'] ?? null;
-            $transaction->hash_key = $post['hash_key'] ?? null;
-            $transaction->total_sum = $post['total_sum'] ?? null;
-            $transaction->transfer_sum = $post['transfer_sum'] ?? null;
-            $transaction->refunded_sum = $post['refunded_sum'] ?? null;
-            $transaction->card_country = $post['card_country'] ?? null;
-            $transaction->maskedPan = $post['maskedPan'] ?? null;
-            $transaction->rrn = $post['rrn'] ?? null;
-            $transaction->payed_time = $post['payed_time'] ?? null;
-            $transaction->card_type = $post['card_type'] ?? null;
-            $transaction->is_physical_card = $post['is_physical_card'] ?? null;
-            $transaction->save();
-        }
-
-        return true;
     }
 }
