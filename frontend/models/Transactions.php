@@ -65,7 +65,7 @@ class Transactions extends \yii\db\ActiveRecord
             [['total_sum', 'transfer_sum', 'refunded_sum'], 'number'],
             [['description', 'signature', 'hash_key'], 'string', 'max' => 128],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
-            [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::class, 'targetAttribute' => ['order_id' => 'id']],
+            [['order_id'], 'exist', 'skipOnError' => true, 'targetClass' => \dvizh\order\models\Order::class, 'targetAttribute' => ['order_id' => 'id']],
             [['updated_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['updated_by' => 'id']],
         ];
     }

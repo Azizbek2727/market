@@ -22,7 +22,7 @@ use dvizh\certificate\widgets\CertificateWidget;
 
 
 $this->title = Yii::$app->name;
-
+\frontend\assets\ProductAssets::register($this);
 ?>
 <!-- Page content -->
 <main class="content-wrapper">
@@ -306,7 +306,7 @@ HTML;
                     $buyButton = BuyButton::widget(
                         [
                             'model' => $model,
-                            'htmlTag' => 'a',
+                            'htmlTag' => 'button',
                             'text' => '<i class="ci-shopping-cart fs-base animate-target"></i>',
                             'cssClass' => 'product-card-button btn btn-icon btn-secondary animate-slide-end ms-2'
                         ]

@@ -11,6 +11,7 @@ use dvizh\order\models\Order;
 use dvizh\order\models\Payment;
 use app\models\Octo;
 use Yii;
+use yii\helpers\Json;
 
 class OrderController extends \dvizh\order\controllers\OrderController
 {
@@ -70,7 +71,8 @@ class OrderController extends \dvizh\order\controllers\OrderController
                     }
                 }
 
-                return $this->redirect([yii::$app->getModule('order')->successUrl, 'id' => $model->id, 'payment' => $model->payment_type_id]);
+                return $this->redirect(['init-payment', 'order_id' => $model->id]);
+//                return $this->redirect([yii::$app->getModule('order')->successUrl, 'id' => $model->id, 'payment' => $model->payment_type_id]);
             } else {
                 yii::$app->session->setFlash('orderError', yii::t('order', serialize($model->getErrors())));
 
@@ -85,19 +87,19 @@ class OrderController extends \dvizh\order\controllers\OrderController
     public function actionInitPayment($order_id){
         $octo = new Octo();
         $order = Order::findOne($order_id);
-            $request = $octo->PreparePayment($order);
-            if($request['status']){
-                return $this->redirect($request['url']);
-            }else{
-                Yii::$app->session->setFlash('error', $request['message']);
-                return $this->goHome();
-            }
+        $request = $octo->PreparePayment($order);
+        if($request['status']){
+            return $this->redirect($request['url']);
+        }else{
+            Yii::$app->session->setFlash('error', $request['message']);
+            Yii::error(['InitPayment' => $request['message']]);
+            return $this->goHome();
         }
-
     }
 
-    public function actionAcceptPayment($user_id, $transaction_id){
-        $user = User::findOne($user_id);
+
+    public function actionAcceptPayment($order_id, $transaction_id){
+        $order = Order::findOne($order_id);
         $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
 
         Yii::error(['acceptRequest' => $this->request->getRawBody()]);
@@ -112,7 +114,7 @@ class OrderController extends \dvizh\order\controllers\OrderController
         $octo->sendTelegram($this->request->getRawBody());
         $post = Json::decode($this->request->getRawBody());
 
-        Yii::info($this->request->getRawBody(), 'app');
+        Yii::error($this->request->getRawBody(), 'app');
 
         if($post){
             $transaction = Transactions::findOne(["transaction_id" => $post['shop_transaction_id']]);

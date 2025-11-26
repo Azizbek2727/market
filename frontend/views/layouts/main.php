@@ -1,5 +1,6 @@
 <?php
 
+use common\widgets\Alert;
 use common\widgets\ElementsList;
 use yii\helpers\Html;
 use frontend\assets\CartzillaAssets;
@@ -664,7 +665,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
     </div>
 </header>
 
-
+<?php echo Alert::widget(); ?>
 <?= $content ?>
 
 

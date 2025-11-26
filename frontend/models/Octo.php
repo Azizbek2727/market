@@ -5,7 +5,7 @@ namespace app\models;
 
 
 use common\models\User;
-use dvizh\order\Order;
+use dvizh\order\models\Order;
 use pheme\settings\models\Setting;
 use PhpOffice\PhpSpreadsheet\Settings;
 use yii\httpclient\Client;
@@ -28,15 +28,10 @@ class Octo
 
         $transaction_id = (new \yii\base\Security)->generateRandomString(24);
 
-//        $user_data = [
-//            'user_id' => $user->id,
-//            'phone' => $user->phone,
-//            'email' => $user->email,
-//        ];
         $paymethods = [
             ['method' => 'uzcard'],
             ['method' => 'humo'],
-//            ['method' => 'bank_card']
+            ['method' => 'bank_card']
         ];
         $body = [
             'octo_shop_id' => $this->shop_id,
@@ -45,13 +40,12 @@ class Octo
             'auto_capture' => true,
             'init_time' => date('Y-m-d H:m:s', time()),
             'test' => true,
-            'user_data' => $user_data,
             'total_sum' => $order->cost,
             'currency' => /*$product->currency*/ 'UZS',
             'description' => 'TEST PAYMENT',
             'payment_methods' => $paymethods,
-            'return_url' => \yii\helpers\Url::toRoute(['/site/accept-payment', 'user_id' => $user->id, 'transaction_id' => $transaction_id], 'https'),
-            'notify_url' => \yii\helpers\Url::toRoute(['/site/notify-payment'], 'https'),
+            'return_url' => \yii\helpers\Url::toRoute(['/order/order/accept-payment', 'order_id' => $order->id, 'transaction_id' => $transaction_id], 'http'),
+            'notify_url' => \yii\helpers\Url::toRoute(['/order/order/notify-payment'], 'http'),
             'language' => 'en',
             'ttl' => 15
         ];
@@ -59,10 +53,10 @@ class Octo
         $transaction = new Transactions();
         $transaction->transaction_id = $transaction_id;
         $transaction->order_id = $order->id;
-        $transaction->sum = $body['total_sum'];
+        $transaction->sum = (int) $body['total_sum'];
         $transaction->currency = $body['currency'];
         $transaction->created_at = time();
-        $transaction->created_by = $user->id;
+        $transaction->created_by = Yii::$app->user->id ?? 4;
 
         $transaction->save();
 
@@ -92,8 +86,9 @@ class Octo
 
     public function sendTelegram($message)
     {
+        $token = Setting::findOne(['key' => 'telegramBotToken'])->value ?? '';
         // Telegram bot API endpoint
-        $apiEndpoint = 'https://api.telegram.org/bot' . Yii::$app->params['telegramBotToken'] . '/sendMessage';
+        $apiEndpoint = 'https://api.telegram.org/bot' . $token . '/sendMessage';
 
         // Chat ID of the Telegram group
 //        $chatId = -1001839426706;
@@ -131,11 +126,11 @@ class Octo
 
         } catch (\Exception $e) {
 
-            $text = 'An error occurred while sending the Excel file: ' . $e->getMessage() . PHP_EOL;
+            $text = 'An error occurred while sending the log: ' . $e->getMessage() . PHP_EOL;
             $text .= 'File: ' . $e->getFile() . ':' . $e->getLine() . PHP_EOL;
 
             // Send error message to devId
-            $devApiEndpoint = 'https://api.telegram.org/bot' . Yii::$app->params['telegramBotToken'] . '/sendMessage';
+            $devApiEndpoint = 'https://api.telegram.org/bot' . $token . '/sendMessage';
             $devParameters = [
                 'chat_id' => $devId,
                 'text' => $text,
