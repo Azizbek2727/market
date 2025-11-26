@@ -74,7 +74,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
     <div class="offcanvas-header flex-column align-items-start">
         <div class="d-flex align-items-center justify-content-between w-100 mb-3 mb-md-4">
             <span class="text-light-emphasis">Subtotal:</span>
-            <span class="h6 mb-0"><?= Yii::$app->cart->getCostFormatted() ?></span>
+            <span class="h6 mb-0 dvizh-cart-price"><?= Yii::$app->cart->getCostFormatted() ?></span>
         </div>
         <div class="d-flex w-100 gap-3">
             <a class="btn btn-lg btn-secondary w-100" href="">View cart</a>
@@ -175,13 +175,13 @@ $tree = \dvizh\shop\models\Category::buildTree();
                     </button>
 
                     <!-- Account button visible on screens > 768px wide (md breakpoint) -->
-                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-shake d-none d-md-inline-flex" href="account-signin.html">
+                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-shake d-none d-md-inline-flex" href="<?= \yii\helpers\Url::to(['/user/login']) ?>">
                         <i class="ci-user animate-target"></i>
                         <span class="visually-hidden">Account</span>
                     </a>
 
                     <!-- Wishlist button visible on screens > 768px wide (md breakpoint) -->
-                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-pulse d-none d-md-inline-flex" href="account-wishlist.html">
+                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-pulse d-none d-md-inline-flex" href="/">
                         <i class="ci-heart animate-target"></i>
                         <span class="visually-hidden">Wishlist</span>
                     </a>
@@ -360,49 +360,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">About</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="about-v1.html">About v.1</a></li>
-                                                <li><a class="dropdown-item" href="about-v2.html">About v.2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Blog</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="blog-grid-v1.html">Grid View v.1</a></li>
-                                                <li><a class="dropdown-item" href="blog-grid-v2.html">Grid View v.2</a></li>
-                                                <li><a class="dropdown-item" href="blog-list.html">List View</a></li>
-                                                <li><a class="dropdown-item" href="blog-single-v1.html">Single Post v.1</a></li>
-                                                <li><a class="dropdown-item" href="blog-single-v2.html">Single Post v.2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Contact</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
-                                                <li><a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
-                                                <li><a class="dropdown-item" href="contact-v3.html">Contact v.3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Help Center</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="help-topics-v1.html">Help Topics v.1</a></li>
-                                                <li><a class="dropdown-item" href="help-topics-v2.html">Help Topics v.2</a></li>
-                                                <li><a class="dropdown-item" href="help-single-article-v1.html">Help Single Article v.1</a></li>
-                                                <li><a class="dropdown-item" href="help-single-article-v2.html">Help Single Article v.2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">404 Error</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="404-electronics.html">404 Electronics</a></li>
-                                                <li><a class="dropdown-item" href="404-fashion.html">404 Fashion</a></li>
-                                                <li><a class="dropdown-item" href="404-furniture.html">404 Furniture</a></li>
-                                                <li><a class="dropdown-item" href="404-grocery.html">404 Grocery</a></li>
-                                            </ul>
-                                        </li>
                                         <li><a class="dropdown-item" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
                                     </ul>
                                 </li>
@@ -432,11 +389,11 @@ $tree = \dvizh\shop\models\Category::buildTree();
             </div>
             <div class="offcanvas-header border-top px-0 py-3 mt-3 d-md-none">
                 <div class="nav nav-justified w-100">
-                    <a class="nav-link border-end" href="account-signin.html">
+                    <a class="nav-link border-end" href="<?= \yii\helpers\Url::to(['/site/login']) ?>">
                         <i class="ci-user fs-lg opacity-60 me-2"></i>
                         Account
                     </a>
-                    <a class="nav-link" href="account-wishlist.html">
+                    <a class="nav-link" href="">
                         <i class="ci-heart fs-lg opacity-60 me-2"></i>
                         Wishlist
                     </a>
