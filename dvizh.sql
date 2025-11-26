@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 26, 2025 at 11:07 AM
+-- Generation Time: Nov 26, 2025 at 11:08 AM
 -- Server version: 10.10.2-MariaDB
 -- PHP Version: 7.4.33
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -1653,6 +1654,7 @@ ALTER TABLE `transactions`
   ADD CONSTRAINT `transactions-creator` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `transactions-order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
   ADD CONSTRAINT `transactions-updated` FOREIGN KEY (`updated_by`) REFERENCES `user` (`id`);
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
