@@ -40,3 +40,6 @@ phpunit.phar
 /backend/runtime/*
 /console/runtime/*
 /common/runtime/*
+
+/frontend/web/assets
+/backend/web/assets
