@@ -15,7 +15,7 @@ class ShowPrice extends \dvizh\shop\widgets\ShowPrice
 
         return Html::tag(
             $this->htmlTag,
-            (Setting::findOne(['key' => 'currency'])->value ?? '') . $this->model->getPrice(),
+            $this->model->getPrice() . (Setting::findOne(['key' => 'currency'])->value ?? ''),
             ['class' => "dvizh-shop-price dvizh-shop-price-{$this->model->id} {$this->cssClass}"]
         );
     }

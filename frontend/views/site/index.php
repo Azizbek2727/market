@@ -303,6 +303,15 @@ HTML;
                         }
                     }
 
+                    $buyButton = BuyButton::widget(
+                        [
+                            'model' => $model,
+                            'htmlTag' => 'a',
+                            'text' => '<i class="ci-shopping-cart fs-base animate-target"></i>',
+                            'cssClass' => 'product-card-button btn btn-icon btn-secondary animate-slide-end ms-2'
+                        ]
+                    );
+
                     $views = 211;
 
                     return <<<HTML
@@ -345,12 +354,7 @@ HTML;
                 {$price}
             </div>
 
-            <a href="/cart/default/add?id={$model->id}" 
-               class="product-card-button btn btn-icon btn-secondary animate-slide-end ms-2"
-               data-method="post"
-               aria-label="Add to Cart">
-                <i class="ci-shopping-cart fs-base animate-target"></i>
-            </a>
+            {$buyButton}
         </div>
     </div>
 
