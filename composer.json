@@ -35,7 +35,8 @@
         "dvizh/yii2-certificate": "@dev",
         "dmstr/yii2-adminlte-asset": "2.*",
         "pheme/yii2-settings": "*",
-        "2amigos/yii2-editable-widget": "~1.0"
+        "2amigos/yii2-editable-widget": "~1.0",
+        "yiisoft/yii2-bootstrap4": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
