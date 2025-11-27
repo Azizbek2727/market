@@ -3,6 +3,7 @@
 namespace frontend\assets;
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 use yii\web\View;
 
 /**
@@ -24,6 +25,7 @@ class ProductAssets extends AssetBundle
         '/cartzilla/assets/vendor/choices.js/public/assets/scripts/choices.min.js',
     ];
     public $depends = [
+//        JqueryAsset::class,
 //        CartzillaAssets::class,
 //        'yii\web\YiiAsset',
 //        'yii\bootstrap\BootstrapAsset',
