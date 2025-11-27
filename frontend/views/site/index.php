@@ -208,13 +208,6 @@ $this->title = Yii::$app->name;
 
     <div class="w-100 min-w-0 ps-2 ps-sm-3">
 
-        <div class="d-flex align-items-center gap-2 mb-2">
-            <div class="d-flex gap-1 fs-xs">
-                {$ratingIcons}
-            </div>
-            <span class="text-body-tertiary fs-xs">212</span>
-        </div>
-
         <h4 class="mb-2">
             <a class="stretched-link d-block fs-sm fw-medium text-truncate" 
                href="{$url}">
@@ -308,9 +301,6 @@ HTML;
                 <button type="button" class="btn btn-icon btn-secondary animate-pulse d-none d-lg-inline-flex" aria-label="Add to Wishlist">
                     <i class="ci-heart fs-base animate-target"></i>
                 </button>
-                <button type="button" class="btn btn-icon btn-secondary animate-rotate d-none d-lg-inline-flex" aria-label="Compare">
-                    <i class="ci-refresh-cw fs-base animate-target"></i>
-                </button>
             </div>
         </div>
 
@@ -323,11 +313,6 @@ HTML;
     </div>
 
     <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
-        <div class="d-flex align-items-center gap-2 mb-2">
-            <div class="d-flex gap-1 fs-xs">{$ratingStars}</div>
-            <span class="text-body-tertiary fs-xs">({$views})</span>
-        </div>
-
         <h3 class="pb-1 mb-2">
             <a class="d-block fs-sm fw-medium text-truncate" href="{$url}">
                 <span class="animate-target">{$model->name}</span>
