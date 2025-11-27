@@ -402,16 +402,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                         <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">About company</a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Our team</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Careers</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
                                         <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Contact us</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">News</a>
                                     </li>
                                 </ul>
                             </div>
@@ -436,12 +427,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                     <li class="d-flex w-100 pt-1">
                                         <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Delivery info</a>
                                     </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Order tracking</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Taxes &amp; fees</a>
-                                    </li>
                                 </ul>
                             </div>
                             <hr class="d-sm-none my-0">
@@ -453,15 +438,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                             </h6>
                             <div class="accordion-collapse collapse d-sm-block" id="customerLinks" aria-labelledby="customerHeading" data-bs-parent="#footerLinks">
                                 <ul class="nav flex-column gap-2 pt-sm-3 pb-3 mt-n1 mb-1">
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Payment methods</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Money back guarantee</a>
-                                    </li>
-                                    <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Product returns</a>
-                                    </li>
                                     <li class="d-flex w-100 pt-1">
                                         <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Support center</a>
                                     </li>
@@ -601,7 +577,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                     <img src="/cartzilla/assets/img/payment-methods/apple-pay-dark-mode.svg" alt="Apple Pay">
                 </div>
             </div>
-            <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; All rights reserved. Made by <span class="animate-underline"><a class="animate-target text-dark-emphasis fw-medium text-decoration-none" href="https://coderthemes.com/" target="_blank" rel="noreferrer">Coderthemes</a></span></p>
+            <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; All rights reserved.</p>
         </div>
     </div>
 </footer>
