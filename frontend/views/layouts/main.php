@@ -53,19 +53,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
 
 <!-- Shopping cart offcanvas -->
 <div class="offcanvas offcanvas-end pb-sm-2 px-sm-2" id="shoppingCart" tabindex="-1" aria-labelledby="shoppingCartLabel" style="width: 500px">
-
-    <!-- Header -->
-    <div class="offcanvas-header flex-column align-items-start py-3 pt-lg-4">
-        <div class="d-flex align-items-center justify-content-between w-100 mb-3 mb-lg-4">
-            <h4 class="offcanvas-title" id="shoppingCartLabel">Shopping cart</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <p class="fs-sm">Buy <span class="text-dark-emphasis fw-semibold">$183</span> more to get <span class="text-dark-emphasis fw-semibold">Free Shipping</span></p>
-        <div class="progress w-100" role="progressbar" aria-label="Free shipping progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="height: 4px">
-            <div class="progress-bar bg-warning rounded-pill" style="width: 75%"></div>
-        </div>
-    </div>
-
     <!-- Items -->
     <div class="offcanvas-body d-flex flex-column gap-4 pt-2">
         <?= ElementsList::widget(); ?>
@@ -78,7 +65,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
             <span class="h6 mb-0 dvizh-cart-price"><?= Yii::$app->cart->getCostFormatted() ?></span>
         </div>
         <div class="d-flex w-100 gap-3">
-            <a class="btn btn-lg btn-secondary w-100" href="">View cart</a>
             <a class="btn btn-lg btn-primary w-100" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>">Checkout</a>
         </div>
     </div>
@@ -112,17 +98,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                     <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
                     <input type="search" class="form-control form-control-lg form-icon-start border-white rounded-pill" placeholder="Search the products">
                 </div>
-
-                <!-- Sale link visible on screens > 1200px wide (xl breakpoint) -->
-                <a class="d-none d-xl-flex align-items-center text-decoration-none animate-shake navbar-stuck-hide me-3 me-xl-4 me-xxl-5" href="shop-catalog-electronics.html">
-                    <div class="btn btn-icon btn-lg fs-lg text-primary bg-body-secondary bg-opacity-75 pe-none rounded-circle">
-                        <i class="ci-percent animate-target"></i>
-                    </div>
-                    <div class="ps-2 text-nowrap">
-                        <div class="fs-xs text-body">Only this month</div>
-                        <div class="fw-medium text-white">Super Sale 20%</div>
-                    </div>
-                </a>
 
                 <!-- Button group -->
                 <div class="d-flex align-items-center">
@@ -312,26 +287,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                             </div>
 
                                                         <?php endforeach; ?>
-
-
-                                                        <!-- Right: Promo block -->
-                                                        <div class="d-none d-lg-block">
-                                                            <div class="d-none d-xl-block" style="width: 284px"></div>
-                                                            <div class="d-xl-none" style="width: 240px"></div>
-
-                                                            <div class="position-relative d-flex flex-column justify-content-center h-100 bg-body-secondary rounded-5 py-4 px-3">
-                                                                <div class="text-center px-2">
-                                                                    <span class="badge bg-danger bg-opacity-10 text-danger fs-sm rounded-pill mb-2">Save up to $400</span>
-                                                                    <div class="fs-sm text-light-emphasis mb-2">Starts from <del>$1,599.00</del> $1,399.00</div>
-                                                                    <div class="h2 mb-4">Surface Laptop Studio</div>
-                                                                </div>
-                                                                <img src="/cartzilla/assets/img/mega-menu/electronics/01.png" width="252" alt="Surface Laptop Studio">
-                                                                <div class="text-center mt-4">
-                                                                    <a class="btn btn-sm btn-primary stretched-link" href="shop-catalog-electronics.html">Shop now</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
                                                     </div>
                                                 </div>
 
@@ -379,14 +334,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                         <li><a class="dropdown-item" href="#!">Français</a></li>
                                         <li><a class="dropdown-item" href="#!">Deutsch</a></li>
                                         <li><a class="dropdown-item" href="#!">Italiano</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown me-lg-n1">
-                                    <a class="nav-link dropdown-toggle fs-sm px-3" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">USD ($)</a>
-                                    <ul class="dropdown-menu dropdown-menu-end fs-sm" style="--cz-dropdown-min-width: 7rem; --cz-dropdown-spacer: .25rem">
-                                        <li><a class="dropdown-item" href="#!">€ EUR</a></li>
-                                        <li><a class="dropdown-item" href="#!">£ UKP</a></li>
-                                        <li><a class="dropdown-item" href="#!">¥ JPY</a></li>
                                     </ul>
                                 </li>
                             </ul>
