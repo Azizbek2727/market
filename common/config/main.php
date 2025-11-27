@@ -171,10 +171,10 @@ return [
             'class' => 'dvizh\relations\Module',
             'fields' => ['code'],
         ],
-        'client' => [
-            'class' => 'dvizh\client\Module',
-            'adminRoles' => ['superadmin'],
-        ],
+//        'client' => [
+//            'class' => 'dvizh\client\Module',
+//            'adminRoles' => ['superadmin'],
+//        ],
         'review' => [
             'class' => 'dvizh\review\Module',
         ],

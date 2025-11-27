@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="d-lg-flex">
 
         <!-- Login form + Footer -->
-        <div class="d-flex flex-column min-vh-100 w-100 py-4 mx-auto my-auto me-lg-5" style="max-width: 416px">
+        <div class="d-flex flex-column w-100 py-4 mx-auto my-auto me-lg-5" style="max-width: 416px">
 
             <h1 class="h2">Welcome back</h1>
 
