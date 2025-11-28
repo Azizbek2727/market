@@ -233,59 +233,7 @@ $this->title = $model->name;
 
                 <!-- Product details -->
                 <h2 class="h3 pb-2 pb-md-3">Product details</h2>
-                <h3 class="h6">General specs</h3>
-                <ul class="list-unstyled d-flex flex-column gap-3 fs-sm pb-3 m-0 mb-2 mb-sm-3">
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Model:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">iPhone 14 Plus</span>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Manufacturer:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">Apple Inc.</span>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Finish:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">Ceramic, Glass, Aluminium</span>
-                        <i class="ci-info fs-base text-body-tertiary position-absolute top-50 end-0 translate-middle-y" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="popover-sm" data-bs-content="Ceramic shield front, Glass back and Aluminium design"></i>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Capacity:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">128GB</span>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Chip:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">A15 Bionic chip</span>
-                    </li>
-                </ul>
-                <h3 class="h6">Display</h3>
-                <ul class="list-unstyled d-flex flex-column gap-3 fs-sm pb-1 m-0 mb-2 mb-sm-3">
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Diagonal:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">6.1"</span>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Screen type:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">Super Retina XDR</span>
-                        <i class="ci-info fs-base text-body-tertiary position-absolute top-50 end-0 translate-middle-y" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-custom-class="popover-sm" data-bs-content="HDR display, True Tone, Wide color (P3), Haptic Touch, 800 nits brightness"></i>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Resolution:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">2778x1284px at 458ppi</span>
-                    </li>
-                    <li class="d-flex align-items-center position-relative pe-4">
-                        <span>Refresh rate:</span>
-                        <span class="d-block flex-grow-1 border-bottom border-dashed px-1 mt-2 mx-2"></span>
-                        <span class="text-dark-emphasis fw-medium text-end">120 Hz</span>
-                    </li>
-                </ul>
+                <?= $model->getField('product-details'); ?>
                 <div class="nav">
                     <a class="nav-link text-primary animate-underline px-0" href="">
                         <span class="animate-target">See all product details</span>
