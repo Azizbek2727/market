@@ -16,7 +16,7 @@ if (Yii::$app->controller->action->id === 'login') {
     );
 } else {
     backend\assets\AppAsset::register($this);
-
+    \dvizh\field\assets\ValueAsset::register($this);
     dmstr\web\AdminLteAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');

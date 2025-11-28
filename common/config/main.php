@@ -105,8 +105,6 @@ return [
         ],
         'order' => [
             'class' => 'dvizh\order\Module',
-//            'controller' => \frontend\controllers\OrderController::class,
-            'controllerNamespace' => 'frontend\controllers',
             'successUrl' => '/site/thanks', //Страница, куда попадает пользователь после успешного заказа
             //'adminNotificationEmail' => 'test@yandex.ru', //Мыло для отправки заказов
             'as use_certificate' => '\common\aspects\UseCertificate',
