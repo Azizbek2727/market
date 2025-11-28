@@ -12,6 +12,8 @@ use dvizh\shop\models\Product;
 class ProductController extends Controller
 {
     public function actionIndex($category = null){
+        if(Yii::$app->request->get('category')) $category = Yii::$app->request->get('category');
+
         $query = \dvizh\shop\models\Product::find()
             ->where(['available' => 'yes'])
             ->orderBy(['id' => SORT_DESC]);
@@ -41,6 +43,10 @@ class ProductController extends Controller
      */
     public function actionView($id = null, $slug = null)
     {
+        if(Yii::$app->request->get('id')) $id = Yii::$app->request->get('id');
+
+        if(Yii::$app->request->get('slug')) $id = Yii::$app->request->get('slug');
+
         if ($id !== null) {
             $model = Product::findOne($id);
         } elseif ($slug !== null) {
