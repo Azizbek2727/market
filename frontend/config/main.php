@@ -27,6 +27,7 @@ return [
     'container' => [
         'singletons' => [
             \dvizh\cart\widgets\ElementsList::class => \common\widgets\ElementsList::class,
+            \dvizh\cart\widgets\BuyButton::class => \common\widgets\BuyButton::class
         ],
     ],
 
