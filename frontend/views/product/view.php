@@ -138,44 +138,6 @@ $this->title = $model->name;
                 <div class="ps-md-4 ps-xl-0">
                     <div class="position-relative" id="zoomPane">
 
-                        <!-- Model -->
-                        <div class="pb-3 mb-2 mb-lg-3">
-                            <label class="form-label fw-semibold pb-1 mb-2">Model</label>
-                            <div class="d-flex flex-wrap gap-2">
-                                <input type="radio" class="btn-check" name="model-options" id="gb-64">
-                                <label for="gb-64" class="btn btn-sm btn-outline-secondary">64 GB</label>
-                                <input type="radio" class="btn-check" name="model-options" id="gb-128" checked>
-                                <label for="gb-128" class="btn btn-sm btn-outline-secondary">128 GB</label>
-                                <input type="radio" class="btn-check" name="model-options" id="gb-256">
-                                <label for="gb-256" class="btn btn-sm btn-outline-secondary">256 GB</label>
-                                <input type="radio" class="btn-check" name="model-options" id="gb-512">
-                                <label for="gb-512" class="btn btn-sm btn-outline-secondary">512 GB</label>
-                            </div>
-                        </div>
-
-                        <!-- Color -->
-                        <div class="pb-3 mb-2 mb-lg-3">
-                            <label class="form-label fw-semibold pb-1 mb-2">Color: <span class="text-body fw-normal" id="colorOption">Gray blue</span></label>
-                            <div class="d-flex flex-wrap gap-2" data-binded-label="#colorOption">
-                                <input type="radio" class="btn-check" name="color-options" id="color-1" checked>
-                                <label for="color-1" class="btn btn-color fs-xl" data-label="Gray blue" style="color: #5a7aa1">
-                                    <span class="visually-hidden">Gray blue</span>
-                                </label>
-                                <input type="radio" class="btn-check" name="color-options" id="color-2">
-                                <label for="color-2" class="btn btn-color fs-xl" data-label="Pink" style="color: #ee7976">
-                                    <span class="visually-hidden">Pink</span>
-                                </label>
-                                <input type="radio" class="btn-check" name="color-options" id="color-3">
-                                <label for="color-3" class="btn btn-color fs-xl" data-label="Light blue" style="color: #9acbf1">
-                                    <span class="visually-hidden">Light blue</span>
-                                </label>
-                                <input type="radio" class="btn-check" name="color-options" id="color-4">
-                                <label for="color-4" class="btn btn-color fs-xl" data-label="Green" style="color: #8cd1ab">
-                                    <span class="visually-hidden">Green</span>
-                                </label>
-                            </div>
-                        </div>
-
                         <!-- Price -->
                         <div class="d-flex flex-wrap align-items-center mb-3">
                             <div class="h4 mb-0 me-3"><?= \common\widgets\ShowPrice::widget(['model' => $model]) ?></div>

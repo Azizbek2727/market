@@ -81,6 +81,13 @@ return [
             'as set_discount' => ['class' => 'common\aspects\SetDiscount'],
             'as set_certificate_discount' => '\common\aspects\SetCertificateDiscount'
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'currencyCode' => 'UZS',   // ← set your shop currency here
+            'numberFormatterSymbols' => [
+                NumberFormatter::CURRENCY_SYMBOL => 'Сўм', // Optional custom format
+            ],
+        ],
         'client' => [
             'class' => 'dvizh\client\Client',
         ],

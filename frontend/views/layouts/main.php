@@ -223,9 +223,9 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                     </button>
 
                                     <!-- Mega menu -->
-                                    <ul class="dropdown-menu <?= Yii::$app->controller->action->id == 'index'? 'dropdown-menu-static' : '' ?>  w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
+                                    <ul class="dropdown-menu <?= (Yii::$app->controller->id == 'site' and Yii::$app->controller->action->id == 'index') ? 'dropdown-menu-static' : '' ?>  w-100 rounded-top-0 rounded-bottom-4 py-1 p-lg-1" style="--cz-dropdown-spacer: 0; --cz-dropdown-item-padding-y: .625rem; --cz-dropdown-item-spacer: 0">
                                         <li class="d-lg-none pt-2">
-                                            <a class="dropdown-item fw-medium" href="shop-categories-electronics.html">
+                                            <a class="dropdown-item fw-medium" href="<?= \yii\helpers\Url::to(['/product/index']) ?>">
                                                 <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
                                                 All Categories
                                                 <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
@@ -241,7 +241,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                      data-bs-toggle="dropdown" data-bs-trigger="hover">
 
                                                     <a class="dropdown-item fw-medium stretched-link d-none d-lg-flex"
-                                                       href="/product/index?category=<?= $parent['id'] ?>">
+                                                       href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $parent['id']]) ?>">
                                                         <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
                                                         <span class="text-truncate"><?= Html::encode($parent['name']) ?></span>
                                                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
@@ -268,7 +268,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                                 <!-- Level 2 (group) -->
                                                                 <div class="d-flex w-100">
                                                                     <a class="animate-underline animate-target d-inline h6 text-dark-emphasis text-decoration-none text-truncate"
-                                                                       href="/product/index?category=<?= $group['id'] ?>">
+                                                                       href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $group['id']]) ?>">
                                                                         <?= Html::encode($group['name']) ?>
                                                                     </a>
                                                                 </div>
@@ -278,7 +278,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                                     <?php foreach ($children as $child): ?>
                                                                         <li class="d-flex w-100 pt-1">
                                                                             <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0"
-                                                                               href="/product/index?category=<?= $child['id'] ?>">
+                                                                               href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $child['id']]) ?>">
                                                                                 <?= Html::encode($child['name']) ?>
                                                                             </a>
                                                                         </li>
