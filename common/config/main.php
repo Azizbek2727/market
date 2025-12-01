@@ -88,9 +88,6 @@ return [
                 NumberFormatter::CURRENCY_SYMBOL => 'Сўм', // Optional custom format
             ],
         ],
-        'client' => [
-            'class' => 'dvizh\client\Client',
-        ],
         'treeSettings' => [
             'class' => 'dvizh\tree\TreeSettings',
             'models' => [

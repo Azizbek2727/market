@@ -20,6 +20,10 @@ return [
             'enableUnconfirmedLogin' => true,
         ],
         'rbac' => 'dektrium\rbac\RbacWebModule',
+        'shop' => [
+            'class' => 'dvizh\shop\Module',
+            'controllerNamespace' => 'backend\controllers',
+        ],
     ],
     'components' => [
         'fileStorage' => [
@@ -33,7 +37,8 @@ return [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@dektrium/user/views' => '@app/views/user'
+                    '@dektrium/user/views' => '@app/views/user',
+                    '@dvizh/shop/views' => '@backend/views/dvizh/shop',
                 ],
             ],
         ],

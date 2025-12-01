@@ -63,4 +63,31 @@ trait TranslatableTrait
         // return original attribute value
         return $this->{$attribute} ?? null;
     }
+
+    public function saveTranslations()
+    {
+        $post = Yii::$app->request->post('Translation', []);
+        if (!$post) return;
+
+        $languages = array_keys(Yii::$app->params['availableLanguages']);
+        $attrs = $this->getTranslatableAttributes();
+        $modelName = static::class;
+
+        foreach ($languages as $lang) {
+            if (!isset($post[$lang])) continue;
+
+            foreach ($attrs as $attr) {
+                if (!array_key_exists($attr, $post[$lang])) continue;
+
+                $value = $post[$lang][$attr];
+                Translation::upsertValue(
+                    $modelName,
+                    $this->id,
+                    $attr,
+                    $lang,
+                    $value
+                );
+            }
+        }
+    }
 }
