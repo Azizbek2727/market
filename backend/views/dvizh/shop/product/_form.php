@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap4\Tabs;
+use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
