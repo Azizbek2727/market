@@ -41,6 +41,12 @@ trait TranslatableTrait
         return [];
     }
 
+    public function getTranslationWidgets()
+    {
+        return [];
+    }
+
+
     /**
      * Default fallback chain; override in app config if you need different behavior.
      */
