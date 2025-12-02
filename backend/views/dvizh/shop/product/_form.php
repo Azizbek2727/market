@@ -24,7 +24,7 @@ use dvizh\seo\widgets\SeoForm;
                 'label' => $lang,
                 'content' => $this->render('_trans_fields', ['lang' => $lang, 'model' => $model]),
             ];
-        }, ['uz-Cyrl','uz-Latn','en','ru'])
+        }, Yii::$app->params['languages'])
     ]); ?>
 
     <div class="row">

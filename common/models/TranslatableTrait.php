@@ -53,9 +53,7 @@ trait TranslatableTrait
     protected function translationFallbacks($lang)
     {
         // simple fallback chain — tweak to your needs
-        return [
-            'uz-Cyrl','uz-Latn','ru','en'
-        ];
+        return Yii::$app->params['languages'];
     }
 
     /**
