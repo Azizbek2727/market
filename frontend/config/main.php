@@ -32,10 +32,20 @@ return [
     ],
 
     'components' => [
+        'language' => 'en',      // default language
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'language/<lang:\w+>' => 'language/switch',
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@frontend/messages',
+                ],
             ],
         ],
         'assetManager' => [
@@ -78,5 +88,10 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+    'on beforeRequest' => function () {
+        if (Yii::$app->session->has('lang')) {
+            Yii::$app->language = Yii::$app->session->get('lang');
+        }
+    },
     'params' => $params,
 ];
