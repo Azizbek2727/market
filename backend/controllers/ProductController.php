@@ -8,6 +8,7 @@ use dvizh\shop\models\Modification;
 use dvizh\shop\models\modification\ModificationSearch;
 use dvizh\shop\models\Price;
 use dvizh\shop\models\price\PriceSearch;
+use dvizh\shop\models\PriceType;
 use Yii;
 use yii\web\NotFoundHttpException;
 
@@ -48,6 +49,35 @@ class ProductController extends \dvizh\shop\controllers\ProductController
         }
     }
 
+    public function actionCreate()
+    {
+        $model = new Product();
+        $priceModel = new Price;
+
+        $priceTypes = PriceType::find()->orderBy('sort DESC')->all();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->saveTranslations();
+
+            if($prices = yii::$app->request->post('Price')) {
+                foreach($prices as $typeId => $price) {
+                    $model->setPrice($price['price'], $typeId);
+                }
+            }
+
+            $module = $this->module;
+            $productEvent = new ProductEvent(['model' => $model]);
+            $this->module->trigger($module::EVENT_PRODUCT_CREATE, $productEvent);
+
+            return $this->redirect(['update', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+                'priceModel' => $priceModel,
+                'priceTypes' => $priceTypes,
+            ]);
+        }
+    }
 
     protected function findModel($id)
     {
