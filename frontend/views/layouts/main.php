@@ -4,7 +4,6 @@ use common\widgets\Alert;
 use common\widgets\ElementsList;
 use yii\helpers\Html;
 use frontend\assets\CartzillaAssets;
-use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -330,15 +329,11 @@ $tree = \dvizh\shop\models\Category::buildTree();
                             <hr class="d-lg-none my-3">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item dropdown me-lg-n2 me-xl-n1">
-                                    <a class="nav-link dropdown-toggle fs-sm px-3"
-                                       href="#!" role="button"
-                                       data-bs-toggle="dropdown" data-bs-trigger="hover">
-                                        <?= strtoupper(Yii::$app->language) ?>
-                                    </a>
+                                    <a class="nav-link dropdown-toggle fs-sm px-3" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Eng</a>
                                     <ul class="dropdown-menu fs-sm" style="--cz-dropdown-min-width: 7.5rem; --cz-dropdown-spacer: .25rem">
-                                        <li><a class="dropdown-item" href="<?= Url::to(['/language/switch', 'lang' => 'en']) ?>">English</a></li><!-- Add your languages -->
-                                        <li><a class="dropdown-item" href="<?= Url::to(['/language/switch', 'lang' => 'uz']) ?>">O‘zbekcha</a></li>
-                                        <li><a class="dropdown-item" href="<?= Url::to(['/language/switch', 'lang' => 'ru']) ?>">Русский</a></li>
+                                        <li><a class="dropdown-item" href="#!">Français</a></li>
+                                        <li><a class="dropdown-item" href="#!">Deutsch</a></li>
+                                        <li><a class="dropdown-item" href="#!">Italiano</a></li>
                                     </ul>
                                 </li>
                             </ul>
