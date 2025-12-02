@@ -25,7 +25,7 @@ $discount = $oldPrice ? round(100 - ($price / $oldPrice * 100)) : null;
             <?php endif; ?>
 
             <div class="ratio" style="--cz-aspect-ratio: calc(240 / 258 * 100%)">
-                <img src="<?= $image ?>" alt="<?= $model->name ?>">
+                <img src="<?= $image ?>" alt="<?= $model->getName() ?>">
             </div>
         </a>
     </div>
@@ -36,7 +36,7 @@ $discount = $oldPrice ? round(100 - ($price / $oldPrice * 100)) : null;
         <!-- Name -->
         <h3 class="pb-1 mb-2">
             <a class="d-block fs-sm fw-medium text-truncate" href="<?= $url ?>">
-                <span class="animate-target"><?= $model->name ?></span>
+                <span class="animate-target"><?= $model->getName() ?></span>
             </a>
         </h3>
 

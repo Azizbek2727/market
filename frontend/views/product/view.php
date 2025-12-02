@@ -11,7 +11,7 @@ use frontend\assets\ProductAssets;
 
 ProductAssets::register($this);
 \dvizh\cart\assets\WidgetAsset::register($this);
-$this->title = $model->name;
+$this->title = $model->getName();
 ?>
 
 <!-- Page content -->
@@ -28,7 +28,7 @@ $this->title = $model->name;
 
 
     <!-- Page title -->
-    <h1 class="h3 container mb-4"><?= $model->name ?></h1>
+    <h1 class="h3 container mb-4"><?= $model->getName() ?></h1>
 
 
     <!-- Nav links + Reviews -->
@@ -195,7 +195,7 @@ $this->title = $model->name;
 
                 <!-- Product details -->
                 <h2 class="h3 pb-2 pb-md-3">Product details</h2>
-                <?= $model->text; ?>
+                <?= $model->getText(); ?>
                 <div class="nav">
                     <a class="nav-link text-primary animate-underline px-0" href="">
                         <span class="animate-target">See all product details</span>
