@@ -195,7 +195,7 @@ $this->title = $model->name;
 
                 <!-- Product details -->
                 <h2 class="h3 pb-2 pb-md-3">Product details</h2>
-                <?= $model->getField('product-details'); ?>
+                <?= $model->text; ?>
                 <div class="nav">
                     <a class="nav-link text-primary animate-underline px-0" href="">
                         <span class="animate-target">See all product details</span>

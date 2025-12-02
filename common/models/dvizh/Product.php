@@ -9,6 +9,15 @@ class Product extends \dvizh\shop\models\Product
 {
     use TranslatableTrait;
 
+    public function __get($name)
+    {
+        // If attribute is translatable → return translated value
+        if (in_array($name, $this->getTranslatableAttributes())) {
+            return $this->tOrOrig($name);
+        }
+
+        return parent::__get($name);
+    }
 
     public function getTranslatableAttributes()
     {

@@ -3,7 +3,7 @@
 return [
     'name' => 'Trendly',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'language' => 'ru-RU',
+    'language' => 'en',
     'bootstrap' => [
         'dektrium\user\Bootstrap',
         'dektrium\rbac\Bootstrap',

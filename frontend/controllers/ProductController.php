@@ -7,14 +7,14 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\base\Controller;
 use yii\web\NotFoundHttpException;
-use dvizh\shop\models\Product;
+use common\models\dvizh\Product;
 
 class ProductController extends Controller
 {
     public function actionIndex($category = null){
         if(Yii::$app->request->get('category')) $category = Yii::$app->request->get('category');
 
-        $query = \dvizh\shop\models\Product::find()
+        $query = Product::find()
             ->where(['available' => 'yes'])
             ->orderBy(['id' => SORT_DESC]);
 
