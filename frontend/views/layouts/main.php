@@ -447,6 +447,9 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                     <li class="d-flex w-100 pt-1">
                                         <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Terms &amp; conditions</a>
                                     </li>
+                                    <li class="d-flex w-100 pt-1">
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="/Trenddly_Confidentiality_Policy.pdf">Privacy Policy</a>
+                                    </li>
                                 </ul>
                             </div>
                             <hr class="d-sm-none my-0">
