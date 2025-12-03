@@ -5,13 +5,16 @@ use common\widgets\ElementsList;
 use yii\helpers\Html;
 use frontend\assets\CartzillaAssets;
 use yii\helpers\Url;
+use common\helpers\CategoryTree;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 CartzillaAssets::register($this);
 \dvizh\cart\assets\WidgetAsset::register($this);
-$tree = \dvizh\shop\models\Category::buildTree();
+
+$tree = CategoryTree::build();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -232,29 +235,28 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                 <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                                             </a>
                                         </li>
-                                        <?php $i = 0; foreach ($tree as $parent): $i++?>
+                                        <?php $i = 0; foreach ($tree as $parent): $i++; ?>
                                             <?php $groups = $parent['childs'] ?? []; ?>
 
                                             <li class="dropend position-static">
 
                                                 <!-- Level 1 parent -->
-                                                <div class="position-relative rounded <?= $i == 1 ? 'pt-2 pb-1 px-lg-2' : 'pb-1 px-lg-2' ?> "
+                                                <div class="position-relative rounded <?= $i == 1 ? 'pt-2 pb-1 px-lg-2' : 'pb-1 px-lg-2' ?>"
                                                      data-bs-toggle="dropdown" data-bs-trigger="hover">
 
                                                     <a class="dropdown-item fw-medium stretched-link d-none d-lg-flex"
                                                        href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $parent['id']]) ?>">
                                                         <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
-                                                        <span class="text-truncate"><?= Html::encode($parent['name']) ?></span>
+                                                        <span class="text-truncate"><?= Html::encode($parent['model']->getName()) ?></span>
                                                         <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                                                     </a>
 
                                                     <div class="dropdown-item fw-medium text-wrap stretched-link d-lg-none">
                                                         <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
-                                                        <?= Html::encode($parent['name']) ?>
+                                                        <?= Html::encode($parent['model']->name) ?>
                                                         <i class="ci-chevron-down fs-base ms-auto me-n1"></i>
                                                     </div>
                                                 </div>
-
 
                                                 <!-- Mega panel -->
                                                 <div class="dropdown-menu rounded-4 p-4"
@@ -266,11 +268,13 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                             <?php $children = $group['childs'] ?? []; ?>
 
                                                             <div style="min-width:194px">
+
                                                                 <!-- Level 2 (group) -->
                                                                 <div class="d-flex w-100">
-                                                                    <a class="animate-underline animate-target d-inline h6 text-dark-emphasis text-decoration-none text-truncate"
+                                                                    <a class="animate-underline animate-target d-inline h6 text-dark-emphasis
+                                      text-decoration-none text-truncate"
                                                                        href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $group['id']]) ?>">
-                                                                        <?= Html::encode($group['name']) ?>
+                                                                        <?= Html::encode($group['model']->getName()) ?>
                                                                     </a>
                                                                 </div>
 
@@ -278,13 +282,15 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                                                 <ul class="nav flex-column gap-2 mt-n2">
                                                                     <?php foreach ($children as $child): ?>
                                                                         <li class="d-flex w-100 pt-1">
-                                                                            <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0"
+                                                                            <a class="nav-link animate-underline animate-target d-inline fw-normal
+                                              text-truncate p-0"
                                                                                href="<?= \yii\helpers\Url::to(['/product/index', 'category' => $child['id']]) ?>">
-                                                                                <?= Html::encode($child['name']) ?>
+                                                                                <?= Html::encode($child['model']->getName()) ?>
                                                                             </a>
                                                                         </li>
                                                                     <?php endforeach; ?>
                                                                 </ul>
+
                                                             </div>
 
                                                         <?php endforeach; ?>
