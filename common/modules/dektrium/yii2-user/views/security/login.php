@@ -33,13 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <!-- Login form + Footer -->
         <div class="d-flex flex-column w-100 py-4 mx-auto my-auto me-lg-5" style="max-width: 416px">
 
-            <h1 class="h2">Welcome back</h1>
+            <h1 class="h2"><?= Yii::t('app', 'Welcome back') ?></h1>
 
             <?php if ($module->enableRegistration): ?>
                 <div class="nav fs-sm mb-4">
                     <a class="nav-link text-decoration-underline p-0 ms-2"
                        href="<?= Url::to(['/user/registration/register']) ?>">
-                        Don’t have an account? Sign up!
+                        <?= Yii::t('app', 'Don’t have an account? Sign up!') ?>
                     </a>
                 </div>
             <?php endif; ?>
@@ -139,7 +139,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="nav">
                         <a class="nav-link animate-underline p-0"
                            href="<?= Url::to(['/user/recovery/request']) ?>">
-                            <span class="animate-target">Forgot password?</span>
+                            <span class="animate-target"><?= Yii::t('app', 'Forgot password?') ?></span>
                         </a>
                     </div>
                 <?php endif; ?>
