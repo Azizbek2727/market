@@ -65,11 +65,11 @@ $tree = CategoryTree::build();
     <!-- Footer -->
     <div class="offcanvas-header flex-column align-items-start">
         <div class="d-flex align-items-center justify-content-between w-100 mb-3 mb-md-4">
-            <span class="text-light-emphasis">Subtotal:</span>
+            <span class="text-light-emphasis"><?= Yii::t('app', 'Subtotal:') ?></span>
             <span class="h6 mb-0 dvizh-cart-price"><?= Yii::$app->cart->getCostFormatted() ?></span>
         </div>
         <div class="d-flex w-100 gap-3">
-            <a class="btn btn-lg btn-primary w-100" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>">Checkout</a>
+            <a class="btn btn-lg btn-primary w-100" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>"><?= Yii::t('app', 'Checkout') ?></a>
         </div>
     </div>
 </div>
@@ -92,7 +92,7 @@ $tree = CategoryTree::build();
               <span class="d-none d-sm-flex flex-shrink-0 text-primary me-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><path d="M36 18.01c0 8.097-5.355 14.949-12.705 17.2a18.12 18.12 0 0 1-5.315.79C9.622 36 2.608 30.313.573 22.611.257 21.407.059 20.162 0 18.879v-1.758c.02-.395.059-.79.099-1.185.099-.908.277-1.817.514-2.686C2.687 5.628 9.682 0 18 0c5.572 0 10.551 2.528 13.871 6.517 1.502 1.797 2.648 3.91 3.359 6.201.494 1.659.771 3.436.771 5.292z" fill="currentColor"/><g fill="#fff"><path d="M17.466 21.624c-.514 0-.988-.316-1.146-.829-.198-.632.138-1.303.771-1.501l7.666-2.469-1.205-8.254-13.317 4.621a1.19 1.19 0 0 1-1.521-.75 1.19 1.19 0 0 1 .751-1.521l13.89-4.818c.553-.197 1.166-.138 1.64.158a1.82 1.82 0 0 1 .85 1.284l1.344 9.183c.138.987-.494 1.994-1.482 2.33l-7.864 2.528-.375.04zm7.31.138c-.178-.632-.85-1.007-1.482-.81l-5.177 1.58c-2.331.79-3.28.02-3.418-.099l-6.56-8.412a4.25 4.25 0 0 0-4.406-1.758l-3.122.987c-.237.889-.415 1.777-.514 2.686l4.228-1.363a1.84 1.84 0 0 1 1.857.81l6.659 8.551c.751.948 2.015 1.323 3.359 1.323.909 0 1.857-.178 2.687-.474l5.078-1.54c.632-.178 1.008-.829.81-1.481z"/><use href="#czlogo"/><use href="#czlogo" x="8.516" y="-2.172"/></g><defs><path id="czlogo" d="M18.689 28.654a1.94 1.94 0 0 1-1.936 1.935 1.94 1.94 0 0 1-1.936-1.935 1.94 1.94 0 0 1 1.936-1.935 1.94 1.94 0 0 1 1.936 1.935z"/></defs></svg>
               </span>
-                    Trendly
+                    <?= Yii::$app->name; ?>
                 </a>
             </div>
             <div class="col col-lg-9 d-flex align-items-center justify-content-end">
@@ -124,7 +124,7 @@ $tree = CategoryTree::build();
                       <span class="theme-icon d-flex fs-base me-2">
                         <i class="ci-sun"></i>
                       </span>
-                                    <span class="theme-label">Light</span>
+                                    <span class="theme-label"><?= Yii::t('app', 'Light') ?></span>
                                     <i class="item-active-indicator ci-check ms-auto"></i>
                                 </button>
                             </li>
@@ -133,7 +133,7 @@ $tree = CategoryTree::build();
                       <span class="theme-icon d-flex fs-base me-2">
                         <i class="ci-moon"></i>
                       </span>
-                                    <span class="theme-label">Dark</span>
+                                    <span class="theme-label"><?= Yii::t('app', 'Dark') ?></span>
                                     <i class="item-active-indicator ci-check ms-auto"></i>
                                 </button>
                             </li>
@@ -142,7 +142,7 @@ $tree = CategoryTree::build();
                       <span class="theme-icon d-flex fs-base me-2">
                         <i class="ci-auto"></i>
                       </span>
-                                    <span class="theme-label">Auto</span>
+                                    <span class="theme-label"><?= Yii::t('app', 'Auto') ?></span>
                                     <i class="item-active-indicator ci-check ms-auto"></i>
                                 </button>
                             </li>
@@ -157,13 +157,7 @@ $tree = CategoryTree::build();
                     <!-- Account button visible on screens > 768px wide (md breakpoint) -->
                     <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-shake d-none d-md-inline-flex" href="<?= \yii\helpers\Url::to(['/user/login']) ?>">
                         <i class="ci-user animate-target"></i>
-                        <span class="visually-hidden">Account</span>
-                    </a>
-
-                    <!-- Wishlist button visible on screens > 768px wide (md breakpoint) -->
-                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-pulse d-none d-md-inline-flex" href="/">
-                        <i class="ci-heart animate-target"></i>
-                        <span class="visually-hidden">Wishlist</span>
+                        <span class="visually-hidden"><?= Yii::t('app', 'Account') ?></span>
                     </a>
 
                     <!-- Cart button -->
@@ -189,7 +183,7 @@ $tree = CategoryTree::build();
     <div class="collapse position-absolute top-100 z-2 w-100 bg-dark d-lg-none" id="searchBar">
         <div class="container position-relative my-3" data-bs-theme="dark">
             <i class="ci-search position-absolute top-50 translate-middle-y d-flex fs-lg text-white ms-3"></i>
-            <input type="search" class="form-control form-icon-start border-white rounded-pill" placeholder="Search the products" data-autofocus="collapse">
+            <input type="search" class="form-control form-icon-start border-white rounded-pill" placeholder="<?= Yii::t('app', 'Search the products') ?>" data-autofocus="collapse">
         </div>
     </div>
 
@@ -197,7 +191,7 @@ $tree = CategoryTree::build();
     <div class="collapse navbar-stuck-hide" id="stuckNav">
         <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
             <div class="offcanvas-header py-3">
-                <h5 class="offcanvas-title" id="navbarNavLabel">Browse Trendly</h5>
+                <h5 class="offcanvas-title" id="navbarNavLabel"><?= Yii::t('app', 'Browse Trendly') ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body py-3 py-lg-0">
@@ -212,18 +206,18 @@ $tree = CategoryTree::build();
                                     <!-- Buttton visible on screens > 991px wide (lg breakpoint) -->
                                     <div class="cursor-pointer d-none d-lg-block" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-theme="dark">
                                         <a class="position-absolute top-0 start-0 w-100 h-100" href="">
-                                            <span class="visually-hidden">Categories</span>
+                                            <span class="visually-hidden"><?= Yii::t('app', 'Categories') ?></span>
                                         </a>
                                         <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 rounded-bottom-0 justify-content-start pe-none">
                                             <i class="ci-grid fs-lg"></i>
-                                            <span class="ms-2 me-auto">Categories</span>
+                                            <span class="ms-2 me-auto"><?= Yii::t('app', 'Categories') ?></span>
                                         </button>
                                     </div>
 
                                     <!-- Buttton visible on screens < 992px wide (lg breakpoint) -->
                                     <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 justify-content-start d-lg-none mb-2" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                         <i class="ci-grid fs-lg"></i>
-                                        <span class="ms-2 me-auto">Categories</span>
+                                        <span class="ms-2 me-auto"><?= Yii::t('app', 'Categories') ?></span>
                                     </button>
 
                                     <!-- Mega menu -->
@@ -231,7 +225,7 @@ $tree = CategoryTree::build();
                                         <li class="d-lg-none pt-2">
                                             <a class="dropdown-item fw-medium" href="<?= \yii\helpers\Url::to(['/product/index']) ?>">
                                                 <i class="ci-grid fs-xl opacity-60 pe-1 me-2"></i>
-                                                All Categories
+                                                <?= Yii::t('app', 'All Categories') ?>
                                                 <i class="ci-chevron-right fs-base ms-auto me-n1"></i>
                                             </a>
                                         </li>
@@ -308,18 +302,18 @@ $tree = CategoryTree::build();
                         <div class="col-lg-9 d-lg-flex pt-3 pt-lg-0 ps-lg-0">
                             <ul class="navbar-nav position-relative">
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
-                                    <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Home</a>
+                                    <a class="nav-link dropdown-toggle active" aria-current="page" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false"><?= Yii::t('app', 'Home') ?></a>
                                 </li>
                                 <li class="nav-item dropdown position-static me-lg-n1 me-xl-0">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Shop</a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false"><?= Yii::t('app', 'Shop') ?></a>
                                 </li>
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Account</a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false"><?= Yii::t('app', 'Account') ?></a>
                                 </li>
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false"><?= Yii::t('app', 'Pages') ?></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="">Terms &amp; Conditions</a></li>
+                                        <li><a class="dropdown-item" href=""><?= Yii::t('app', 'Terms &amp; Conditions') ?></a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -346,11 +340,7 @@ $tree = CategoryTree::build();
                 <div class="nav nav-justified w-100">
                     <a class="nav-link border-end" href="<?= \yii\helpers\Url::to(['/site/login']) ?>">
                         <i class="ci-user fs-lg opacity-60 me-2"></i>
-                        Account
-                    </a>
-                    <a class="nav-link" href="">
-                        <i class="ci-heart fs-lg opacity-60 me-2"></i>
-                        Wishlist
+                        <?= Yii::t('app', 'Account') ?>
                     </a>
                 </div>
             </div>
@@ -372,21 +362,21 @@ $tree = CategoryTree::build();
             <div class="row">
                 <div class="col-md-4 d-sm-flex flex-md-column align-items-center align-items-md-start pb-3 mb-sm-4">
                     <h4 class="mb-sm-0 mb-md-4 me-4">
-                        <a class="text-dark-emphasis text-decoration-none" href="/">Trendly</a>
+                        <a class="text-dark-emphasis text-decoration-none" href="/"><?= Yii::$app->name ?></a>
                     </h4>
-                    <p class="text-body fs-sm text-sm-end text-md-start mb-sm-0 mb-md-3 ms-0 ms-sm-auto ms-md-0 me-4">Got questions? Contact us 24/7</p>
+                    <p class="text-body fs-sm text-sm-end text-md-start mb-sm-0 mb-md-3 ms-0 ms-sm-auto ms-md-0 me-4"><?= Yii::t('app', 'Got questions? Contact us 24/7') ?></p>
                     <div class="dropdown" style="max-width: 250px">
                         <button type="button" class="btn btn-light dropdown-toggle justify-content-between w-100 d-none-dark" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Help and consultation
+                            <?= Yii::t('app', 'Help and consultation') ?>
                         </button>
                         <button type="button" class="btn btn-secondary dropdown-toggle justify-content-between w-100 d-none d-flex-dark" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Help and consultation
+                            <?= Yii::t('app', 'Help and consultation') ?>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#!">Help center &amp; FAQ</a></li>
-                            <li><a class="dropdown-item" href="#!">Support chat</a></li>
-                            <li><a class="dropdown-item" href="#!">Open support ticket</a></li>
-                            <li><a class="dropdown-item" href="#!">Call center</a></li>
+                            <li><a class="dropdown-item" href="#!"><?= Yii::t('app', 'Help center &amp; FAQ') ?></a></li>
+                            <li><a class="dropdown-item" href="#!"><?= Yii::t('app', 'Support chat') ?></a></li>
+                            <li><a class="dropdown-item" href="#!"><?= Yii::t('app', 'Open support ticket') ?></a></li>
+                            <li><a class="dropdown-item" href="#!"><?= Yii::t('app', 'Call center') ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -394,16 +384,16 @@ $tree = CategoryTree::build();
                     <div class="row row-cols-1 row-cols-sm-3 gx-3 gx-md-4">
                         <div class="accordion-item col border-0">
                             <h6 class="accordion-header" id="companyHeading">
-                                <span class="text-dark-emphasis d-none d-sm-block">Company</span>
-                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#companyLinks" aria-expanded="false" aria-controls="companyLinks">Company</button>
+                                <span class="text-dark-emphasis d-none d-sm-block"><?= Yii::t('app', 'Company') ?></span>
+                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#companyLinks" aria-expanded="false" aria-controls="companyLinks"><?= Yii::t('app', 'Company') ?></button>
                             </h6>
                             <div class="accordion-collapse collapse d-sm-block" id="companyLinks" aria-labelledby="companyHeading" data-bs-parent="#footerLinks">
                                 <ul class="nav flex-column gap-2 pt-sm-3 pb-3 mt-n1 mb-1">
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">About company</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'About company') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Contact us</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Contact us') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -411,22 +401,22 @@ $tree = CategoryTree::build();
                         </div>
                         <div class="accordion-item col border-0">
                             <h6 class="accordion-header" id="accountHeading">
-                                <span class="text-dark-emphasis d-none d-sm-block">Account</span>
-                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#accountLinks" aria-expanded="false" aria-controls="accountLinks">Account</button>
+                                <span class="text-dark-emphasis d-none d-sm-block"><?= Yii::t('app', 'Account') ?></span>
+                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#accountLinks" aria-expanded="false" aria-controls="accountLinks"><?= Yii::t('app', 'Account') ?></button>
                             </h6>
                             <div class="accordion-collapse collapse d-sm-block" id="accountLinks" aria-labelledby="accountHeading" data-bs-parent="#footerLinks">
                                 <ul class="nav flex-column gap-2 pt-sm-3 pb-3 mt-n1 mb-1">
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Your account</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Your account') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Shipping rates &amp; policies</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Shipping rates &amp; policies') ?> </a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Refunds &amp; replacements</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Refunds &amp; replacements') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Delivery info</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Delivery info') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -434,22 +424,22 @@ $tree = CategoryTree::build();
                         </div>
                         <div class="accordion-item col border-0">
                             <h6 class="accordion-header" id="customerHeading">
-                                <span class="text-dark-emphasis d-none d-sm-block">Customer service</span>
-                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#customerLinks" aria-expanded="false" aria-controls="customerLinks">Customer service</button>
+                                <span class="text-dark-emphasis d-none d-sm-block"><?= Yii::t('app', 'Customer service') ?></span>
+                                <button type="button" class="accordion-button collapsed py-3 d-sm-none" data-bs-toggle="collapse" data-bs-target="#customerLinks" aria-expanded="false" aria-controls="customerLinks"><?= Yii::t('app', 'Customer service') ?></button>
                             </h6>
                             <div class="accordion-collapse collapse d-sm-block" id="customerLinks" aria-labelledby="customerHeading" data-bs-parent="#footerLinks">
                                 <ul class="nav flex-column gap-2 pt-sm-3 pb-3 mt-n1 mb-1">
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Support center</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Support center') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Shipping</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Shipping') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!">Terms &amp; conditions</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="#!"><?= Yii::t('app', 'Terms &amp; conditions') ?></a>
                                     </li>
                                     <li class="d-flex w-100 pt-1">
-                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="/Trenddly_Confidentiality_Policy.pdf">Privacy Policy</a>
+                                        <a class="nav-link animate-underline animate-target d-inline fw-normal text-truncate p-0" href="/Trenddly_Confidentiality_Policy.pdf"><?= Yii::t('app', 'Privacy Policy') ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -461,106 +451,36 @@ $tree = CategoryTree::build();
         </div>
 
         <!-- Category / tag links -->
+        <?php
+
+        // Use top-level categories (parents)
+        $categories = array_map(fn($n) => $n['model'], $tree);
+
+        // Split into rows of 10 items (adjust)
+        $rows = array_chunk($categories, 6);
+        ?>
+
         <div class="d-flex flex-column gap-3 pb-3 pb-md-4 pb-lg-5 mt-n2 mt-sm-n4 mt-lg-0 mb-4">
-            <ul class="nav align-items-center text-body-tertiary gap-2">
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Computers</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Smartphones</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">TV, Video</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Speakers</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Cameras</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Printers</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Video Games</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Headphones</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Wearable</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">HDD/SSD</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Smart Home</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Apple Devices</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Tablets</a>
-                </li>
-            </ul>
-            <ul class="nav align-items-center text-body-tertiary gap-2">
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Monitors</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Scanners</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Servers</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Heating and Cooling</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">E-readers</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Data Storage</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Networking</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Power Strips</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Plugs and Outlets</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Detectors and Sensors</a>
-                </li>
-                <li class="px-1">/</li>
-                <li class="animate-underline">
-                    <a class="nav-link fw-normal p-0 animate-target" href="#!">Accessories</a>
-                </li>
-            </ul>
+
+            <?php foreach ($rows as $row): ?>
+                <ul class="nav align-items-center text-body-tertiary gap-2">
+
+                    <?php foreach ($row as $cat): ?>
+                        <li class="animate-underline">
+                            <a class="nav-link fw-normal p-0 animate-target"
+                               href="<?= Url::to(['/product/index', 'category' => $cat->id]) ?>">
+                                <?= Html::encode($cat->getName()) ?>
+                            </a>
+                        </li>
+
+                        <li class="px-1">/</li>
+                    <?php endforeach; ?>
+
+                </ul>
+            <?php endforeach; ?>
+
         </div>
+
 
         <!-- Copyright + Payment methods -->
         <div class="d-md-flex align-items-center border-top py-4">
@@ -571,17 +491,8 @@ $tree = CategoryTree::build();
                 <div>
                     <img src="/cartzilla/assets/img/payment-methods/mastercard.svg" alt="Mastercard">
                 </div>
-                <div>
-                    <img src="/cartzilla/assets/img/payment-methods/paypal-dark-mode.svg" alt="PayPal">
-                </div>
-                <div>
-                    <img src="/cartzilla/assets/img/payment-methods/google-pay-dark-mode.svg" alt="Google Pay">
-                </div>
-                <div>
-                    <img src="/cartzilla/assets/img/payment-methods/apple-pay-dark-mode.svg" alt="Apple Pay">
-                </div>
             </div>
-            <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1">&copy; All rights reserved.</p>
+            <p class="text-body fs-xs text-center text-md-start mb-0 me-4 order-md-1"><?= Yii::t('app', '&copy; All rights reserved.') ?></p>
         </div>
     </div>
 </footer>
@@ -590,7 +501,7 @@ $tree = CategoryTree::build();
 <!-- Back to top button -->
 <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
     <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
-        Top
+        <?= Yii::t('app', 'Top') ?>
         <i class="ci-arrow-right fs-base ms-1 me-n1 animate-target"></i>
         <span class="position-absolute top-0 start-0 w-100 h-100 border rounded-pill z-0"></span>
         <svg class="position-absolute top-0 start-0 w-100 h-100 z-1" viewBox="0 0 62 32" fill="none" xmlns="http://www.w3.org/2000/svg">
