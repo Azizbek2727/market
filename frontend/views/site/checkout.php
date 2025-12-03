@@ -12,7 +12,7 @@ use frontend\assets\ProductAssets;
 
 ProductAssets::register($this);
 \dvizh\cart\assets\WidgetAsset::register($this);
-$this->title = Yii::t('app', 'Checkout');
+$this->title = Yii::t('frontend', 'Checkout');
 ?>
 
 <!-- Page content -->
@@ -26,7 +26,7 @@ $this->title = Yii::t('app', 'Checkout');
                     <div class="d-flex align-items-start">
                         <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle fs-sm fw-semibold lh-1 flex-shrink-0" style="width: 2rem; height: 2rem; margin-top: -.125rem">2</div>
                         <div class="w-100 ps-3 ps-md-4">
-                            <h1 class="h5 mb-md-4"><?= Yii::t('app', 'Shipping address') ?></h1>
+                            <h1 class="h5 mb-md-4"><?= Yii::t('frontend', 'Shipping address') ?></h1>
                             <?= OrderForm::widget() ?>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ $this->title = Yii::t('app', 'Checkout');
                     <!-- Payment -->
                     <div class="d-flex align-items-start">
                         <div class="d-flex align-items-center justify-content-center bg-body-secondary text-body-secondary rounded-circle fs-sm fw-semibold lh-1 flex-shrink-0" style="width: 2rem; height: 2rem; margin-top: -.125rem">3</div>
-                        <h2 class="h5 text-body-secondary ps-3 ps-md-4 mb-0"><?= Yii::t('app', 'Payment') ?></h2>
+                        <h2 class="h5 text-body-secondary ps-3 ps-md-4 mb-0"><?= Yii::t('frontend', 'Payment') ?></h2>
                     </div>
                 </div>
             </div>
@@ -47,9 +47,9 @@ $this->title = Yii::t('app', 'Checkout');
                         <div class="p-sm-2 p-lg-0 p-xl-2">
                             <div class="border-bottom pb-4 mb-4">
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <h5 class="mb-0"><?= Yii::t('app', 'Order summary') ?></h5>
+                                    <h5 class="mb-0"><?= Yii::t('frontend', 'Order summary') ?></h5>
                                     <div class="nav">
-                                        <a class="nav-link text-decoration-underline p-0" href=""><?= Yii::t('app', 'Edit') ?></a>
+                                        <a class="nav-link text-decoration-underline p-0" href=""><?= Yii::t('frontend', 'Edit') ?></a>
                                     </div>
                                 </div>
                                 <a class="d-flex align-items-center gap-2 text-decoration-none" href="#orderPreview" data-bs-toggle="offcanvas">
@@ -67,25 +67,25 @@ $this->title = Yii::t('app', 'Checkout');
                             </div>
                             <ul class="list-unstyled fs-sm gap-3 mb-0">
                                 <li class="d-flex justify-content-between">
-                                    <?= Yii::t('app', 'Subtotal') ?>:
+                                    <?= Yii::t('frontend', 'Subtotal') ?>:
                                     <span class="text-dark-emphasis fw-medium">$2,427.00</span>
                                 </li>
                                 <li class="d-flex justify-content-between">
-                                    <?= Yii::t('app', 'Saving:') ?>
+                                    <?= Yii::t('frontend', 'Saving:') ?>
                                     <span class="text-danger fw-medium">-$110.00</span>
                                 </li>
                                 <li class="d-flex justify-content-between">
-                                    <?= Yii::t('app', 'Tax collected:') ?>
+                                    <?= Yii::t('frontend', 'Tax collected:') ?>
                                     <span class="text-dark-emphasis fw-medium">$73.40</span>
                                 </li>
                                 <li class="d-flex justify-content-between">
-                                    <?= Yii::t('app', 'Shipping:') ?>
+                                    <?= Yii::t('frontend', 'Shipping:') ?>
                                     <span class="text-dark-emphasis fw-medium">$16.50</span>
                                 </li>
                             </ul>
                             <div class="border-top pt-4 mt-4">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <span class="fs-sm"><?= Yii::t('app', 'Estimated total:') ?></span>
+                                    <span class="fs-sm"><?= Yii::t('frontend', 'Estimated total:') ?></span>
                                     <span class="h5 mb-0">$2,406.90</span>
                                 </div>
                             </div>
