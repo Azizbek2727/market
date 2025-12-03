@@ -67,8 +67,10 @@ class SliderController extends Controller
             if ($model->url==="")
                 $model->url="#";
 
-            if($model->save())
+            if($model->save()){
+                $model->saveTranslations();
                 return $this->redirect(['index']);
+            }
             //return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -91,8 +93,10 @@ class SliderController extends Controller
             if ($model->url==="")
                 $model->url="#";
 
-            if($model->save())
+            if($model->save()){
+                $model->saveTranslations();
                 return $this->redirect(['index']);
+            }
         }
 
         return $this->render('update', ['model' => $model,]);

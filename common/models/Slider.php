@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use common\models\TranslatableTrait;
 
 /**
  * This is the model class for table "slider".
@@ -14,6 +15,24 @@ use Yii;
  */
 class Slider extends \yii\db\ActiveRecord
 {
+    use TranslatableTrait;
+
+    public function getTranslatableAttributes()
+    {
+        return [
+            'name',
+            'short_text',
+        ];
+    }
+
+    public function getTranslationWidgets()
+    {
+        return [
+            'name' => 'input',        // simple text input
+            'short_text' => 'imperavi',
+        ];
+    }
+
     function behaviors()
     {
         return [
@@ -54,5 +73,17 @@ class Slider extends \yii\db\ActiveRecord
             'short_text' => 'Краткое описание',
             'sort' => 'Порядок',
         ];
+    }
+
+    // convenience getters used by views (so $product->name works unchanged)
+    public function getName()
+    {
+        return $this->tOrOrig('name');
+    }
+
+    // convenience getters used by views (so $product->name works unchanged)
+    public function getShort_text()
+    {
+        return $this->tOrOrig('short_text');
     }
 }

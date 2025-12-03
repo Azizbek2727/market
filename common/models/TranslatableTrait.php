@@ -61,11 +61,15 @@ trait TranslatableTrait
      */
     public function tOrOrig($attribute, $lang = null)
     {
+        // check translation first
         $translated = $this->getTranslated($attribute, $lang);
-        if ($translated !== null) return $translated;
+        if (!empty($translated)) { // detects non-empty string
+            return $translated;
+        }
 
-        // return original attribute value
-        return $this->{$attribute} ?? null;
+        // fallback DB value (also treat empty as null)
+        $original = $this->{$attribute} ?? null;
+        return !empty($original) ? $original : null;
     }
 
     public function saveTranslations()

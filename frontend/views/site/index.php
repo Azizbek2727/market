@@ -23,6 +23,13 @@ use dvizh\certificate\widgets\CertificateWidget;
 
 $this->title = Yii::$app->name;
 \frontend\assets\ProductAssets::register($this);
+
+//foreach ($sliders as $slider):
+//var_dump($slider->getName());
+//var_dump($slider->getShort_text());
+//
+//endforeach;
+//die();
 ?>
 <!-- Page content -->
 <main class="content-wrapper">
@@ -55,8 +62,8 @@ $this->title = Yii::$app->name;
                                 <div class="swiper-wrapper">
                                     <?php foreach ($sliders as $slider): ?>
                                     <div class="swiper-slide text-center text-xl-start pt-5 py-xl-5">
-                                        <p class="text-body"><?= $slider->short_text ?></p>
-                                        <h2 class="display-4 pb-2 pb-xl-4"><?= $slider->name ?></h2>
+                                        <p class="text-body"><?= $slider->getShort_text() ?></p>
+                                        <h2 class="display-4 pb-2 pb-xl-4"><?= $slider->getName() ?></h2>
                                         <a class="btn btn-lg btn-primary" href="<?= $slider->url ?>">
                                             Shop now
                                             <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>

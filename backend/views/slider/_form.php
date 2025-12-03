@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
@@ -12,6 +13,15 @@ use vova07\imperavi\Widget;
 <div class="slider-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+
+    <?= Tabs::widget([
+        'items' => array_map(function ($lang) use ($model) {
+            return [
+                'label' => $lang,
+                'content' => $this->render('../_trans_fields', ['lang' => $lang, 'model' => $model]),
+            ];
+        }, Yii::$app->params['languages'])
+    ]); ?>
 
     <div class="col-md-6 col-lg-4">
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
