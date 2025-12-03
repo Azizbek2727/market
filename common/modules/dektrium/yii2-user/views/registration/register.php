@@ -44,12 +44,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <!-- Optional benefit section (hidden for now) -->
             <div class="nav fs-sm mb-4 d-lg-none">
-                <span class="me-2">Uncertain about creating an account?</span>
+                <span class="me-2"><?= Yii::t('app', 'Uncertain about creating an account?') ?></span>
                 <a class="nav-link text-decoration-underline p-0"
                    href="#benefits"
                    data-bs-toggle="offcanvas"
                    aria-controls="benefits">
-                    Explore the Benefits
+                    <?= Yii::t('app', 'Explore the Benefits') ?>
                 </a>
             </div>
 
@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="privacy" required>
                     <label for="privacy" class="form-check-label">
-                        I have read and accept the <a class="text-dark-emphasis" href="/">Privacy Policy</a>
+                        <?= Yii::t('app', 'I have read and accept the') ?> <a class="text-dark-emphasis" href="/Trenddly_Confidentiality_Policy.pdf"><?= Yii::t('app', 'Privacy Policy') ?></a>
                     </label>
                 </div>
             </div>
@@ -149,7 +149,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <span class="position-absolute top-0 start-0 w-100 h-100 rounded-5 d-none d-block-dark" style="background: linear-gradient(-90deg, #1b273a 0%, #1f2632 100%)"></span>
                 </div>
                 <div class="position-relative z-2 w-100 text-center px-md-2 p-lg-5">
-                    <h2 class="h4 pb-3">Cartzilla account benefits</h2>
+                    <h2 class="h4 pb-3"><?= Yii::t('app', 'Trendly account benefits') ?></h2>
                     <div class="mx-auto" style="max-width: 790px">
                         <div class="row row-cols-1 row-cols-sm-2 g-3 g-md-4 g-lg-3 g-xl-4">
                             <div class="col">
@@ -162,7 +162,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-mail position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">Subscribe to your favorite products</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'Subscribe to your favorite products') ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-settings position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">View and manage your orders and wishlist</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'View and manage your orders and wishlist') ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-gift position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">Earn rewards for future purchases</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'Earn rewards for future purchases') ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +204,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-percent position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">Receive exclusive offers and discounts</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'Receive exclusive offers and discounts') ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-heart position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">Create multiple wishlists</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'Create multiple wishlists') ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +232,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <span class="position-absolute top-0 start-0 w-100 h-100 bg-body-secondary rounded-pill d-none d-block-dark"></span>
                                             <i class="ci-pie-chart position-relative z-2 fs-4 m-1"></i>
                                         </div>
-                                        <h3 class="h6 pt-2 my-2">Pay for purchases by installments</h3>
+                                        <h3 class="h6 pt-2 my-2"><?= Yii::t('app', 'Pay for purchases by installments') ?></h3>
                                     </div>
                                 </div>
                             </div>
