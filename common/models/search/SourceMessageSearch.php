@@ -1,8 +1,9 @@
 <?php
 
-namespace common\models;
+namespace common\models\search;
 
 use yii\data\ActiveDataProvider;
+use common\models\SourceMessage;
 
 class SourceMessageSearch extends SourceMessage
 {

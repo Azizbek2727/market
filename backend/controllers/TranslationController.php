@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\SourceMessage;
-use common\models\SourceMessageSearch;
+use common\models\search\SourceMessageSearch;
 use yii\web\Controller;
 
 class TranslationController extends Controller
