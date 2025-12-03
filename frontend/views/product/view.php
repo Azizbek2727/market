@@ -31,21 +31,6 @@ $this->title = $model->getName();
     <h1 class="h3 container mb-4"><?= $model->getName() ?></h1>
 
 
-    <!-- Nav links + Reviews -->
-    <section class="container pb-2 pb-lg-4">
-        <div class="d-flex align-items-center border-bottom">
-            <ul class="nav nav-underline flex-nowrap gap-4">
-                <li class="nav-item me-sm-2">
-                    <a class="nav-link pe-none active" href="#!">General info</a>
-                </li>
-                <li class="nav-item me-sm-2">
-                    <a class="nav-link" href="">Product details</a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-
     <!-- Gallery + Product options -->
     <section class="container pb-5 mb-1 mb-sm-2 mb-md-3 mb-lg-4 mb-xl-5">
         <div class="row">
@@ -196,12 +181,6 @@ $this->title = $model->getName();
                 <!-- Product details -->
                 <h2 class="h3 pb-2 pb-md-3">Product details</h2>
                 <?= $model->getText(); ?>
-                <div class="nav">
-                    <a class="nav-link text-primary animate-underline px-0" href="">
-                        <span class="animate-target">See all product details</span>
-                        <i class="ci-chevron-right fs-base ms-1"></i>
-                    </a>
-                </div>
 
             </div>
 

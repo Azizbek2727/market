@@ -309,16 +309,6 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                 </li>
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Account</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropend">
-                                            <a class="dropdown-item dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" aria-expanded="false">Auth Pages</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="account-signin.html">Sign In</a></li>
-                                                <li><a class="dropdown-item" href="account-signup.html">Sign Up</a></li>
-                                                <li><a class="dropdown-item" href="account-password-recovery.html">Password Recovery</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
