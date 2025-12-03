@@ -31,23 +31,34 @@ return [
             'rules' => [
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'enableCaching' => false,
+                    'sourceMessageTable' => 'i18n_source',
+                    'messageTable' => 'i18n_message',
+                ],
+            ],
+        ],
         'assetManager' => [
             'forceCopy' => false,
         ],
         'settings' => [
             'class' => \pheme\settings\components\Settings::class,
         ],
-        'i18n' => [
-            'translations' => [
-                '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/messages', //
-                    'sourceLanguage' => 'ru',
-                    'fileMap' => [
-                    ],
-                ],
-            ],
-        ],
+//        'i18n' => [
+//            'translations' => [
+//                '*' => [
+//                    'class' => 'yii\i18n\PhpMessageSource',
+//                    'basePath' => '@common/messages', //
+//                    'sourceLanguage' => 'ru',
+//                    'fileMap' => [
+//                    ],
+//                ],
+//            ],
+//        ],
         'authManager' => [
             'class' => 'dektrium\rbac\components\DbManager',
             'itemTable' => '{{%rbac_auth_item}}',
