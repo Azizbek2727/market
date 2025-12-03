@@ -96,7 +96,7 @@ $this->title = 'Thank You!'
                                             </li>
                                         </ul>
                                     </div>
-                                    <a class="d-block rounded-top overflow-hidden p-3 p-sm-4" href="shop-product-general-electronics.html">
+                                    <a class="d-block rounded-top overflow-hidden p-3 p-sm-4" href="">
                                         <span class="badge bg-danger position-absolute top-0 start-0 mt-2 ms-2 mt-lg-3 ms-lg-3">-21%</span>
                                         <div class="ratio" style="--cz-aspect-ratio: calc(240 / 258 * 100%)">
                                             <img src="/cartzilla/assets/img/shop/electronics/01.png" alt="VR Glasses">
@@ -115,7 +115,7 @@ $this->title = 'Thank You!'
                                         <span class="text-body-tertiary fs-xs">(123)</span>
                                     </div>
                                     <h3 class="pb-1 mb-2">
-                                        <a class="d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                                        <a class="d-block fs-sm fw-medium text-truncate" href="">
                                             <span class="animate-target">VRB01 Virtual Reality Glasses</span>
                                         </a>
                                     </h3>
@@ -162,7 +162,7 @@ $this->title = 'Thank You!'
                                             </li>
                                         </ul>
                                     </div>
-                                    <a class="d-block rounded-top overflow-hidden p-3 p-sm-4" href="shop-product-general-electronics.html">
+                                    <a class="d-block rounded-top overflow-hidden p-3 p-sm-4" href="">
                                         <div class="ratio" style="--cz-aspect-ratio: calc(240 / 258 * 100%)">
                                             <img src="/cartzilla/assets/img/shop/electronics/14.png" alt="iPhone 14">
                                         </div>
@@ -180,7 +180,7 @@ $this->title = 'Thank You!'
                                         <span class="text-body-tertiary fs-xs">(142)</span>
                                     </div>
                                     <h3 class="pb-1 mb-2">
-                                        <a class="d-block fs-sm fw-medium text-truncate" href="shop-product-general-electronics.html">
+                                        <a class="d-block fs-sm fw-medium text-truncate" href="">
                                             <span class="animate-target">Apple iPhone 14 128GB Blue</span>
                                         </a>
                                     </h3>
@@ -195,7 +195,7 @@ $this->title = 'Thank You!'
                         </div>
                     </div>
 
-                    <a class="btn btn-lg btn-primary w-100" href="shop-catalog-electronics.html">
+                    <a class="btn btn-lg btn-primary w-100" href="/">
                         Continue shopping
                         <i class="ci-chevron-right fs-lg ms-1 me-n1"></i>
                     </a>

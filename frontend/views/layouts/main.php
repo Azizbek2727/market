@@ -208,7 +208,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
 
                                     <!-- Buttton visible on screens > 991px wide (lg breakpoint) -->
                                     <div class="cursor-pointer d-none d-lg-block" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-theme="dark">
-                                        <a class="position-absolute top-0 start-0 w-100 h-100" href="shop-categories-electronics.html">
+                                        <a class="position-absolute top-0 start-0 w-100 h-100" href="">
                                             <span class="visually-hidden">Categories</span>
                                         </a>
                                         <button type="button" class="btn btn-lg btn-secondary dropdown-toggle w-100 rounded-bottom-0 justify-content-start pe-none">
@@ -313,7 +313,7 @@ $tree = \dvizh\shop\models\Category::buildTree();
                                 <li class="nav-item dropdown me-lg-n1 me-xl-0">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Pages</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                                        <li><a class="dropdown-item" href="">Terms &amp; Conditions</a></li>
                                     </ul>
                                 </li>
                             </ul>
