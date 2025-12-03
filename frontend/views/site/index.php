@@ -24,12 +24,6 @@ use dvizh\certificate\widgets\CertificateWidget;
 $this->title = Yii::$app->name;
 \frontend\assets\ProductAssets::register($this);
 
-//foreach ($sliders as $slider):
-//var_dump($slider->getName());
-//var_dump($slider->getShort_text());
-//
-//endforeach;
-//die();
 ?>
 <!-- Page content -->
 <main class="content-wrapper">
@@ -65,7 +59,7 @@ $this->title = Yii::$app->name;
                                         <p class="text-body"><?= $slider->getShort_text() ?></p>
                                         <h2 class="display-4 pb-2 pb-xl-4"><?= $slider->getName() ?></h2>
                                         <a class="btn btn-lg btn-primary" href="<?= $slider->url ?>">
-                                            Shop now
+                                            <?= Yii::t('app', 'Shop now') ?>
                                             <i class="ci-arrow-up-right fs-lg ms-2 me-n1"></i>
                                         </a>
                                     </div>
@@ -123,8 +117,8 @@ $this->title = Yii::$app->name;
                         <i class="ci-delivery fs-2 m-xxl-1"></i>
                     </div>
                     <div class="text-center text-xxl-start ps-xxl-3">
-                        <h3 class="h6 mb-1">Free Shipping &amp; Returns</h3>
-                        <p class="fs-sm mb-0">For all orders over $199.00</p>
+                        <h3 class="h6 mb-1"><?= Yii::t('app', 'Free Shipping &amp; Returns') ?></h3>
+                        <p class="fs-sm mb-0"><?= Yii::t('app', 'For all orders over $199.00') ?></p>
                     </div>
                 </div>
             </div>
@@ -136,8 +130,8 @@ $this->title = Yii::$app->name;
                         <i class="ci-credit-card fs-2 m-xxl-1"></i>
                     </div>
                     <div class="text-center text-xxl-start ps-xxl-3">
-                        <h3 class="h6 mb-1">Secure Payment</h3>
-                        <p class="fs-sm mb-0">We ensure secure payment</p>
+                        <h3 class="h6 mb-1"><?= Yii::t('app', 'Secure Payment') ?></h3>
+                        <p class="fs-sm mb-0"><?= Yii::t('app', 'We ensure secure payment') ?></p>
                     </div>
                 </div>
             </div>
@@ -149,8 +143,8 @@ $this->title = Yii::$app->name;
                         <i class="ci-refresh-cw fs-2 m-xxl-1"></i>
                     </div>
                     <div class="text-center text-xxl-start ps-xxl-3">
-                        <h3 class="h6 mb-1">Money Back Guarantee</h3>
-                        <p class="fs-sm mb-0">Returning money 30 days</p>
+                        <h3 class="h6 mb-1"><?= Yii::t('app', 'Money Back Guarantee') ?></h3>
+                        <p class="fs-sm mb-0"><?= Yii::t('app', 'Returning money 30 days') ?></p>
                     </div>
                 </div>
             </div>
@@ -162,8 +156,8 @@ $this->title = Yii::$app->name;
                         <i class="ci-chat fs-2 m-xxl-1"></i>
                     </div>
                     <div class="text-center text-xxl-start ps-xxl-3">
-                        <h3 class="h6 mb-1">24/7 Customer Support</h3>
-                        <p class="fs-sm mb-0">Friendly customer support</p>
+                        <h3 class="h6 mb-1"><?= Yii::t('app', '24/7 Customer Support') ?> </h3>
+                        <p class="fs-sm mb-0"><?= Yii::t('app', 'Friendly customer support') ?></p>
                     </div>
                 </div>
             </div>
@@ -173,7 +167,7 @@ $this->title = Yii::$app->name;
 
     <!-- New arrivals (List) -->
     <section class="container pt-5 mt-1 mt-sm-2 mt-md-3 mt-lg-4">
-        <h2 class="h3 pb-2 pb-sm-3">New arrivals</h2>
+        <h2 class="h3 pb-2 pb-sm-3"><?= Yii::t('app', 'New arrivals') ?></h2>
         <div class="row">
 
             <!-- Product list -->
@@ -210,7 +204,7 @@ $this->title = Yii::$app->name;
 <div class="position-relative animate-underline d-flex align-items-center ps-xl-3">
 
     <div class="ratio ratio-1x1 flex-shrink-0" style="width:110px">
-        <img src="{$image}" alt="{$model->name}">
+        <img src="{$image}" alt="{$model->getName()}">
     </div>
 
     <div class="w-100 min-w-0 ps-2 ps-sm-3">
@@ -240,10 +234,10 @@ HTML;
 
         <!-- Heading -->
         <div class="d-flex align-items-center justify-content-between border-bottom pb-3 pb-md-4">
-            <h2 class="h3 mb-0">Trending products</h2>
+            <h2 class="h3 mb-0"><?= Yii::t('app', 'Trending products') ?></h2>
             <div class="nav ms-3">
                 <a class="nav-link animate-underline px-0 py-2" href="">
-                    <span class="animate-target">View all</span>
+                    <span class="animate-target"><?= Yii::t('app', 'View all') ?></span>
                     <i class="ci-chevron-right fs-base ms-1"></i>
                 </a>
             </div>
@@ -322,7 +316,7 @@ HTML;
     <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
         <h3 class="pb-1 mb-2">
             <a class="d-block fs-sm fw-medium text-truncate" href="{$url}">
-                <span class="animate-target">{$model->name}</span>
+                <span class="animate-target">{$model->getName()}</span>
             </a>
         </h3>
 
@@ -368,7 +362,7 @@ HTML;
             <?php endforeach; ?>
             <div class="col">
                 <a class="btn btn-outline-secondary w-100 h-100 rounded-4 p-3" href="/">
-                    All brands
+                    <?= Yii::t('app', 'All brands') ?>
                     <i class="ci-plus-circle fs-base ms-2"></i>
                 </a>
             </div>
