@@ -34,6 +34,24 @@ return [
                 return new League\Flysystem\Filesystem($adapter);
             },
         ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'enableCaching' => false,
+                    'sourceMessageTable' => '{{i18n_source}}',
+                    'messageTable' => '{{i18n_message}}',
+                ],
+                'app*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'enableCaching' => false,
+                    'sourceMessageTable' => '{{%i18n_source}}',
+                    'messageTable' => '{{%i18n_message}}',
+                ],
+            ],
+        ],
         'view' => [
             'theme' => [
                 'pathMap' => [

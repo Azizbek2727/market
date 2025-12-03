@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'en',
     'controllerNamespace' => 'frontend\controllers',
     'modules' => [
         'user' => [
@@ -32,7 +33,6 @@ return [
     ],
 
     'components' => [
-        'language' => 'en',      // default language
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -43,8 +43,18 @@ return [
         'i18n' => [
             'translations' => [
                 '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@frontend/messages',
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'enableCaching' => false,
+                    'sourceMessageTable' => '{{%i18n_source}}',
+                    'messageTable' => '{{%i18n_message}}',
+                ],
+                'app*' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'en',
+                    'enableCaching' => false,
+                    'sourceMessageTable' => '{{%i18n_source}}',
+                    'messageTable' => '{{%i18n_message}}',
                 ],
             ],
         ],
