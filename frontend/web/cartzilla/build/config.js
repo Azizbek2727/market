@@ -23,11 +23,11 @@ const config = {
   },
   jsBanner: `
   /*!
-   * Cartzilla | Multipurpose E-Commerce Bootstrap HTML Template
-   * Copyright 2025 Coderthemes
+   * Trendly | Multipurpose E-Commerce Bootstrap HTML Template
+   * Copyright 2025
    * Theme scripts
    *
-   * @copyright Coderthemes
+   * @copyright
    * @version 1.0.0
    */
   `,
