@@ -22,7 +22,11 @@ return [
         'rbac' => 'dektrium\rbac\RbacWebModule',
         'shop' => [
             'class' => 'dvizh\shop\Module',
-            'controllerNamespace' => 'backend\controllers',
+            'controllerMap' => [
+                // if you want to override only some controllers
+                'product' => 'backend\controllers\ProductController',
+            ],
+//            'controllerNamespace' => 'backend\controllers',
         ],
     ],
     'components' => [
