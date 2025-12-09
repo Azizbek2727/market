@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
+use frontend\assets\ProductAssets;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
@@ -60,12 +62,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <i class="ci-user fs-base opacity-75 me-2"></i>
                                 <?= Yii::t('frontend', 'Personal info') ?>
                             </a>
-                            <a class="list-group-item list-group-item-action d-flex align-items-center" href="/">
-                                <i class="ci-map-pin fs-base opacity-75 me-2"></i>
-                                <?= Yii::t('frontend', 'Addresses') ?>
-                            </a>
                         </nav>
-                        <h6 class="pt-4 ps-2 ms-1">Customer service</h6>
+                        <h6 class="pt-4 ps-2 ms-1"><?= Yii::t('frontend', 'Customer service') ?></h6>
                         <nav class="list-group list-group-borderless">
                             <a class="list-group-item list-group-item-action d-flex align-items-center" href="/">
                                 <i class="ci-help-circle fs-base opacity-75 me-2"></i>
@@ -77,7 +75,18 @@ $this->params['breadcrumbs'][] = $this->title;
                             </a>
                         </nav>
                         <nav class="list-group list-group-borderless pt-3">
-                            <a class="list-group-item list-group-item-action d-flex align-items-center" href="/">
+                            <form id="logout-form"
+                                  action="<?= Url::to(['/user/security/logout']) ?>"
+                                  method="post"
+                                  style="display:none;">
+                                <input type="hidden" name="<?= Yii::$app->request->csrfParam ?>"
+                                       value="<?= Yii::$app->request->csrfToken ?>">
+                            </form>
+
+
+                            <a class="list-group-item list-group-item-action d-flex align-items-center"
+                               href="#"
+                               onclick="document.getElementById('logout-form').submit(); return false;">
                                 <i class="ci-log-out fs-base opacity-75 me-2"></i>
                                 <?= Yii::t('frontend', 'Log out') ?>
                             </a>
@@ -103,7 +112,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="collapse basic-info show" id="basicInfoPreview">
                             <ul class="list-unstyled fs-sm m-0">
                                 <li><?= $profile->user->username ?></li>
-                                <li>May 12, 1996</li>
                                 <li><?= Yii::$app->params['availableLanguages'][Yii::$app->language] ?></li>
                             </ul>
                         </div>

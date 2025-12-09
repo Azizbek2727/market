@@ -15,7 +15,7 @@ CartzillaAssets::register($this);
 
 $tree = CategoryTree::build();
 
-$profile_url = Yii::$app->user->isGuest ? Url::to(['/site/login']) : Url::to(['/user/profile']);
+$profile_url = Yii::$app->user->isGuest ? Url::to(['/user/login']) : Url::to(['/user/profile']);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
