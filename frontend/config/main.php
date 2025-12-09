@@ -9,12 +9,17 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'dektrium\rbac\Bootstrap',],
     'language' => 'en',
     'controllerNamespace' => 'frontend\controllers',
     'modules' => [
         'user' => [
             'as frontend' => 'dektrium\user\filters\FrontendFilter',
+//            'class' => 'common\modules\dektrium\yii2-user\Module',
+            'controllerMap' => [
+                'profile' => 'frontend\controllers\user\ProfileController',
+            ],
+//            'viewPath' => '@frontend/views/user', // <— THIS is the fix
         ],
         'order' => [
             'class' => 'dvizh\order\Module',
@@ -38,6 +43,13 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'language/<lang:\w+>' => 'language/switch',
+            ],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@frontend/views/user',
+                ],
             ],
         ],
         'i18n' => [
