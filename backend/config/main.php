@@ -25,6 +25,7 @@ return [
             'controllerMap' => [
                 // if you want to override only some controllers
                 'product' => 'backend\controllers\ProductController',
+                'category' => 'backend\controllers\CategoryController'
             ],
 //            'controllerNamespace' => 'backend\controllers',
         ],
