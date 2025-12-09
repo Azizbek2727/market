@@ -15,6 +15,7 @@ CartzillaAssets::register($this);
 
 $tree = CategoryTree::build();
 
+$profile_url = Yii::$app->user->isGuest ? Url::to(['/site/login']) : Url::to(['/user/profile']);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -155,7 +156,7 @@ $tree = CategoryTree::build();
                     </button>
 
                     <!-- Account button visible on screens > 768px wide (md breakpoint) -->
-                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-shake d-none d-md-inline-flex" href="<?= \yii\helpers\Url::to(['/user/login']) ?>">
+                    <a class="btn btn-icon btn-lg fs-lg btn-outline-secondary border-0 rounded-circle animate-shake d-none d-md-inline-flex" href="<?= $profile_url ?>">
                         <i class="ci-user animate-target"></i>
                         <span class="visually-hidden"><?= Yii::t('frontend', 'Account') ?></span>
                     </a>
@@ -338,7 +339,7 @@ $tree = CategoryTree::build();
             </div>
             <div class="offcanvas-header border-top px-0 py-3 mt-3 d-md-none">
                 <div class="nav nav-justified w-100">
-                    <a class="nav-link border-end" href="<?= \yii\helpers\Url::to(['/site/login']) ?>">
+                    <a class="nav-link border-end" href="<?= $profile_url ?>">
                         <i class="ci-user fs-lg opacity-60 me-2"></i>
                         <?= Yii::t('frontend', 'Account') ?>
                     </a>
