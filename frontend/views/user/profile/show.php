@@ -65,10 +65,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         </nav>
                         <h6 class="pt-4 ps-2 ms-1"><?= Yii::t('frontend', 'Customer service') ?></h6>
                         <nav class="list-group list-group-borderless">
-                            <a class="list-group-item list-group-item-action d-flex align-items-center" href="/">
-                                <i class="ci-help-circle fs-base opacity-75 me-2"></i>
-                                <?= Yii::t('frontend', 'Help center') ?>
-                            </a>
                             <a class="list-group-item list-group-item-action d-flex align-items-center" href="<?= \pheme\settings\models\Setting::findOne(['key' => 'Confidentiality Policy'])->value ?? '' ?>">
                                 <i class="ci-info fs-base opacity-75 me-2"></i>
                                 <?= Yii::t('frontend', 'Terms and conditions') ?>
