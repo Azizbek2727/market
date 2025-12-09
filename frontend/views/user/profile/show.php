@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <i class="ci-help-circle fs-base opacity-75 me-2"></i>
                                 <?= Yii::t('frontend', 'Help center') ?>
                             </a>
-                            <a class="list-group-item list-group-item-action d-flex align-items-center" href="/">
+                            <a class="list-group-item list-group-item-action d-flex align-items-center" href="<?= \pheme\settings\models\Setting::findOne(['key' => 'Confidentiality Policy'])->value ?? '' ?>">
                                 <i class="ci-info fs-base opacity-75 me-2"></i>
                                 <?= Yii::t('frontend', 'Terms and conditions') ?>
                             </a>
@@ -107,7 +107,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="border-bottom py-4">
                         <div class="nav flex-nowrap align-items-center justify-content-between pb-1 mb-3">
                             <h2 class="h6 mb-0"><?= Yii::t('frontend', 'Basic info') ?></h2>
-                            <a class="nav-link hiding-collapse-toggle text-decoration-underline p-0 collapsed" href=".basic-info" data-bs-toggle="collapse" aria-expanded="false" aria-controls="basicInfoPreview basicInfoEdit"><?= Yii::t('frontend', 'Edit') ?></a>
                         </div>
                         <div class="collapse basic-info show" id="basicInfoPreview">
                             <ul class="list-unstyled fs-sm m-0">
@@ -187,7 +186,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="d-flex align-items-center gap-3 me-4">
                                 <h2 class="h6 mb-0"><?= Yii::t('frontend', 'Contact') ?></h2>
                             </div>
-                            <a class="nav-link hiding-collapse-toggle text-decoration-underline p-0 collapsed" href=".contact-info" data-bs-toggle="collapse" aria-expanded="false" aria-controls="contactInfoPreview contactInfoEdit"><?= Yii::t('frontend', 'Edit') ?></a>
                         </div>
                         <div class="collapse contact-info show" id="contactInfoPreview">
                             <ul class="list-unstyled fs-sm m-0">
@@ -227,7 +225,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="d-flex align-items-center gap-3 me-4">
                                 <h2 class="h6 mb-0"><?= Yii::t('frontend', 'Password') ?></h2>
                             </div>
-                            <a class="nav-link hiding-collapse-toggle text-decoration-underline p-0 collapsed" href=".password-change" data-bs-toggle="collapse" aria-expanded="false" aria-controls="passChangePreview passChangeEdit"><?= Yii::t('frontend', 'Edit') ?></a>
                         </div>
                         <div class="collapse password-change show" id="passChangePreview">
                             <ul class="list-unstyled fs-sm m-0">
@@ -262,13 +259,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                 </div>
                             </form>
                         </div>
-                    </div>
-
-                    <!-- Delete account -->
-                    <div class="pt-3 mt-2 mt-sm-3">
-                        <h2 class="h6"><?= Yii::t('frontend', 'Delete account') ?></h2>
-                        <p class="fs-sm"><?= Yii::t('frontend', 'When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we\'ll send you a link to reactivate your account.') ?></p>
-                        <a class="text-danger fs-sm fw-medium" href="#!"><?= Yii::t('frontend', 'Delete account') ?></a>
                     </div>
                 </div>
             </div>
