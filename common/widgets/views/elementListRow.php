@@ -23,6 +23,7 @@ $productUrl = Url::to(['/product/view', 'id' => $product->id]);
 // Delete URL
 $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()]);
 
+\dvizh\cart\assets\WidgetAsset::register($this);
 ?>
 
 <div class="d-flex align-items-center dvizh-cart-row" data-id="<?= $model->getId() ?>">
@@ -78,8 +79,11 @@ $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()
 
             <!-- Delete -->
             <button type="button"
-                    class="btn-close fs-sm dvizh-delete-element"
-                    data-href="<?= $deleteUrl ?>"
+                    class="btn-close fs-sm dvizh-delete-button"
+                    data-role="cart-delete-button"
+                    data-id="<?= $model->getId() ?>"
+                    data-url="<?= $deleteUrl ?>"
+                    data-line-selector=".cart-item"
                     aria-label="Remove from cart">
             </button>
 
