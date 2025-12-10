@@ -10,6 +10,7 @@ use common\helpers\CategoryTree;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+\frontend\assets\JqueryAsset::register($this);
 CartzillaAssets::register($this);
 \dvizh\cart\assets\WidgetAsset::register($this);
 

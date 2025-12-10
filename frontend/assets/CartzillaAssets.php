@@ -15,9 +15,6 @@ class CartzillaAssets extends AssetBundle
     public $css = [
         '/cartzilla/assets/icons/cartzilla-icons.min.css',
         '/cartzilla/assets/vendor/swiper/swiper-bundle.min.css',
-//        '/cartzilla/assets/css/theme.min.css',
-//        '/cartzilla/assets/css/theme.rtl.min.css',
-//        '/cartzilla/assets/css/theme.min.css',
     ];
     public $js = [
         '/cartzilla/assets/js/theme-switcher.js',
@@ -25,6 +22,7 @@ class CartzillaAssets extends AssetBundle
         '/cartzilla/assets/js/theme.min.js',
     ];
     public $depends = [
+        '\frontend\assets\JqueryAsset'
 //        'yii\web\YiiAsset',
 //        'yii\bootstrap\BootstrapAsset',
     ];

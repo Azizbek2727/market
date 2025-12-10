@@ -22,8 +22,6 @@ $productUrl = Url::to(['/product/view', 'id' => $product->id]);
 
 // Delete URL
 $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()]);
-
-\dvizh\cart\assets\WidgetAsset::register($this);
 ?>
 
 <div class="d-flex align-items-center dvizh-cart-row" data-id="<?= $model->getId() ?>">
@@ -55,7 +53,6 @@ $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()
             <div class="count-input rounded-2">
                 <button type="button"
                         class="btn btn-icon btn-sm dvizh-arr dvizh-downArr"
-                        data-decrement
                         aria-label="Decrement quantity">
                     <i class="ci-minus"></i>
                 </button>
@@ -71,7 +68,6 @@ $deleteUrl = Url::toRoute([$controllerActions['delete'], 'id' => $model->getId()
 
                 <button type="button"
                         class="btn btn-icon btn-sm dvizh-arr dvizh-upArr"
-                        data-increment
                         aria-label="Increment quantity">
                     <i class="ci-plus"></i>
                 </button>

@@ -10,7 +10,7 @@ use frontend\assets\ProductAssets;
 /* @var $model Product */
 
 ProductAssets::register($this);
-\dvizh\cart\assets\WidgetAsset::register($this);
+//\dvizh\cart\assets\WidgetAsset::register($this);
 $this->title = $model->getName();
 ?>
 
@@ -20,9 +20,9 @@ $this->title = $model->getName();
     <!-- Breadcrumb -->
     <nav class="container pt-3 my-3 my-md-4" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/">Shop</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Product page</li>
+            <li class="breadcrumb-item"><a href="/"><?= Yii::t('frontend', 'Home') ?></a></li>
+            <li class="breadcrumb-item"><a href="/"><?= Yii::t('frontend', 'Shop') ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= Yii::t('frontend', 'Product page') ?></li>
         </ol>
     </nav>
 
@@ -128,7 +128,7 @@ $this->title = $model->getName();
                             <div class="h4 mb-0 me-3"><?= \common\widgets\ShowPrice::widget(['model' => $model]) ?></div>
                             <div class="d-flex align-items-center text-success fs-sm ms-auto">
                                 <i class="ci-check-circle fs-base me-2"></i>
-                                Available to order
+                                <?= Yii::t('frontend', 'Available to order') ?>
                             </div>
                         </div>
 
@@ -136,15 +136,11 @@ $this->title = $model->getName();
                         <div class="d-flex flex-wrap flex-sm-nowrap flex-md-wrap flex-lg-nowrap gap-3 gap-lg-2 gap-xl-3 mb-4">
                             <?= ChangeCount::widget(['model' => $model]) ?>
 
-                            <button type="button" class="btn btn-icon btn-lg btn-secondary animate-pulse order-sm-3 order-md-2 order-lg-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-sm" data-bs-title="Add to Wishlist" aria-label="Add to Wishlist">
-                                <i class="ci-heart fs-lg animate-target"></i>
-                            </button>
-
                             <?= BuyButton::widget(
                                 [
                                     'model' => $model,
                                     'htmlTag' => 'button',
-                                    'text' => '<i class="ci-shopping-cart fs-lg animate-target ms-n1 me-2"></i> Add to cart',
+                                    'text' => '<i class="ci-shopping-cart fs-lg animate-target ms-n1 me-2"></i> '. Yii::t('frontend', 'Add to cart'),
                                     'cssClass' => 'btn btn-lg btn-primary w-100 animate-slide-end order-sm-2 order-md-4 order-lg-2'
                                 ]
                             );?>
@@ -153,15 +149,15 @@ $this->title = $model->getName();
 
                     <!-- Shipping options -->
                     <div class="d-flex align-items-center pb-2">
-                        <h3 class="h6 mb-0">Shipping options</h3>
+                        <h3 class="h6 mb-0"><?= Yii::t('frontend', 'Shipping options') ?></h3>
                     </div>
                     <table class="table table-borderless fs-sm mb-2">
                         <tbody>
                         <?php foreach (\dvizh\order\models\ShippingType::find()->all() as $type): ?>
                         <tr>
                             <td class="py-2 ps-0"><?= $type->name ?></td>
-                            <td class="py-2">Today</td>
-                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0"><?= $type->cost == 0.00 ? 'Free' : $type->cost; ?></td>
+                            <td class="py-2"><?= Yii::t('frontend', 'Today') ?></td>
+                            <td class="text-body-emphasis fw-semibold text-end py-2 pe-0"><?= $type->cost == 0.00 ? Yii::t('frontend', 'Free') : $type->cost; ?></td>
                         </tr>
                         <?php endforeach; ?>
                         </tbody>
@@ -179,7 +175,7 @@ $this->title = $model->getName();
             <div class="col-md-7">
 
                 <!-- Product details -->
-                <h2 class="h3 pb-2 pb-md-3">Product details</h2>
+                <h2 class="h3 pb-2 pb-md-3"><?= Yii::t('frontend', 'Product details') ?></h2>
                 <?= $model->getText(); ?>
 
             </div>
