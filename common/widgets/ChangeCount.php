@@ -69,7 +69,6 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
                     [
                         'type'        => 'button',
                         'class'       => 'btn btn-icon btn-lg dvizh-arr dvizh-downArr',
-                        'data-decrement' => true,
                         'aria-label' => 'Decrement quantity'
                     ]
                 ).
@@ -83,7 +82,6 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
                     [
                         'type'        => 'button',
                         'class'       => 'btn btn-icon btn-lg dvizh-arr dvizh-upArr',
-                        'data-increment' => true,
                         'aria-label' => 'Increment quantity'
                     ]
                 ),
