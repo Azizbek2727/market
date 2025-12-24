@@ -94,14 +94,14 @@ use yii\widgets\ActiveForm;
     </div>
 
     <!-- Buttons -->
-    <div class="d-flex">
-        <button class="btn btn-lg btn-primary w-100">
+    <div>
+        <button class="btn btn-lg btn-primary w-100 my-2">
             Place Order
             <i class="ci-chevron-right fs-lg ms-1 me-n1"></i>
         </button>
 
         <?php if($referrer = Yii::$app->request->referrer): ?>
-            <a class="btn btn-lg btn-secondary w-100" href="<?= Html::encode($referrer) ?>">
+            <a class="btn btn-lg btn-secondary w-100 my-2" href="<?= Html::encode($referrer) ?>">
                 Continue Shopping
             </a>
         <?php endif; ?>
