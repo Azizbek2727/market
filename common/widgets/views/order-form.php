@@ -94,7 +94,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <!-- Buttons -->
-    <div class="d-flex gap-3">
+    <div class="d-flex">
         <button class="btn btn-lg btn-primary w-100">
             Place Order
             <i class="ci-chevron-right fs-lg ms-1 me-n1"></i>
