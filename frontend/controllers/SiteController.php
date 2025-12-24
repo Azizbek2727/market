@@ -11,6 +11,7 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use dvizh\shop\models\Category;
 use dvizh\shop\models\Product;
@@ -199,6 +200,13 @@ class SiteController extends Controller
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
 
+        $order->setPaymentStatus($transaction->status);
+        if($transaction->status == 'succeeded'){
+            $order->setStatus('approve');
+        }elseif('cancelled'){
+            $order->setStatus('cancel');
+            throw new BadRequestHttpException('Payment was Unsuccessful');
+        }
         Yii::error(['acceptRequest' => $this->request->getRawBody()]);
 
         return $this->redirect(['thanks', 'id' => $order_id]);
