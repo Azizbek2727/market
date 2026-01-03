@@ -4,6 +4,7 @@
 namespace common\models\dvizh;
 
 use common\models\TranslatableTrait;
+use Yii;
 
 class Product extends \dvizh\shop\models\Product
 {
@@ -53,5 +54,18 @@ class Product extends \dvizh\shop\models\Product
     public function getText()
     {
         return $this->tOrOrig('text');
+    }
+
+    public function getPrice($type = null)
+    {
+        if($callable = Yii::$app->getModule('shop')->priceCallable) {
+            return $callable($this);
+        }
+
+        if($price = $this->getPriceModel($type)) {
+            return number_format($price->price, 0, '.', ' ');
+        }
+
+        return null;
     }
 }
