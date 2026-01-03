@@ -56,16 +56,16 @@ class Product extends \dvizh\shop\models\Product
         return $this->tOrOrig('text');
     }
 
-    public function getPrice($type = null)
-    {
-        if($callable = Yii::$app->getModule('shop')->priceCallable) {
-            return $callable($this);
-        }
-
-        if($price = $this->getPriceModel($type)) {
-            return number_format($price->price, 0, '.', ' ');
-        }
-
-        return null;
-    }
+//    public function getPrice($type = null)
+//    {
+//        if($callable = Yii::$app->getModule('shop')->priceCallable) {
+//            return $callable($this);
+//        }
+//
+//        if($price = $this->getPriceModel($type)) {
+//            return number_format($price->price, 0, '.', ' ');
+//        }
+//
+//        return null;
+//    }
 }
