@@ -14,8 +14,8 @@ use yii\helpers\Json;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use dvizh\shop\models\Category;
-use dvizh\shop\models\Product;
 use frontend\models\ContactForm;
+use common\models\dvizh\Product;
 
 /**
  * Site controller
@@ -74,7 +74,7 @@ class SiteController extends Controller
         $sliders = Slider::find()->all();
 
         $newArrivals = new ActiveDataProvider([
-            'query' => \dvizh\shop\models\Product::find()
+            'query' => Product::find()
                 ->where(['available' => 'yes', 'is_new' => 'yes'])
                 ->orderBy(['id' => SORT_DESC])  // latest products
                 ->limit(10),
@@ -82,7 +82,7 @@ class SiteController extends Controller
         ]);
 
         $trending = new ActiveDataProvider([
-            'query' => \dvizh\shop\models\Product::find()
+            'query' => Product::find()
                 ->where(['available' => 'yes', 'is_popular' => 'yes'])
                 ->orderBy(['id' => SORT_DESC])
                 ->limit(12),
@@ -90,7 +90,7 @@ class SiteController extends Controller
         ]);
 
         $specials = new ActiveDataProvider([
-            'query' => \dvizh\shop\models\Product::find()
+            'query' => Product::find()
                 ->where(['available' => 'yes', 'is_promo' => 'yes'])
                 ->orderBy(['id' => SORT_DESC])
                 ->limit(12),
