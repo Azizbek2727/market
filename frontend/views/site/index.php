@@ -168,7 +168,6 @@ $this->title = Yii::$app->name;
     <!-- New arrivals (List) -->
     <section class="container pt-5 mt-1 mt-sm-2 mt-md-3 mt-lg-4">
         <h2 class="h3 pb-2 pb-sm-3"><?= Yii::t('frontend', 'New arrivals') ?></h2>
-        <div class="row">
 
             <!-- Product list -->
 
@@ -223,8 +222,6 @@ HTML;
                     }
         ]); ?>
 
-
-        </div>
     </section>
 
 
