@@ -33,6 +33,7 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 
+/frontend/web/images
 /frontend/web/images/cache/*
 /frontend/web/images/source/*
 /frontend/web/images/store/*
