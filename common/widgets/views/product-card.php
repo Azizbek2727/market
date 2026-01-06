@@ -48,6 +48,8 @@ $buyButton = BuyButton::widget(
     ]
 );
 
+$orders = random_int(0, 981); //change later
+
 
 
 ?>
@@ -87,7 +89,7 @@ $buyButton = BuyButton::widget(
                 <div class="d-flex gap-1 fs-xs">
                    <?= $ratingStars ?>
                 </div>
-                <span class="text-body-tertiary fs-xs">(123)</span>
+                <span class="text-body-tertiary fs-xs"><?= $orders ?></span>
             </div>
             <h3 class="pb-1 mb-2">
                 <a class="d-block fs-sm fw-medium text-truncate" href="<?= $url ?>">
