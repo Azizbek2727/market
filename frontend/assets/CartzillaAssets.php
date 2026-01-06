@@ -17,6 +17,7 @@ class CartzillaAssets extends AssetBundle
         '/cartzilla/assets/vendor/swiper/swiper-bundle.min.css',
     ];
     public $js = [
+        '/js/buy-button.js',
         '/cartzilla/assets/js/theme-switcher.js',
         '/cartzilla/assets/vendor/swiper/swiper-bundle.min.js',
         '/cartzilla/assets/js/theme.min.js',

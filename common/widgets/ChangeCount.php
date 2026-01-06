@@ -13,6 +13,7 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
     public $downArr = '⟨';
     public $upArr = '⟩';
     public $cssClass = 'dvizh-change-count';
+    public $inputCssClass = '';
     public $defaultValue = 1;
     public $showArrows = true;
     public $actionUpdateUrl = '/cart/element/update';
@@ -47,7 +48,7 @@ class ChangeCount extends \dvizh\cart\widgets\ChangeCount
             ]);
         } else {
             $input = Html::input('number', 'count', $this->defaultValue, [
-                'class' => 'dvizh-cart-element-before-count form-control form-control-lg',
+                'class' => "dvizh-cart-element-before-count form-control form-control-lg $this->inputCssClass",
                 'value' => 1, 'min'  => 1,
                 'data-line-selector' => $this->lineSelector,
                 'data-id' => $this->model->getCartId(),

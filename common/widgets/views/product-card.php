@@ -7,6 +7,7 @@
 
 use common\widgets\BuyButton;
 use common\widgets\ShowPrice;
+use dvizh\cart\Cart;
 
 $image = $model->getImage()
     ? $model->getImage()->getUrl('600x600')
@@ -47,6 +48,8 @@ $buyButton = BuyButton::widget(
         'cssClass' => 'w-100 product-card-button btn btn-icon btn-secondary animate-slide-end'
     ]
 );
+
+$changeCount = \common\widgets\ChangeCount::widget(['model' => $model, 'inputCssClass' => 'w-100']);
 
 $orders = random_int(0, 981); //change later
 
@@ -100,8 +103,14 @@ $orders = random_int(0, 981); //change later
                 <div class="h5 lh-1 mb-0"><?= $price ?> <del class="text-body-tertiary fs-sm fw-normal"><?= $oldPrice ?></del></div>
             </div>
         </div>
-        <div class="px-1 pb-2 px-sm-3 pb-sm-3 container align-items-center justify-content-between">
-            <?= $buyButton ?>
+        <div class="px-1 pb-2 px-sm-3 pb-sm-3 container align-items-center justify-content-between product-cart-controls">
+            <div class="buy-button-wrapper">
+                <?= $buyButton ?>
+            </div>
+
+            <div class="change-count-wrapper d-none">
+                <?= $changeCount ?>
+            </div>
         </div>
     </div>
 </div>
