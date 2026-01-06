@@ -7,11 +7,15 @@ use yii\helpers\Url;
 
 class ShowPrice extends \dvizh\shop\widgets\ShowPrice
 {
+    public $price = null;
+
     public function run()
     {
         $js = 'dvizh.modificationconstruct.dvizhShopUpdatePriceUrl = "' .Url::toRoute(['/shop/tools/get-modification-by-options']). '";';
 
         $this->getView()->registerJs($js);
+
+        $price = $this->price ? $this->price : $this->model->getPrice();
 
         return Html::tag(
             $this->htmlTag,
