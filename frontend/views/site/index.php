@@ -9,12 +9,12 @@ use dvizh\field\widgets\Show;
 use dvizh\cart\widgets\ElementsList;
 use dvizh\cart\widgets\CartInformer;
 use dvizh\cart\widgets\ChangeOptions;
-use dvizh\cart\widgets\ChangeCount;
 use dvizh\cart\widgets\TruncateButton;
 use dvizh\cart\widgets\BuyButton;
 use dvizh\order\widgets\OrderForm;
 use dvizh\promocode\widgets\Enter;
 use dvizh\certificate\widgets\CertificateWidget;
+use common\widgets\ChangeCount;
 
 /* @var $this yii\web\View */
 /* @var $producers \dvizh\shop\models\Producer[] */
@@ -226,6 +226,9 @@ $this->title = Yii::$app->name;
                     ]
                 );
 
+                $counter = ChangeCount::widget(['model' => $model]);
+
+
                 $views = 211;
 
                 return <<<HTML
@@ -251,13 +254,13 @@ $this->title = Yii::$app->name;
 <div class="w-100 min-w-0 px-1 pb-2 px-sm-3 pb-sm-3">
     <h3 class="pb-1 mb-2">
         <a class="d-block fs-sm fw-medium text-truncate" href="{$url}">
-            <span class="animate-target">{$model->getName()}</span>
+            <span class="animate-target">{$price}</span>
         </a>
     </h3>
 
     <div class="d-flex align-items-center justify-content-between">
         <div class="h5 lh-1 mb-0">
-            {$price}
+            {$model->getName()}
         </div>
 
         {$buyButton}
