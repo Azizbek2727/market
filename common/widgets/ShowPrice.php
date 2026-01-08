@@ -19,7 +19,7 @@ class ShowPrice extends \dvizh\shop\widgets\ShowPrice
 
         return Html::tag(
             $this->htmlTag,
-            number_format($this->model->getPrice(), 0, '.', ' ') . (Setting::findOne(['key' => 'currency'])->value ?? ''),
+            number_format($this->model->getPrice(), 0, '.', ' '),
             ['class' => "dvizh-shop-price dvizh-shop-price-{$this->model->id} {$this->cssClass}"]
         );
     }
