@@ -8,6 +8,8 @@
 use common\widgets\BuyButton;
 use common\widgets\ShowPrice;
 use dvizh\cart\Cart;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 $image = $model->getImage()
     ? $model->getImage()->getUrl('600x600')
@@ -49,7 +51,11 @@ $buyButton = BuyButton::widget(
     ]
 );
 
+$element = \dvizh\cart\models\CartElement::findOne(['cart_id' => Yii::$app->cart->cart->id, 'item_id' => $model->getId()]);
+
 $changeCount = \common\widgets\ChangeCount::widget(['model' => $model, 'inputCssClass' => 'w-100']);
+
+Yii::$app->cart->getElements();
 
 $orders = random_int(0, 981); //change later
 
@@ -109,7 +115,28 @@ $orders = random_int(0, 981); //change later
             </div>
 
             <div class="change-count-wrapper d-none">
-                <?= $changeCount ?>
+                <div class="count-input flex-shrink-0 order-sm-1 d-flex align-items-center gap-2 dvizh-change-count">
+                    <button type="button"
+                            class="btn btn-icon btn-lg dvizh-arr dvizh-downArr"
+                            aria-label="Decrement quantity">
+                        <i class="ci-minus"></i>
+                    </button>
+
+                    <?= Html::input('number', 'count', $element ? $element->count : 1, [
+                        'class' => 'w-100 dvizh-cart-element-before-count form-control form-control-lg',
+                        'data-role' => 'cart-element-count',
+                        'data-line-selector' => 'li',
+                        'data-id' => $element ? $element->getId() : $model->getId(),
+                        'data-href' => Url::toRoute(['/cart/element/update']),
+                        'readonly' => true
+                    ]) ?>
+
+                    <button type="button"
+                            class="btn btn-icon btn-lg dvizh-arr dvizh-upArr"
+                            aria-label="Increment quantity">
+                        <i class="ci-plus"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
