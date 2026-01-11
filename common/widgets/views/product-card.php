@@ -63,7 +63,7 @@ $orders = random_int(0, 981); //change later
 
 ?>
 
-<div class="col">
+<div class="col" id="item-<?= $model->getId() ?>">
     <div class="product-card animate-underline hover-effect-opacity bg-body rounded">
         <div class="position-relative">
             <div class="position-absolute top-0 end-0 z-2 hover-effect-target opacity-0 mt-3 me-3">
@@ -124,6 +124,7 @@ $orders = random_int(0, 981); //change later
 
                     <?= Html::input('number', 'count', $element ? $element->count : 1, [
                         'class' => 'w-100 dvizh-cart-element-before-count form-control form-control-lg',
+                        'id' => "counter-".$model->getId(),
                         'data-role' => 'cart-element-count',
                         'data-line-selector' => 'li',
                         'data-id' => $element ? $element->getId() : $model->getId(),

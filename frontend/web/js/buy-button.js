@@ -19,6 +19,19 @@
      * 1. Buy button click → show counter
      */
     $(document).on('click', '.product-card-button', function () {
+        const input = this
+            .closest('.product-card')
+            ?.querySelector('.dvizh-cart-element-before-count');
+
+        //get ajax response
+        $(document).ajaxSuccess(function (event, xhr, settings, response) {
+            if (settings.url.includes('/cart/element/create')) {
+                var elementId = response.elementId;
+                input.value = response.count ?? 1;      // response.count = total cart count, so fallback
+                input.dataset.id = response.elementId;  // correct cart_element.id
+            }
+        });
+
         const controls = getControls(this);
         if (controls) showCounter(controls);
     });
