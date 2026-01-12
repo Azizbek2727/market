@@ -110,11 +110,11 @@ $orders = random_int(0, 981); //change later
             </div>
         </div>
         <div class="px-1 pb-2 px-sm-3 pb-sm-3 container align-items-center justify-content-between product-cart-controls">
-            <div class="buy-button-wrapper">
+            <div class="buy-button-wrapper <?= $element ? 'd-none' : '' ?>">
                 <?= $buyButton ?>
             </div>
 
-            <div class="change-count-wrapper d-none">
+            <div class="change-count-wrapper <?= $element ? '' : 'd-none' ?>">
                 <div class="count-input flex-shrink-0 order-sm-1 d-flex align-items-center gap-2 dvizh-change-count">
                     <button type="button"
                             class="btn btn-icon btn-lg dvizh-arr dvizh-downArr"
