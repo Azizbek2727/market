@@ -1,5 +1,35 @@
 (function ($) {
 
+    $(document).ajaxSuccess(function (event, xhr, settings, response) {
+        if (!response || typeof response.count === 'undefined') {
+            return;
+        }
+
+        // Any cart-changing endpoint
+        if (
+            settings.url.includes('/cart/element/create') ||
+            settings.url.includes('/cart/element/update') ||
+            settings.url.includes('/cart/element/delete') ||
+            settings.url.includes('/cart/truncate')
+        ) {
+            updateCheckoutButton(response.count);
+        }
+    });
+
+
+    function updateCheckoutButton(cartCount) {
+        const btn = document.getElementById('checkoutButton');
+        if (!btn) return;
+
+        if (cartCount > 0) {
+            btn.classList.remove('disabled');
+        } else {
+            btn.classList.add('disabled');
+        }
+    }
+
+
+
     function getControls(el) {
         return el.closest('.product-card')
             ?.querySelector('.product-cart-controls');

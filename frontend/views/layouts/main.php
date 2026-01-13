@@ -71,7 +71,7 @@ $profile_url = Yii::$app->user->isGuest ? Url::to(['/user/login']) : Url::to(['/
             <span class="h6 mb-0 dvizh-cart-price"><?= Yii::$app->cart->getCostFormatted() ?></span>
         </div>
         <div class="d-flex w-100 gap-3">
-            <a class="btn btn-lg btn-primary w-100 <?= (Yii::$app->cart->getCount() == 0) ? 'disabled' : '' ?>" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>"><?= Yii::t('frontend', 'Checkout') ?></a>
+            <a id="checkoutButton" class="btn btn-lg btn-primary w-100 <?= (Yii::$app->cart->getCount() == 0) ? 'disabled' : '' ?>" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>"><?= Yii::t('frontend', 'Checkout') ?></a>
             <button data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart" aria-label="Shopping cart" class="btn btn-lg btn-secondary w-100"><?= Yii::t('frontend', 'Close cart') ?></button>
         </div>
     </div>
