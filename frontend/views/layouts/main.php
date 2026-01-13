@@ -72,6 +72,7 @@ $profile_url = Yii::$app->user->isGuest ? Url::to(['/user/login']) : Url::to(['/
         </div>
         <div class="d-flex w-100 gap-3">
             <a class="btn btn-lg btn-primary w-100" href="<?= \yii\helpers\Url::to(['/site/checkout']) ?>"><?= Yii::t('frontend', 'Checkout') ?></a>
+            <button data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart" aria-label="Shopping cart" class="btn btn-lg btn-secondary w-100"><?= Yii::t('frontend', 'Close cart') ?></button>
         </div>
     </div>
 </div>
