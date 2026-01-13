@@ -57,7 +57,7 @@
         $(document).ajaxSuccess(function (event, xhr, settings, response) {
             if (settings.url.includes('/cart/element/create')) {
                 var elementId = response.elementId;
-                input.value = response.count ?? 1;      // response.count = total cart count, so fallback
+                input.value = 1;      // response.count = total cart count, so fallback
                 input.dataset.id = response.elementId;  // correct cart_element.id
             }
         });

@@ -123,7 +123,7 @@ $orders = random_int(0, 981); //change later
                     </button>
 
                     <?= Html::input('number', 'count', $element ? $element->count : 1, [
-                        'class' => 'w-100 dvizh-cart-element-before-count form-control form-control-lg',
+                        'class' => 'w-100 dvizh-cart-element-before-count form-control form-control-lg visible opacity-100',
                         'id' => "counter-".$model->getId(),
                         'data-role' => 'cart-element-count',
                         'data-line-selector' => 'li',
