@@ -7,11 +7,14 @@ namespace frontend\controllers\api;
 use yii\rest\Controller;
 use Yii;
 use common\models\OfflineSale;
+use yii\web\Response;
 
 class OfflineSaleController extends Controller
 {
     public function actionCreate()
     {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
         $data = Yii::$app->request->post();
 
         $sale = new OfflineSale([
