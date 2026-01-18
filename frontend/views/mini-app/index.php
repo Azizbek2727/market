@@ -21,6 +21,11 @@
     const tg = window.Telegram.WebApp;
     tg.expand();
 
+    const tg = window.Telegram?.WebApp ?? {};
+
+    const telegramUserId =
+        tg.initDataUnsafe?.user?.id ?? 999999999;
+
     function saveSale() {
         fetch('/api/offline-sale/create', {
             method: 'POST',
