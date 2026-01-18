@@ -43,6 +43,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'language/<lang:\w+>' => 'language/switch',
+                'telegram/webhook' => 'telegram-bot/webhook',
             ],
         ],
         'view' => [
