@@ -3,6 +3,7 @@
 
 namespace frontend\controllers;
 
+use yii\base\Response;
 use yii\web\Controller;
 use Yii;
 
@@ -12,6 +13,7 @@ class TelegramBotController extends Controller
 
     public function actionWebhook()
     {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $update = json_decode(Yii::$app->request->getRawBody(), true);
 
         file_put_contents(
