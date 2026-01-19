@@ -63,13 +63,50 @@ CartzillaAssets::register($this);
     <!-- Product -->
     <div class="mb-3">
         <label class="form-label fw-medium">Product</label>
-        <select id="product" class="form-select" onchange="loadProductCard()">
-            <?php foreach ($products as $p): ?>
-                <option value="<?= $p['id'] ?>">
-                    <?= htmlspecialchars($p['name']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
+
+        <div class="dropdown mb-3">
+            <button
+                    class="form-select text-start"
+                    type="button"
+                    id="productDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+            >
+                Select product
+            </button>
+
+            <ul class="dropdown-menu w-100 p-1" aria-labelledby="productDropdown"
+                style="max-height: 320px; overflow-y: auto;">
+                <?php foreach ($products as $p): ?>
+                    <li>
+                        <a
+                                href="#"
+                                class="dropdown-item d-flex align-items-center gap-2 py-2"
+                                onclick="selectProduct(
+                                <?= (int)$p['id'] ?>,
+                                        '<?= htmlspecialchars(addslashes($p['name'])) ?>',
+                                        '<?= htmlspecialchars($p['image']) ?>'
+                                        )"
+                        >
+                            <img
+                                    src="<?= htmlspecialchars($p['image']) ?>"
+                                    width="40"
+                                    height="40"
+                                    class="rounded border"
+                                    alt=""
+                                    loading="lazy"
+                            >
+                            <span class="text-truncate">
+                        <?= htmlspecialchars($p['name']) ?>
+                    </span>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <input type="hidden" id="product" value="">
+
     </div>
 
     <!-- Product preview -->
@@ -109,6 +146,26 @@ CartzillaAssets::register($this);
         Save sale
     </button>
 </div>
+
+<script>
+    let selectedProductId = null;
+
+    function selectProduct(id, name, image) {
+        selectedProductId = id;
+        document.getElementById('product').value = id;
+
+        document.getElementById('productDropdown').innerHTML = `
+            <div class="d-flex align-items-center gap-2">
+                <img src="${image}" width="24" height="24" class="rounded border">
+                <span class="text-truncate">${name}</span>
+            </div>
+        `;
+
+        loadProductCard(); // your existing AJAX widget loader
+    }
+</script>
+
+
 
 <script>
     const tg = window.Telegram.WebApp;

@@ -17,11 +17,23 @@ class MiniAppController extends Controller
 
     public function actionIndex()
     {
-        $products = Product::find()
+        $p = Product::find()
             ->where(['available' => 'yes'])
-            ->select(['id', 'name',])
-            ->asArray()
             ->all();
+
+        $products = [];
+
+        foreach ($p as $model) {
+            $image = $model->getImage()
+                ? $model->getImage()->getUrl('600x600')
+                : '/cartzilla/assets/img/shop/placeholder.png';
+
+            $products[] = [
+                'id' => $model->id,
+                'name' => $model->name,
+                'image' => $image,
+            ];
+        }
 
         return $this->render('index', [
             'products' => $products,
@@ -40,6 +52,7 @@ class MiniAppController extends Controller
 
         return ProductCardWidget::widget([
             'model' => $model,
+            'miniApp' => true,
         ]);
     }
 }
