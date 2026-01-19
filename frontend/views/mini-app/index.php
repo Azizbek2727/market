@@ -63,7 +63,7 @@ CartzillaAssets::register($this);
     <!-- Product -->
     <div class="mb-3">
         <label class="form-label fw-medium">Product</label>
-        <select id="product" class="form-select">
+        <select id="product" class="form-select" onchange="loadProductCard()">
             <?php foreach ($products as $p): ?>
                 <option value="<?= $p['id'] ?>">
                     <?= htmlspecialchars($p['name']) ?>
@@ -71,6 +71,10 @@ CartzillaAssets::register($this);
             <?php endforeach; ?>
         </select>
     </div>
+
+    <!-- Product preview -->
+    <div id="product-preview" class="mb-3"></div>
+
 
     <!-- Price -->
     <div class="mb-3">
@@ -110,56 +114,22 @@ CartzillaAssets::register($this);
     const tg = window.Telegram.WebApp;
     tg.expand();
 
-    function saveSale() {
-        const price = document.getElementById('price').value;
+    function loadProductCard() {
+        const productId = document.getElementById('product').value;
 
-        if (!price || Number(price) <= 0) {
-            tg.showPopup({
-                title: 'Validation error',
-                message: 'Please enter a valid price',
-                buttons: [{type: 'ok'}]
-            });
-            return;
-        }
-
-        fetch('/api/offline-sale/create', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                telegram_user_id: tg.initDataUnsafe.user.id,
-                product_id: document.getElementById('product').value,
-                price: price,
-                quantity: document.getElementById('qty').value,
-            })
-        })
-            .then(r => r.json())
-            .then(res => {
-                if (res.success) {
-                    tg.showPopup({
-                        title: 'Saved',
-                        message: 'Sale recorded successfully',
-                        buttons: [{type: 'ok'}]
-                    });
-
-                    // reset form
-                    document.getElementById('price').value = '';
-                    document.getElementById('qty').value = 1;
-                } else {
-                    tg.showPopup({
-                        title: 'Error',
-                        message: res.error || 'Failed to save sale',
-                        buttons: [{type: 'ok'}]
-                    });
-                }
+        fetch('/mini-app/product-card?id=' + productId)
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('product-preview').innerHTML = html;
             })
             .catch(() => {
-                tg.showPopup({
-                    title: 'Network error',
-                    message: 'Please try again',
-                    buttons: [{type: 'ok'}]
-                });
+                document.getElementById('product-preview').innerHTML =
+                    '<div class="alert alert-danger">Failed to load product</div>';
             });
     }
+
+    // load first product on page load
+    document.addEventListener('DOMContentLoaded', loadProductCard);
 </script>
 
 <?php $this->endBody() ?>
