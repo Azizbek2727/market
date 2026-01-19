@@ -171,6 +171,57 @@ CartzillaAssets::register($this);
     const tg = window.Telegram.WebApp;
     tg.expand();
 
+    function saveSale() {
+        const price = document.getElementById('price').value;
+
+        if (!price || Number(price) <= 0) {
+            tg.showPopup({
+                title: 'Validation error',
+                message: 'Please enter a valid price',
+                buttons: [{type: 'ok'}]
+            });
+            return;
+        }
+
+        fetch('/api/offline-sale/create', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                telegram_user_id: tg.initDataUnsafe.user.id,
+                product_id: document.getElementById('product').value,
+                price: price,
+                quantity: document.getElementById('qty').value,
+            })
+        })
+            .then(r => r.json())
+            .then(res => {
+                if (res.success) {
+                    tg.showPopup({
+                        title: 'Saved',
+                        message: 'Sale recorded successfully',
+                        buttons: [{type: 'ok'}]
+                    });
+
+                    // reset form
+                    document.getElementById('price').value = '';
+                    document.getElementById('qty').value = 1;
+                } else {
+                    tg.showPopup({
+                        title: 'Error',
+                        message: res.error || 'Failed to save sale',
+                        buttons: [{type: 'ok'}]
+                    });
+                }
+            })
+            .catch(() => {
+                tg.showPopup({
+                    title: 'Network error',
+                    message: 'Please try again',
+                    buttons: [{type: 'ok'}]
+                });
+            });
+    }
+
     function loadProductCard() {
         const productId = document.getElementById('product').value;
 
