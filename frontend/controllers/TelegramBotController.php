@@ -13,7 +13,7 @@ class TelegramBotController extends Controller
 
     public function actionWebhook()
     {
-        Yii::$app->response->format = Response::FORMAT_JSON;
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $update = json_decode(Yii::$app->request->getRawBody(), true);
 
