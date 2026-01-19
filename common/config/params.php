@@ -9,4 +9,5 @@ return [
         'en' => 'English',
         'ru' => 'Русский',
     ],
+    'telegramBotToken' => '8406790811:AAFVut2YfUpvkQj_jiZWeS3aR-9rUlDc5Sk',
 ];
