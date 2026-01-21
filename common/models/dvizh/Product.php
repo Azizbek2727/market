@@ -8,6 +8,9 @@ use Yii;
 
 class Product extends \dvizh\shop\models\Product
 {
+
+//    const PRICE_TYPE = 'p';
+
     use TranslatableTrait;
 //
 //    public function __get($name)

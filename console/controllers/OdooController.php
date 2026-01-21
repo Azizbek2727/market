@@ -141,7 +141,7 @@ class OdooController extends \yii\console\Controller
         if ($price === null) {
             $price = new Price();
             $price->item_id = $product->id;
-            $price->type = '$';
+            $price->type = 'p';
             $price->available = 'yes';
         }
 
