@@ -65,12 +65,12 @@ class OdooController extends \yii\console\Controller
     {
         [$externalId, $name] = $odooProduct['categ_id'];
 
-        $category = \dvizh\shop\models\Category::find()
+        $category = Category::find()
             ->where(['external_id' => $externalId])
             ->one();
 
         if ($category === null) {
-            $category = new \dvizh\shop\models\Category();
+            $category = new Category();
             $category->external_id = $externalId;
             $category->name = $name;
             $category->code = 'odoo-' . $externalId;
@@ -92,13 +92,22 @@ class OdooController extends \yii\console\Controller
             ->one();
 
         if ($product === null) {
-            $product = new \dvizh\shop\models\Product();
+            $product = new Product();
             $product->external_id = $odooProduct['id'];
-            $product->code = $odooProduct['default_code'];
-            $product->sku = $odooProduct['default_code'];
+
+            $defaultCode = $odooProduct['default_code'];
+
+            if (!is_string($defaultCode) || trim($defaultCode) === '') {
+                $defaultCode = 'odoo-' . $product->external_id;
+            }
+
+            $product->code = $defaultCode;
+            $product->sku  = $defaultCode;
         }
 
         $category = $this->syncCategory($odooProduct);
+
+        $product->is_new = 'yes';
 
         $product->category_id = $category->id;
         $product->name = $odooProduct['name'];
@@ -125,18 +134,19 @@ class OdooController extends \yii\console\Controller
         $price = Price::find()
             ->where([
                 'item_id' => $product->id,
-                'type' => 'p'
+//                'type' => 'p'
             ])
             ->one();
 
         if ($price === null) {
             $price = new Price();
             $price->item_id = $product->id;
-            $price->type = 'p';
+            $price->type = '$';
             $price->available = 'yes';
         }
 
-        $price->price = $odooProduct['list_price'];
+        $price->type_id = 1;
+        $price->price = $odooProduct['list_price'] * 12065;
         $price->name = 'Base price';
         $price->sort = 100;
 
@@ -147,37 +157,45 @@ class OdooController extends \yii\console\Controller
 
     function syncImage(Product $product, array $odooProduct): void
     {
-        if (empty($odooProduct['image_1920'])) {
+        if (
+            empty($odooProduct['image_1920']) or
+            !is_string($odooProduct['image_1920'])
+        ) {
             return;
         }
 
-        // prevent duplicates
-        $exists = Image::find()
-            ->where([
-                'itemId' => $product->id,
-                'modelName' => Product::class
-            ])
-            ->exists();
-
-        if ($exists) {
+        // Prevent duplicates
+        if (Image::find()->where([
+            'itemId' => $product->id,
+            'modelName' => 'Product',
+        ])->exists()) {
             return;
         }
 
-        $filePath = $this->saveBase64Image($odooProduct['image_1920']);
+        $binary = base64_decode($odooProduct['image_1920']);
+        if ($binary === false) {
+            throw new \RuntimeException('Invalid base64 image');
+        }
 
+        // EXACT dvizh path
+        $baseDir = Yii::getAlias('@frontend/web/images/store');
+        $dir = $baseDir . '/Products/Product' . $product->id;
+
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+
+        $filename = uniqid('', true) . '.png';
+        file_put_contents($dir . '/' . $filename, $binary);
+
+        // EXACT dvizh DB values
         $image = new Image();
         $image->itemId = $product->id;
-        $image->modelName = Product::className();
-        $image->filePath = str_replace(
-            Yii::getAlias('@frontend/web'),
-            '',
-            $filePath
-        );
-        $image->isMain = 1;
-        $image->sort = 100;
-        // VERY IMPORTANT
+        $image->modelName = 'Product'; // IMPORTANT
+        $image->filePath = 'Products/Product' . $product->id . '/' . $filename;
         $image->urlAlias = 'product-' . $product->id;
-
+        $image->isMain = 1;
+        $image->sort = 0;
 
         if (!$image->save()) {
             throw new \RuntimeException(json_encode($image->errors));
