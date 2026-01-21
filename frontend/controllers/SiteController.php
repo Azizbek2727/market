@@ -77,7 +77,7 @@ class SiteController extends Controller
             'query' => Product::find()
                 ->where(['available' => 'yes', 'is_new' => 'yes'])
                 ->orderBy(['id' => SORT_DESC])  // latest products
-                ->limit(10),
+                ->limit(12),
             'pagination' => false,
         ]);
 
