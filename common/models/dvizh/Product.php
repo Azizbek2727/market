@@ -19,6 +19,17 @@ class Product extends \dvizh\shop\models\Product
 //
 //        return parent::__get($name);
 //    }
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+
+        // Disable relations behavior in console
+        if (\Yii::$app instanceof \yii\console\Application) {
+            unset($behaviors['relations']);
+        }
+
+        return $behaviors;
+    }
 
     public function getTranslatableAttributes()
     {
