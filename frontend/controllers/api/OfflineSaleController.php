@@ -50,7 +50,7 @@ class OfflineSaleController extends Controller
             Yii::error([
                 'sale_id' => $sale->id,
                 'error'   => $e->getMessage(),
-            ], 'odoo-sale');
+            ], 'app');
 
             // Sale is still saved locally → OK for offline flow
             return [
