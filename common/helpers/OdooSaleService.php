@@ -3,12 +3,11 @@
 namespace common\services;
 
 use yii\httpclient\Client;
-use Yii;
 
 class OdooSaleService
 {
     private Client $client;
-    private string $db; //ODOO DB
+    private string $db = 'wms-test';
 
     public function __construct()
     {
@@ -19,17 +18,15 @@ class OdooSaleService
                 'timeout' => 30,
             ],
         ]);
-
-        $this->db = 'wms-test';
     }
 
-    private function request(string $endpoint, array $data): array
+    private function post(string $endpoint, array $data): array
     {
         $response = $this->client->post(
             $endpoint,
             $data,
             [
-                'Authorization' => 'Bearer ' . Yii::$app->params['odooToken'],
+                'Authorization' => 'Bearer ' . \Yii::$app->params['odooToken'],
                 'Odoo-Database' => $this->db,
                 'Content-Type' => 'application/json',
             ]
@@ -37,29 +34,29 @@ class OdooSaleService
 
         if (!$response->isOk) {
             throw new \RuntimeException(
-                "Odoo API error ({$endpoint}): {$response->statusCode}"
+                "Odoo API error {$endpoint}: {$response->statusCode}"
             );
         }
 
         return $response->data['result'] ?? $response->data;
     }
 
-    public function getProduct(int $productId): array
+    public function createPartner(array $data): int
     {
-        return $this->request(
-            'product.product/read',
+        $result = $this->post(
+            'res.partner/create',
             [
-                'ids' => [$productId],
-                'fields' => [
-                    'id',
-                    'name',
-                    'list_price',
-                    'qty_available',
-                    'barcode',
-                    'weight',
-                ],
+                'vals_list' => [[
+                    'name' => $data['name'],
+                    'email' => $data['email'] ?? null,
+                    'phone' => $data['phone'] ?? null,
+                    'customer_rank' => 1,
+                ]],
             ]
         );
+
+        // Odoo returns array of created IDs
+        return (int)$result[0];
     }
 
     public function createOrder(int $partnerId, array $items): int
@@ -77,32 +74,32 @@ class OdooSaleService
             ];
         }
 
-        return $this->request(
+        $result = $this->post(
             'sale.order/create',
             [
-                'values' => [
+                'vals_list' => [[
                     'partner_id' => $partnerId,
                     'order_line' => $orderLines,
-                ],
+                ]],
             ]
         );
+
+        return (int)$result[0];
     }
 
-    public function confirmOrder(int $orderId): bool
+    public function confirmOrder(int $orderId): void
     {
-        $this->request(
+        $this->post(
             'sale.order/action_confirm',
             [
                 'ids' => [$orderId],
             ]
         );
-
-        return true;
     }
 
-    public function getDeliveryIds(int $orderId): array
+    public function getPickingIds(int $orderId): array
     {
-        $result = $this->request(
+        $result = $this->post(
             'sale.order/read',
             [
                 'ids' => [$orderId],
@@ -113,17 +110,13 @@ class OdooSaleService
         return $result[0]['picking_ids'] ?? [];
     }
 
-    public function confirmDelivery(int $pickingId): bool
+    public function validatePicking(int $pickingId): void
     {
-        $this->request(
+        $this->post(
             'stock.picking/button_validate',
             [
                 'ids' => [$pickingId],
             ]
         );
-
-        return true;
     }
-
 }
-?>
