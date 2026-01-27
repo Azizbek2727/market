@@ -1,6 +1,6 @@
 <?php
 
-namespace common\services;
+namespace common\helpers;
 
 use yii\httpclient\Client;
 

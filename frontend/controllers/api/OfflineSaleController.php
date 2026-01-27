@@ -5,7 +5,7 @@
 namespace frontend\controllers\api;
 
 use common\models\dvizh\Product;
-use common\services\OdooSaleService;
+use common\helpers\OdooSaleService;
 use yii\rest\Controller;
 use Yii;
 use common\models\OfflineSale;
