@@ -17,7 +17,7 @@ class OdooSaleService
         ]);
     }
 
-    private function post(string $endpoint, array $data): array
+    private function post(string $endpoint, array $data)
     {
         $response = $this->client
             ->post($endpoint, $data)
