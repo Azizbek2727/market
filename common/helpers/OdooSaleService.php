@@ -14,8 +14,9 @@ class OdooSaleService
         $this->client = new Client([
             'baseUrl' => 'https://odoo.tools.csms.uz/json/2',
             'transport' => 'yii\httpclient\CurlTransport',
-            'requestConfig' => [
+            'transportConfig' => [
                 'timeout' => 30,
+                'connectTimeout' => 10,
             ],
         ]);
     }
