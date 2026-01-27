@@ -251,7 +251,7 @@ class SiteController extends Controller
                             'order_id'   => $order->id,
                             'product_id' => $product->id,
                             'reason'     => 'Missing Odoo external_id',
-                        ], 'odoo-sync');
+                        ], 'app');
                         continue;
                     }
 
