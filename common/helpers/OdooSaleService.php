@@ -19,15 +19,16 @@ class OdooSaleService
 
     private function post(string $endpoint, array $data): array
     {
-        $response = $this->client->post(
-            $endpoint,
-            $data,
+        $response = $this->client
+            ->post($endpoint, $data)
+            ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
+            ->addHeaders(
             [
                 'Authorization' => 'Bearer ' . \Yii::$app->params['odooToken'],
                 'Odoo-Database' => $this->db,
                 'Content-Type' => 'application/json',
-            ]
-        )->send();
+            ])
+            ->send();
 
         if (!$response->isOk) {
             throw new \RuntimeException(
