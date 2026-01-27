@@ -16,6 +16,7 @@ use yii\web\Controller;
 use dvizh\shop\models\Category;
 use frontend\models\ContactForm;
 use common\models\dvizh\Product;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -196,18 +197,92 @@ class SiteController extends Controller
     }
 
 
-    public function actionAcceptPayment($order_id, $transaction_id){
+    public function actionAcceptPaymentOld($order_id, $transaction_id){
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
 
         $order->setPaymentStatus($transaction->status);
-        if($transaction->status == 'succeeded'){
+
+        if ($transaction->status === 'succeeded') {
             $order->setStatus('approve');
-        }elseif('cancelled'){
+        } elseif ($transaction->status === 'cancelled') {
             $order->setStatus('cancel');
             throw new BadRequestHttpException('Payment was Unsuccessful');
         }
+
+        $db = Yii::$app->db;
+        $tx = $db->beginTransaction();
+
         Yii::error(['acceptRequest' => $this->request->getRawBody()]);
+
+
+
+
+        return $this->redirect(['thanks', 'id' => $order_id]);
+    }
+
+    public function actionAcceptPayment($order_id, $transaction_id)
+    {
+        $order = \dvizh\order\models\Order::findOne($order_id);
+        $transaction = Transactions::findOne(['transaction_id' => $transaction_id]);
+
+        if (!$order || !$transaction) {
+            throw new NotFoundHttpException();
+        }
+
+        $db = Yii::$app->db;
+        $tx = $db->beginTransaction();
+
+        try {
+            $order->setPaymentStatus($transaction->status);
+
+            if ($transaction->status === 'succeeded') {
+                $order->setStatus('approve');
+
+                // ---- ODOO INTEGRATION ----
+                $lines = [];
+
+                foreach ($order->elements as $element) {
+                    $product = $element->item;
+
+                    // Skip products not synced with Odoo
+                    if (empty($product->external_id)) {
+                        Yii::warning([
+                            'order_id'   => $order->id,
+                            'product_id' => $product->id,
+                            'reason'     => 'Missing Odoo external_id',
+                        ], 'odoo-sync');
+                        continue;
+                    }
+
+                    $lines[] = [
+                        0, 0, [
+                            'product_id'      => (int)$product->external_id,
+                            'product_uom_qty' => (float)$element->count,
+                            'price_unit'      => (float)$element->price,
+                        ]
+                    ];
+                }
+
+
+                Yii::$app->odoo->createSaleOrder([
+                    'partner_id' => $order->user_id,
+                    'origin' => 'Order #' . $order->id,
+                    'order_line' => $lines,
+                ]);
+            } elseif ($transaction->status === 'cancelled') {
+                $order->setStatus('cancel');
+                throw new BadRequestHttpException('Payment was unsuccessful');
+            }
+
+            $order->save(false);
+            $tx->commit();
+
+        } catch (\Throwable $e) {
+            $tx->rollBack();
+            Yii::error($e->getMessage(), 'payment');
+            throw $e;
+        }
 
         return $this->redirect(['thanks', 'id' => $order_id]);
     }
