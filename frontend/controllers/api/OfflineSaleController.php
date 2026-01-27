@@ -86,10 +86,7 @@ class OfflineSaleController extends Controller
         $product = Product::findOne($sale->product_id);
 
         if (!$product->external_id) {
-            return [
-                'success' => false,
-                'error' => 'Product not available in ERP yet',
-            ];
+            throw new \RuntimeException('Product not available in ERP yet');
         }
 
 //        if (!$product || !$product->external_id) {
