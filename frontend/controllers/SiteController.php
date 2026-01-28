@@ -251,7 +251,7 @@ class SiteController extends Controller
                 $lines = [];
 
                 foreach ($order->elements as $element) {
-                    $product = $element->item;
+                    $product = $element->model;
 
                     // Skip products not synced with Odoo
                     if (empty($product->external_id)) {
@@ -265,12 +265,12 @@ class SiteController extends Controller
 
                     $orderId = $odoo->createOrder($partnerId, [
                         [
-                            'product_id' => $element->item->external_id, // Odoo product ID
-                            'qty'        => $element->quantity,
+                            'product_id' => $element->model->external_id, // Odoo product ID
+                            'qty'        => $element->count,
                         ],
                     ]);
 
-                    $odoo->confirmOrder($order_id);
+                    $odoo->confirmOrder($orderId);
 
                     $pickingIds = $odoo->getPickingIds($orderId);
 

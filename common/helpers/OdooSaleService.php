@@ -32,7 +32,7 @@ class OdooSaleService
 
         if (!$response->isOk) {
             throw new \RuntimeException(
-                "Odoo API error {$endpoint}: {$response->statusCode}"
+                "Odoo API error {$endpoint}: {$response->statusCode} :" . $response->data['message']
             );
         }
 
