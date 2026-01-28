@@ -39,7 +39,7 @@ class Octo
             'shop_transaction_id' => $transaction_id,
             'auto_capture' => true,
             'init_time' => date('Y-m-d H:m:s', time()),
-            'test' => false,
+            'test' => TRUE,
             'total_sum' => $order->cost,
             'currency' => /*$product->currency*/ 'UZS',
             'description' => 'Trendlly.uz',

@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use app\models\Octo;
 use app\models\Transactions;
+use common\helpers\OdooSaleService;
 use common\models\Slider;
 use dvizh\order\controllers\OrderController;
 use dvizh\order\Order;
@@ -197,7 +198,7 @@ class SiteController extends Controller
     }
 
 
-    public function actionAcceptPaymentOld($order_id, $transaction_id){
+    public function actionAcceptPayment($order_id, $transaction_id){
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
 
@@ -221,7 +222,7 @@ class SiteController extends Controller
         return $this->redirect(['thanks', 'id' => $order_id]);
     }
 
-    public function actionAcceptPayment($order_id, $transaction_id)
+    public function actionAcceptPaymentNew($order_id, $transaction_id)
     {
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(['transaction_id' => $transaction_id]);
@@ -238,6 +239,15 @@ class SiteController extends Controller
 
             if ($transaction->status === 'succeeded') {
                 $order->setStatus('approve');
+                $order->setPaymentStatus('yes');
+
+                $odoo = new OdooSaleService();
+
+                $partnerId = $odoo->createPartner([
+                    'name'  => $order->client_name,
+                    'phone' => $order->phone,
+                    'email' => $order->email,
+                ]);
 
                 // ---- ODOO INTEGRATION ----
                 $lines = [];
@@ -255,23 +265,25 @@ class SiteController extends Controller
                         continue;
                     }
 
-                    $lines[] = [
-                        0, 0, [
-                            'product_id'      => (int)$product->external_id,
-                            'product_uom_qty' => (float)$element->count,
-                            'price_unit'      => (float)$element->price,
-                        ]
-                    ];
+                    $orderId = $odoo->createOrder($partnerId, [
+                        [
+                            'product_id' => $element->item->external_id, // Odoo product ID
+                            'qty'        => $element->quantity,
+                        ],
+                    ]);
+
+                    $odoo->confirmOrder($order_id);
+
+                    $pickingIds = $odoo->getPickingIds($orderId);
+
+                    foreach ($pickingIds as $pickingId) {
+                        $odoo->validatePicking($pickingId);
+                    }
                 }
 
-
-                Yii::$app->odoo->createSaleOrder([
-                    'partner_id' => $order->user_id,
-                    'origin' => 'Order #' . $order->id,
-                    'order_line' => $lines,
-                ]);
             } elseif ($transaction->status === 'cancelled') {
                 $order->setStatus('cancel');
+                $order->setPaymentStatus('no');
                 throw new BadRequestHttpException('Payment was unsuccessful');
             }
 
