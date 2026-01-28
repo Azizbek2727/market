@@ -198,7 +198,7 @@ class SiteController extends Controller
     }
 
 
-    public function actionAcceptPayment($order_id, $transaction_id){
+    public function actionAcceptPaymentOld($order_id, $transaction_id){
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(["transaction_id" => $transaction_id]);
 
@@ -222,7 +222,7 @@ class SiteController extends Controller
         return $this->redirect(['thanks', 'id' => $order_id]);
     }
 
-    public function actionAcceptPaymentNew($order_id, $transaction_id)
+    public function actionAcceptPayment($order_id, $transaction_id, $octo_status)
     {
         $order = \dvizh\order\models\Order::findOne($order_id);
         $transaction = Transactions::findOne(['transaction_id' => $transaction_id]);
@@ -235,9 +235,7 @@ class SiteController extends Controller
         $tx = $db->beginTransaction();
 
         try {
-            $order->setPaymentStatus($transaction->status);
-
-            if ($transaction->status === 'succeeded') {
+            if ($octo_status === 'succeeded') {
                 $order->setStatus('approve');
                 $order->setPaymentStatus('yes');
 
@@ -281,7 +279,7 @@ class SiteController extends Controller
                     }
                 }
 
-            } elseif ($transaction->status === 'cancelled') {
+            } elseif ($octo_status === 'cancelled') {
                 $order->setStatus('cancel');
                 $order->setPaymentStatus('no');
                 throw new BadRequestHttpException('Payment was unsuccessful');
